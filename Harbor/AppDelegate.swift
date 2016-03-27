@@ -16,7 +16,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        Parse.enableLocalDatastore()
+    Parse.setApplicationId("OreeBbbmhlK2ramkJ5szZ9AeQBirZbTTkRAWKCPu",
+            clientKey: "551GWTDBCJnO7KiaSIgWtEPZKO6Ze5ej7NW9FFBE")
+        PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
+ 
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        let nav = UINavigationController(rootViewController: ViewController())
+        self.window?.rootViewController = nav
+        
+        self.window?.makeKeyAndVisible()
         return true
     }
 
