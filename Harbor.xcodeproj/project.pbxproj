@@ -7,14 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		002DFE441CA8789B000F186C /* Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 002DFE361CA8789B000F186C /* Utility.m */; };
+		002DFE451CA8789B000F186C /* TermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002DFE381CA8789B000F186C /* TermsViewController.swift */; };
+		002DFE461CA8789B000F186C /* Terms.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 002DFE391CA8789B000F186C /* Terms.rtf */; };
+		002DFE471CA8789B000F186C /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 002DFE3A1CA8789B000F186C /* Reachability.m */; };
+		002DFE481CA8789B000F186C /* pushnotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 002DFE3C1CA8789B000F186C /* pushnotification.m */; };
+		002DFE491CA8789B000F186C /* ProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 002DFE3E1CA8789B000F186C /* ProgressHUD.m */; };
+		002DFE4A1CA8789B000F186C /* ParseManager1.m in Sources */ = {isa = PBXBuildFile; fileRef = 002DFE401CA8789B000F186C /* ParseManager1.m */; };
+		002DFE4B1CA8789B000F186C /* CustomLoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002DFE421CA8789B000F186C /* CustomLoginButton.swift */; };
+		002DFE4D1CA8790D000F186C /* Autolayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002DFE4C1CA8790D000F186C /* Autolayout.swift */; };
 		007B06D81CA876990061D4AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007B06D71CA876990061D4AA /* AppDelegate.swift */; };
 		007B06DA1CA876990061D4AA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007B06D91CA876990061D4AA /* ViewController.swift */; };
-		007B06DD1CA876990061D4AA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 007B06DB1CA876990061D4AA /* Main.storyboard */; };
 		007B06E01CA876990061D4AA /* Harbor.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 007B06DE1CA876990061D4AA /* Harbor.xcdatamodeld */; };
 		007B06E21CA876990061D4AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 007B06E11CA876990061D4AA /* Assets.xcassets */; };
 		007B06E51CA876990061D4AA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 007B06E31CA876990061D4AA /* LaunchScreen.storyboard */; };
 		007B06F01CA876990061D4AA /* HarborTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007B06EF1CA876990061D4AA /* HarborTests.swift */; };
 		007B06FB1CA876990061D4AA /* HarborUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007B06FA1CA876990061D4AA /* HarborUITests.swift */; };
+		17B8007EE36631828794EB93 /* libPods-Harbor.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 24380F2798278CF919F3022E /* libPods-Harbor.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,10 +44,25 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		002DFE351CA877F8000F186C /* Harbor-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Harbor-Bridging-Header.h"; path = "Harbor/Harbor-Bridging-Header.h"; sourceTree = "<group>"; };
+		002DFE361CA8789B000F186C /* Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utility.m; sourceTree = "<group>"; };
+		002DFE371CA8789B000F186C /* Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utility.h; sourceTree = "<group>"; };
+		002DFE381CA8789B000F186C /* TermsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermsViewController.swift; sourceTree = "<group>"; };
+		002DFE391CA8789B000F186C /* Terms.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Terms.rtf; sourceTree = "<group>"; };
+		002DFE3A1CA8789B000F186C /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		002DFE3B1CA8789B000F186C /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		002DFE3C1CA8789B000F186C /* pushnotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = pushnotification.m; sourceTree = "<group>"; };
+		002DFE3D1CA8789B000F186C /* pushnotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pushnotification.h; sourceTree = "<group>"; };
+		002DFE3E1CA8789B000F186C /* ProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressHUD.m; sourceTree = "<group>"; };
+		002DFE3F1CA8789B000F186C /* ProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressHUD.h; sourceTree = "<group>"; };
+		002DFE401CA8789B000F186C /* ParseManager1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseManager1.m; sourceTree = "<group>"; };
+		002DFE411CA8789B000F186C /* ParseManager1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseManager1.h; sourceTree = "<group>"; };
+		002DFE421CA8789B000F186C /* CustomLoginButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomLoginButton.swift; sourceTree = "<group>"; };
+		002DFE431CA8789B000F186C /* AppConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppConstant.h; sourceTree = "<group>"; };
+		002DFE4C1CA8790D000F186C /* Autolayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Autolayout.swift; sourceTree = "<group>"; };
 		007B06D41CA876990061D4AA /* Harbor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Harbor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		007B06D71CA876990061D4AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		007B06D91CA876990061D4AA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		007B06DC1CA876990061D4AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		007B06DF1CA876990061D4AA /* Harbor.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Harbor.xcdatamodel; sourceTree = "<group>"; };
 		007B06E11CA876990061D4AA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		007B06E41CA876990061D4AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +73,9 @@
 		007B06F61CA876990061D4AA /* HarborUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HarborUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		007B06FA1CA876990061D4AA /* HarborUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HarborUITests.swift; sourceTree = "<group>"; };
 		007B06FC1CA876990061D4AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		24380F2798278CF919F3022E /* libPods-Harbor.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Harbor.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BBF51D6464868EEB55B1828E /* Pods-Harbor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Harbor.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Harbor/Pods-Harbor.debug.xcconfig"; sourceTree = "<group>"; };
+		D0DBF35E2A346B218944A383 /* Pods-Harbor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Harbor.release.xcconfig"; path = "Pods/Target Support Files/Pods-Harbor/Pods-Harbor.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17B8007EE36631828794EB93 /* libPods-Harbor.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,10 +107,13 @@
 		007B06CB1CA876990061D4AA = {
 			isa = PBXGroup;
 			children = (
+				002DFE351CA877F8000F186C /* Harbor-Bridging-Header.h */,
 				007B06D61CA876990061D4AA /* Harbor */,
 				007B06EE1CA876990061D4AA /* HarborTests */,
 				007B06F91CA876990061D4AA /* HarborUITests */,
 				007B06D51CA876990061D4AA /* Products */,
+				36E0D6CD8D9BDBF6F9D6F12C /* Pods */,
+				EBF8BD71BF0FDBF05D2653C9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,9 +130,23 @@
 		007B06D61CA876990061D4AA /* Harbor */ = {
 			isa = PBXGroup;
 			children = (
+				002DFE4C1CA8790D000F186C /* Autolayout.swift */,
+				002DFE361CA8789B000F186C /* Utility.m */,
+				002DFE371CA8789B000F186C /* Utility.h */,
+				002DFE381CA8789B000F186C /* TermsViewController.swift */,
+				002DFE391CA8789B000F186C /* Terms.rtf */,
+				002DFE3A1CA8789B000F186C /* Reachability.m */,
+				002DFE3B1CA8789B000F186C /* Reachability.h */,
+				002DFE3C1CA8789B000F186C /* pushnotification.m */,
+				002DFE3D1CA8789B000F186C /* pushnotification.h */,
+				002DFE3E1CA8789B000F186C /* ProgressHUD.m */,
+				002DFE3F1CA8789B000F186C /* ProgressHUD.h */,
+				002DFE401CA8789B000F186C /* ParseManager1.m */,
+				002DFE411CA8789B000F186C /* ParseManager1.h */,
+				002DFE421CA8789B000F186C /* CustomLoginButton.swift */,
+				002DFE431CA8789B000F186C /* AppConstant.h */,
 				007B06D71CA876990061D4AA /* AppDelegate.swift */,
 				007B06D91CA876990061D4AA /* ViewController.swift */,
-				007B06DB1CA876990061D4AA /* Main.storyboard */,
 				007B06E11CA876990061D4AA /* Assets.xcassets */,
 				007B06E31CA876990061D4AA /* LaunchScreen.storyboard */,
 				007B06E61CA876990061D4AA /* Info.plist */,
@@ -128,6 +173,23 @@
 			path = HarborUITests;
 			sourceTree = "<group>";
 		};
+		36E0D6CD8D9BDBF6F9D6F12C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BBF51D6464868EEB55B1828E /* Pods-Harbor.debug.xcconfig */,
+				D0DBF35E2A346B218944A383 /* Pods-Harbor.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		EBF8BD71BF0FDBF05D2653C9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				24380F2798278CF919F3022E /* libPods-Harbor.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,9 +197,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 007B06FF1CA876990061D4AA /* Build configuration list for PBXNativeTarget "Harbor" */;
 			buildPhases = (
+				67C3F35081B5E043E0AFB29B /* Check Pods Manifest.lock */,
 				007B06D01CA876990061D4AA /* Sources */,
 				007B06D11CA876990061D4AA /* Frameworks */,
 				007B06D21CA876990061D4AA /* Resources */,
+				AB4EB29B0BBF55605BC0D6E3 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -196,6 +260,7 @@
 				TargetAttributes = {
 					007B06D31CA876990061D4AA = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = KM659CVM6Q;
 					};
 					007B06EA1CA876990061D4AA = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -232,9 +297,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				002DFE461CA8789B000F186C /* Terms.rtf in Resources */,
 				007B06E51CA876990061D4AA /* LaunchScreen.storyboard in Resources */,
 				007B06E21CA876990061D4AA /* Assets.xcassets in Resources */,
-				007B06DD1CA876990061D4AA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,14 +319,55 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		67C3F35081B5E043E0AFB29B /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		AB4EB29B0BBF55605BC0D6E3 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Harbor/Pods-Harbor-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		007B06D01CA876990061D4AA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				002DFE4D1CA8790D000F186C /* Autolayout.swift in Sources */,
+				002DFE441CA8789B000F186C /* Utility.m in Sources */,
 				007B06DA1CA876990061D4AA /* ViewController.swift in Sources */,
+				002DFE481CA8789B000F186C /* pushnotification.m in Sources */,
+				002DFE4A1CA8789B000F186C /* ParseManager1.m in Sources */,
 				007B06E01CA876990061D4AA /* Harbor.xcdatamodeld in Sources */,
 				007B06D81CA876990061D4AA /* AppDelegate.swift in Sources */,
+				002DFE471CA8789B000F186C /* Reachability.m in Sources */,
+				002DFE491CA8789B000F186C /* ProgressHUD.m in Sources */,
+				002DFE4B1CA8789B000F186C /* CustomLoginButton.swift in Sources */,
+				002DFE451CA8789B000F186C /* TermsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,14 +403,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		007B06DB1CA876990061D4AA /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				007B06DC1CA876990061D4AA /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		007B06E31CA876990061D4AA /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -399,23 +497,29 @@
 		};
 		007B07001CA876990061D4AA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BBF51D6464868EEB55B1828E /* Pods-Harbor.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Harbor/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Harbor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Harbor/Harbor-Bridging-Header.h";
 			};
 			name = Debug;
 		};
 		007B07011CA876990061D4AA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D0DBF35E2A346B218944A383 /* Pods-Harbor.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Harbor/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Harbor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Harbor/Harbor-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -486,6 +590,7 @@
 				007B07011CA876990061D4AA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		007B07021CA876990061D4AA /* Build configuration list for PBXNativeTarget "HarborTests" */ = {
 			isa = XCConfigurationList;
@@ -494,6 +599,7 @@
 				007B07041CA876990061D4AA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		007B07051CA876990061D4AA /* Build configuration list for PBXNativeTarget "HarborUITests" */ = {
 			isa = XCConfigurationList;
@@ -502,6 +608,7 @@
 				007B07071CA876990061D4AA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
