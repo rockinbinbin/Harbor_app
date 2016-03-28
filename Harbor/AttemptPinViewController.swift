@@ -427,7 +427,7 @@ class AttemptPinViewController: UIViewController, ParseManagerFetchUserPinDelega
     func shakeView() {
         let animation =
             CABasicAnimation(keyPath: "position")
-        animation.duration = 0.03
+        animation.duration = 0.04
         animation.repeatCount = 4
         animation.autoreverses = true
         animation.fromValue = NSValue(CGPoint: CGPointMake(self.view.center.x - 20, self.view.center.y))
