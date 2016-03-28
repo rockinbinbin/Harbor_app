@@ -293,18 +293,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         let username = self.emailTextField.text
         let password = self.passwordTextField.text
         
-        // Validate the text fields
-        if (username?.characters.count) < 5 {
-            let alert = UIAlertView(title: "Oops!", message: "Username must be greater than 5 characters", delegate: self, cancelButtonTitle: "OK")
-            alert.show()
-            return
-        }
-        if (password?.characters.count) < 5 {
-            let alert = UIAlertView(title: "Oops!", message: "Password must be greater than 5 characters", delegate: self, cancelButtonTitle: "OK")
-            alert.show()
-            return
-        }
-        else {
             let spinner: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(0, 0, 150, 150)) as UIActivityIndicatorView
             spinner.startAnimating()
             
@@ -314,7 +302,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 
                 if ((user) != nil) {
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                        self.navigationController?.pushViewController(MenteeGuideViewController(), animated: true)
+                        self.navigationController?.pushViewController(CreatePinViewController(), animated: true)
                     })
                     
                 } else {
@@ -322,7 +310,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     alert.show()
                 }
             })
-        }
 
     }
     
