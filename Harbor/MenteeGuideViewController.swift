@@ -28,5 +28,6 @@ class MenteeGuideViewController: UIViewController {
         
         welcomeLabel.centerHorizontallyInSuperview()
         welcomeLabel.pinToTopEdgeOfSuperview(offset: 50)
+        
     }
 }
