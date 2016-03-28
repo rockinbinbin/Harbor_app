@@ -17,13 +17,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         Parse.enableLocalDatastore()
-    Parse.setApplicationId("OreeBbbmhlK2ramkJ5szZ9AeQBirZbTTkRAWKCPu",
-            clientKey: "551GWTDBCJnO7KiaSIgWtEPZKO6Ze5ej7NW9FFBE")
+    Parse.setApplicationId("MfEO3OOtT3ore6YhJ7ubhokCJMDr1N6EeBWD5jgh",
+            clientKey: "qDypAPrna9n9PUoX3gwRXaHvOWOuprLV8DSrNiic")
         PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
  
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        let nav = UINavigationController(rootViewController: ViewController())
-        self.window?.rootViewController = nav
+        
+        if (PFUser.currentUser() != nil) {
+            // if user has set a pin
+            // open pin view
+        }
+        else {
+            let nav = UINavigationController(rootViewController: ViewController())
+            self.window?.rootViewController = nav
+        }
         
         self.window?.makeKeyAndVisible()
         return true

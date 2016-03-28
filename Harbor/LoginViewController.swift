@@ -290,12 +290,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     func letsGoPressed() {
+        let username = self.emailTextField.text
         let password = self.passwordTextField.text
-        let email = emailTextField.text
-        let finalEmail = email!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
         
-        if (email?.characters.count) < 5 {
-            let alert = UIAlertView(title: "Oops!", message: "Please enter a valid email address", delegate: self, cancelButtonTitle: "OK")
+        // Validate the text fields
+        if (username?.characters.count) < 5 {
+            let alert = UIAlertView(title: "Oops!", message: "Username must be greater than 5 characters", delegate: self, cancelButtonTitle: "OK")
             alert.show()
             return
         }
@@ -308,30 +308,22 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             let spinner: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(0, 0, 150, 150)) as UIActivityIndicatorView
             spinner.startAnimating()
             
-            let newUser = PFUser()
-            
-            newUser.username = finalEmail
-            newUser.password = password
-            newUser.email = finalEmail
-            
-            let cal = NSCalendar.currentCalendar()
-            let date = cal.dateByAddingUnit(.Month, value: 1, toDate: NSDate(), options: [])
-            newUser.setValue(date, forKey: "nextPluck")
-            
-            newUser.signUpInBackgroundWithBlock({ (succeed, error) -> Void in
+            PFUser.logInWithUsernameInBackground(username!, password: password!, block: { (user, error) -> Void in
+                
                 spinner.stopAnimating()
-                if ((error) != nil) {
-                    let alert = UIAlertView(title: "Sorry about that!", message: "We're having trouble signing you up. Try again or use Facebook to login!", delegate: self, cancelButtonTitle: "OK")
-                    alert.show()
-                    
-                }
-                else {
+                
+                if ((user) != nil) {
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                        //                        self.navigationController?.pushViewController(AccountViewController(), animated: true)
+                        self.navigationController?.pushViewController(MenteeGuideViewController(), animated: true)
                     })
+                    
+                } else {
+                    let alert = UIAlertView(title: "Please check your username and password!", message: "If you don't already have an account, be sure to sign up instead.", delegate: self, cancelButtonTitle: "OK")
+                    alert.show()
                 }
             })
         }
+
     }
     
     // MARK: - Login Handlers

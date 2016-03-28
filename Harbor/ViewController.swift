@@ -297,18 +297,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         let password = self.passwordTextField.text
         let email = emailTextField.text
         let finalEmail = email!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
-        
-        if (email?.characters.count) < 5 {
-            let alert = UIAlertView(title: "Oops!", message: "Please enter a valid email address", delegate: self, cancelButtonTitle: "OK")
-            alert.show()
-            return
-        }
-        if (password?.characters.count) < 5 {
-            let alert = UIAlertView(title: "Oops!", message: "Password must be greater than 5 characters", delegate: self, cancelButtonTitle: "OK")
-            alert.show()
-            return
-        }
-        else {
+
             let spinner: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(0, 0, 150, 150)) as UIActivityIndicatorView
             spinner.startAnimating()
             
@@ -316,26 +305,21 @@ class ViewController: UIViewController, UITextFieldDelegate {
             
             newUser.username = finalEmail
             newUser.password = password
-            newUser.email = finalEmail
-            
-            let cal = NSCalendar.currentCalendar()
-            let date = cal.dateByAddingUnit(.Month, value: 1, toDate: NSDate(), options: [])
-            newUser.setValue(date, forKey: "nextPluck")
-            
+//            newUser.email = finalEmail
+
             newUser.signUpInBackgroundWithBlock({ (succeed, error) -> Void in
                 spinner.stopAnimating()
                 if ((error) != nil) {
-                    let alert = UIAlertView(title: "Sorry about that!", message: "We're having trouble signing you up. Try again or use Facebook to login!", delegate: self, cancelButtonTitle: "OK")
+                    let alert = UIAlertView(title: "Sorry about that!", message: "We're having trouble signing you up.", delegate: self, cancelButtonTitle: "OK")
                     alert.show()
                     
                 }
                 else {
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
-//                        self.navigationController?.pushViewController(AccountViewController(), animated: true)
+                        self.navigationController?.pushViewController(MenteeGuideViewController(), animated: true)
                     })
                 }
             })
-        }
     }
     
     // MARK: - Login Handlers
@@ -371,7 +355,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
 //            self.navigationController?.pushViewController(AccountViewController(), animated: true)
 //        }
 //        else {
-//            self.navigationController?.pushViewController(AccountViewController(), animated: true)
+            self.navigationController?.pushViewController(MenteeGuideViewController(), animated: true)
 //        }
     }
     
