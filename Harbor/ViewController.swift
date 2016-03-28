@@ -8,6 +8,8 @@
 
 import UIKit
 
+let blueColor = UIColor(red:0.0, green:0.73, blue:0.74, alpha:1.0)
+let seaGreenColor = UIColor(red:0.0, green:0.9, blue:0.53, alpha:1.0)
 
 class ViewController: UIViewController, UITextFieldDelegate {
     
@@ -15,8 +17,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
         let newview = UIView()
         let gradientLayer = CAGradientLayer()
         
-        let color1 = UIColor(red:0.0, green:0.73, blue:0.74, alpha:1.0).CGColor as CGColorRef
-        let color2 = UIColor(red:0.0, green:0.9, blue:0.53, alpha:1.0).CGColor as CGColorRef
+        let color1 = blueColor.CGColor as CGColorRef
+        let color2 = seaGreenColor.CGColor as CGColorRef
         gradientLayer.colors = [color2, color1]
         gradientLayer.locations = [0.0, 0.5, 0.65, 0.75, 1.0]
         gradientLayer.type = kCAGradientLayerAxial
@@ -29,65 +31,36 @@ class ViewController: UIViewController, UITextFieldDelegate {
         return newview
     }()
     
-    
     private lazy var logoimageView: UIImageView = {
-        let logoimageView = UIImageView(image: UIImage(named: "MLogo"))
+        let logoimageView = UIImageView(image: UIImage(named: "white-seahorse"))
         self.view.addSubview(logoimageView)
         return logoimageView
     }()
     
     var keyboardUp = false
     
-    private lazy var signUpLabel: UILabel = {
-        let signUpLabel = UILabel()
-        signUpLabel.textColor = UIColor(red: 0.047, green: 0.569, blue: 0.773, alpha: 1.0)
-        
-        let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.lineSpacing = 5
-        
-        let attrString = NSMutableAttributedString(string: "SIGN UP")
-        attrString.addAttribute(NSParagraphStyleAttributeName, value:paragraphStyle, range:NSMakeRange(0, attrString.length))
-        
-        attrString.addAttribute(NSKernAttributeName, value: 1.5, range: NSMakeRange(0, attrString.length))
-        
-//        attrString.addAttribute(NSFontAttributeName, value: UIFont(name: "Lato-Regular", size: 18)!, range: NSMakeRange(0, attrString.length))
-        
-        signUpLabel.attributedText = attrString
-        
-        signUpLabel.textAlignment = .Center
-        
-        self.view.addSubview(signUpLabel)
-        return signUpLabel
-    }()
-    
     internal lazy var emailTextField: UITextField = {
         let emailTextField = UITextField()
         emailTextField.translatesAutoresizingMaskIntoConstraints = false;
         emailTextField.delegate = self
-        emailTextField.textColor = UIColor(red: 0.047, green: 0.569, blue: 0.773, alpha: 1.0)
+        emailTextField.textColor = blueColor
         
         let attributes = [
-            NSForegroundColorAttributeName: UIColor(red: 0.424, green: 0.8, blue: 0.89, alpha: 1.0),
-//            NSFontAttributeName : UIFont(name: "Lato-Regular", size: 17)! // Note the !
+            NSForegroundColorAttributeName: blueColor
         ]
         
-        let attrString = NSMutableAttributedString(string: "EMAIL", attributes:attributes)
-        
+        let attrString = NSMutableAttributedString(string: "USERNAME", attributes:attributes)
         attrString.addAttribute(NSKernAttributeName, value: 1.5, range: NSMakeRange(0, attrString.length))
-        
+        attrString.addAttribute(NSFontAttributeName, value: UIFont(name: "AppleSDGothicNeo-Regular", size: 14)!, range: NSMakeRange(0, attrString.length))
         emailTextField.attributedPlaceholder = attrString
-        
         emailTextField.layer.cornerRadius = 0
         emailTextField.backgroundColor = UIColor.whiteColor()
         emailTextField.layer.borderWidth = 1
-        emailTextField.layer.borderColor = UIColor(red: 0.047, green: 0.569, blue: 0.773, alpha: 1.0).CGColor
-        emailTextField.textAlignment = .Center;
+        emailTextField.layer.borderColor = blueColor.CGColor
+        emailTextField.textAlignment = .Center
         emailTextField.returnKeyType = .Next
-        emailTextField.keyboardType = UIKeyboardType.EmailAddress
         emailTextField.autocorrectionType = .No
-        
         self.view.addSubview(emailTextField)
-        
         return emailTextField
     }()
     
@@ -95,60 +68,66 @@ class ViewController: UIViewController, UITextFieldDelegate {
         let passwordTextField = UITextField()
         passwordTextField.translatesAutoresizingMaskIntoConstraints = false;
         passwordTextField.delegate = self
-        passwordTextField.textColor = UIColor(red: 0.047, green: 0.569, blue: 0.773, alpha: 1.0)
+        passwordTextField.textColor = blueColor
         passwordTextField.secureTextEntry = true
         
         let attributes = [
-            NSForegroundColorAttributeName: UIColor(red: 0.424, green: 0.8, blue: 0.89, alpha: 1.0),
-//            NSFontAttributeName : UIFont(name: "Lato-Regular", size: 17)! // Note the !
+            NSForegroundColorAttributeName: blueColor
         ]
         
         let attrString = NSMutableAttributedString(string: "PASSWORD", attributes:attributes)
-        
         attrString.addAttribute(NSKernAttributeName, value: 1.5, range: NSMakeRange(0, attrString.length))
-        
+        attrString.addAttribute(NSFontAttributeName, value: UIFont(name: "AppleSDGothicNeo-Regular", size: 14)!, range: NSMakeRange(0, attrString.length))
         passwordTextField.attributedPlaceholder = attrString
-        
         passwordTextField.layer.cornerRadius = 0
         passwordTextField.backgroundColor = UIColor.whiteColor()
         passwordTextField.layer.borderWidth = 1
-        passwordTextField.layer.borderColor = UIColor(red: 0.047, green: 0.569, blue: 0.773, alpha: 1.0).CGColor
+        passwordTextField.layer.borderColor = blueColor.CGColor
         passwordTextField.textAlignment = .Center;
         passwordTextField.returnKeyType = .Done
         passwordTextField.autocorrectionType = .No
         
         self.view.addSubview(passwordTextField)
-        
         return passwordTextField
+    }()
+    
+    private lazy var signUpLabel: UILabel = {
+        let signUpLabel = UILabel()
+        signUpLabel.textColor = UIColor(red: 0.047, green: 0.569, blue: 0.773, alpha: 1.0)
+        
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = 5
+        let attrString = NSMutableAttributedString(string: "SIGN UP")
+        attrString.addAttribute(NSParagraphStyleAttributeName, value:paragraphStyle, range:NSMakeRange(0, attrString.length))
+        attrString.addAttribute(NSFontAttributeName, value: UIFont(name: "AppleSDGothicNeo-Regular", size: 20)!, range: NSMakeRange(0, attrString.length))
+        attrString.addAttribute(NSKernAttributeName, value: 1.5, range: NSMakeRange(0, attrString.length))
+        signUpLabel.attributedText = attrString
+        signUpLabel.textAlignment = .Center
+        
+        self.view.addSubview(signUpLabel)
+        return signUpLabel
     }()
     
     private lazy var alreadyHaveAccountLabel: UILabel = {
         let alreadyHaveAccountLabel = UILabel()
-        alreadyHaveAccountLabel.textColor = UIColor.blackColor()
-        
-        let attrString = NSMutableAttributedString(string: "ALREADY HAVE AN ACCOUNT?")
-        
-        attrString.addAttribute(NSKernAttributeName, value: 1.5, range: NSMakeRange(0, attrString.length))
-        
-//        attrString.addAttribute(NSFontAttributeName, value: UIFont(name: "Lato-Regular", size: 11)!, range: NSMakeRange(0, attrString.length))
-        
+        alreadyHaveAccountLabel.textColor = UIColor.whiteColor()
+        let attrString = NSMutableAttributedString(string: "Already have an account?")
+        attrString.addAttribute(NSFontAttributeName, value: UIFont(name: "AppleSDGothicNeo-Regular", size: 14)!, range: NSMakeRange(0, attrString.length))
         alreadyHaveAccountLabel.attributedText = attrString
-        
         alreadyHaveAccountLabel.textAlignment = .Center
-        
-        //self.view.addSubview(alreadyHaveAccountLabel)
         return alreadyHaveAccountLabel
     }()
     
     internal lazy var loginButton: UIButton = {
         let loginButton = UIButton(type: .RoundedRect)
         loginButton.layer.cornerRadius = 0
-        loginButton.backgroundColor = UIColor.whiteColor()
+        loginButton.backgroundColor = UIColor.clearColor()
         loginButton.layer.borderWidth = 0
         loginButton.layer.borderColor = UIColor.whiteColor().CGColor
-        loginButton.tintColor = UIColor(red: 0.047, green: 0.569, blue: 0.773, alpha: 1.0)
+        loginButton.tintColor = UIColor.whiteColor()
         
         let attrString = NSMutableAttributedString(string: "LOG IN")
+        attrString.addAttribute(NSFontAttributeName, value: UIFont(name: "AppleSDGothicNeo-Regular", size: 14)!, range: NSMakeRange(0, attrString.length))
         attrString.addAttribute(NSKernAttributeName, value: 1.5, range: NSMakeRange(0, attrString.length))
 //        attrString.addAttribute(NSFontAttributeName, value: UIFont(name: "Lato-Regular", size: 12)!, range: NSMakeRange(0, attrString.length))
         
@@ -164,10 +143,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
     internal lazy var letsGo: UIButton = {
         let letsGo = UIButton(type: .RoundedRect)
         letsGo.layer.cornerRadius = 0
-        //        letsGo.backgroundColor = UIColor(red: 0.047, green: 0.569, blue: 0.773, alpha: 1.0)
+        letsGo.backgroundColor = UIColor.whiteColor()
         letsGo.layer.borderWidth = 0
-        //letsGo.layer.borderColor = UIColor.blueColor().CGColor
-        letsGo.tintColor = UIColor.blackColor()
+        letsGo.layer.borderColor = UIColor.whiteColor().CGColor
+        letsGo.tintColor = blueColor
         
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = 5
@@ -175,7 +154,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         let attrString = NSMutableAttributedString(string: "SIGN UP")
         attrString.addAttribute(NSParagraphStyleAttributeName, value:paragraphStyle, range:NSMakeRange(0, attrString.length))
         attrString.addAttribute(NSKernAttributeName, value: 1.5, range: NSMakeRange(0, attrString.length))
-//        attrString.addAttribute(NSFontAttributeName, value: UIFont(name: "Lato-Regular", size: 14)!, range: NSMakeRange(0, attrString.length))
+        attrString.addAttribute(NSFontAttributeName, value: UIFont(name: "AppleSDGothicNeo-Regular", size: 20)!, range: NSMakeRange(0, attrString.length))
         letsGo.setAttributedTitle(attrString, forState: .Normal)
         
 //        letsGo.titleLabel?.font = UIFont(name: "Lato–Regular", size: 20)
@@ -194,7 +173,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         self.navigationController?.navigationBarHidden = true
         
-        logoimageView.pinToTopEdgeOfSuperview(offset: self.view.frame.size.height * 0.2)
+        logoimageView.pinToTopEdgeOfSuperview(offset: self.view.frame.size.height * 0.1)
         logoimageView.centerHorizontallyInSuperview()
         
         emailTextField.positionBelowItem(logoimageView, offset: 20)
@@ -215,18 +194,20 @@ class ViewController: UIViewController, UITextFieldDelegate {
         loginButton.positionToTheRightOfItem(alreadyHaveAccountLabel, offset: 5)
         loginButton.positionBelowItem(passwordTextField, offset: 10)
         
-        letsGo.pinToBottomEdgeOfSuperview()
+        letsGo.positionBelowItem(alreadyHaveAccountLabel, offset: 20)
         letsGo.centerHorizontallyInSuperview()
-        letsGo.sizeToWidth(self.view.frame.size.width)
-        letsGo.sizeToHeight(self.view.frame.size.height * 0.15)
+        letsGo.sizeToWidth(self.view.frame.size.width - 80)
+        letsGo.sizeToHeight(self.view.frame.size.height * 0.08)
         
         let button = UIButton()
         button.setTitle("By signing up, you agree to our Terms of Service.", forState: .Normal)
-//        button.titleLabel?.font = UIFont(name: "Lato-Regular", size: 12)
-        button.setTitleColor(UIColor.blackColor(), forState: .Normal)
+        button.titleLabel?.font = UIFont(name: "AppleSDGothicNeo-Regular", size: 13)
+        button.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        button.titleLabel?.numberOfLines = 0
+        
         button.addTarget(self, action: Selector("termsPressed:"), forControlEvents: .TouchUpInside)
         self.view.addSubview(button)
-        button.positionAboveItem(letsGo, offset: 15)
+        button.pinToBottomEdgeOfSuperview(offset: 20)
         button.centerHorizontallyInSuperview()
         
         
