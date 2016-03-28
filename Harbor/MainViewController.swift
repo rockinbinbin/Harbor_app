@@ -28,24 +28,12 @@ class MainViewController: UIViewController {
     }
     
     func setNavBar() {
-//        let gradientLayer = CAGradientLayer()
-//        
-//        let color1 = blueColor.CGColor as CGColorRef
-//        let color2 = seaGreenColor.CGColor as CGColorRef
-//        gradientLayer.colors = [color2, color1]
-//        gradientLayer.locations = [0.0, 0.5, 0.65, 0.75, 1.0]
-//        gradientLayer.type = kCAGradientLayerAxial
-//        gradientLayer.startPoint = CGPointMake(0, 0)
-//        gradientLayer.endPoint = CGPointMake(1.0, 1)
-//        gradientLayer.frame = CGRectMake(0, 0, (self.navigationController?.navigationBar.frame.size.width)!, (self.navigationController?.navigationBar.frame.size.height)!)
-//        self.navigationController?.navigationBar.layer.addSublayer(gradientLayer)
-//      
-        self.navigationController?.navigationBar.backgroundColor = teal
         self.navigationController?.navigationBar.translucent = false
         let logo = UIImage(named: "navBarLogo")
         let imageView = UIImageView(image:logo)
         self.navigationItem.titleView = imageView
         
+        self.navigationController?.navigationBar.barTintColor = teal
     }
     
 
