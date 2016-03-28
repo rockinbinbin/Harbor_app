@@ -17,6 +17,7 @@ class MenteeGuideViewController: UIViewController {
         attrString.addAttribute(NSFontAttributeName, value: UIFont(name: "AppleSDGothicNeo-Regular", size: 14)!, range: NSMakeRange(0, attrString.length))
         alreadyHaveAccountLabel.attributedText = attrString
         alreadyHaveAccountLabel.textAlignment = .Center
+        self.view.addSubview(alreadyHaveAccountLabel)
         return alreadyHaveAccountLabel
     }()
     
