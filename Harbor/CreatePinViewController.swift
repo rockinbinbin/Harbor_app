@@ -80,7 +80,7 @@ class CreatePinViewController: UIViewController {
         let setYourPinLabel = UILabel()
         setYourPinLabel.textColor = UIColor.whiteColor()
         let attrString = NSMutableAttributedString(string: "Set Your PIN")
-        attrString.addAttribute(NSFontAttributeName, value: UIFont(name: "AppleSDGothicNeo-Regular", size: 14)!, range: NSMakeRange(0, attrString.length))
+        attrString.addAttribute(NSFontAttributeName, value: UIFont(name: "AppleSDGothicNeo-Regular", size: 20)!, range: NSMakeRange(0, attrString.length))
         setYourPinLabel.attributedText = attrString
         setYourPinLabel.textAlignment = .Center
         self.view.addSubview(setYourPinLabel)
@@ -93,12 +93,18 @@ class CreatePinViewController: UIViewController {
         newView.pinToEdgesOfSuperview()
         
         self.navigationController?.navigationBarHidden = true
-        setYourPinLabel.pinToTopEdgeOfSuperview(offset: 30)
+        setYourPinLabel.pinToTopEdgeOfSuperview(offset: 50)
+        setYourPinLabel.centerHorizontallyInSuperview()
+        
+        pinUnfilled4imageView.positionBelowItem(setYourPinLabel, offset: 30)
+        pinUnfilled3imageView.positionBelowItem(setYourPinLabel, offset: 30)
+        pinUnfilled2imageView.positionBelowItem(setYourPinLabel, offset: 30)
+        pinUnfilledimageView.positionBelowItem(setYourPinLabel, offset: 30)
         
         pinUnfilled2imageView.centerHorizontallyInSuperview(offset: 10)
         pinUnfilled3imageView.centerHorizontallyInSuperview(offset: -10)
-        pinUnfilledimageView.positionToTheLeftOfItem(pinUnfilled2imageView, offset: 10)
-        pinUnfilled4imageView.positionToTheRightOfItem(pinUnfilled3imageView, offset: 10)
+        pinUnfilledimageView.positionToTheLeftOfItem(pinUnfilled3imageView, offset: 10)
+        pinUnfilled4imageView.positionToTheRightOfItem(pinUnfilled2imageView, offset: 10)
     }
 
     
