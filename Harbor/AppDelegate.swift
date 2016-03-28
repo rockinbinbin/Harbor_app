@@ -37,7 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         else {
-            let nav = UINavigationController(rootViewController: ViewController())
+            let nav = UINavigationController(rootViewController: SignUpViewController())
             self.window?.rootViewController = nav
         }
         

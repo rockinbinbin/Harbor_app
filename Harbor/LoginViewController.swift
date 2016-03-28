@@ -126,7 +126,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         attrString.addAttribute(NSFontAttributeName, value: UIFont(name: "AppleSDGothicNeo-Regular", size: 14)!, range: NSMakeRange(0, attrString.length))
         attrString.addAttribute(NSKernAttributeName, value: 1.5, range: NSMakeRange(0, attrString.length))
         loginButton.setAttributedTitle(attrString, forState: .Normal)
-        loginButton.addTarget(self, action: Selector("loginPressed"), forControlEvents: .TouchUpInside)
+        loginButton.addTarget(self, action: Selector("signupPressed"), forControlEvents: .TouchUpInside)
         
         return loginButton
     }()
@@ -302,7 +302,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 
                 if ((user) != nil) {
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                        self.navigationController?.pushViewController(CreatePinViewController(), animated: true)
+                        
+                        if (user?.objectForKey("pin") != nil) {
+                            self.navigationController?.pushViewController(MainViewController(), animated: true)
+                        }
+                        else {
+                            self.navigationController?.pushViewController(CreatePinViewController(), animated: true)
+                        }
                     })
                     
                 } else {
@@ -350,8 +356,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         //        }
     }
     
-    func loginPressed() {
-        self.navigationController?.pushViewController(LoginViewController(), animated: true)
+    func signupPressed() {
+        self.navigationController?.pushViewController(SignUpViewController(), animated: true)
     }
     
     internal func closePressed() {

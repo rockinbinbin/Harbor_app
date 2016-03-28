@@ -392,9 +392,10 @@ class AttemptPinViewController: UIViewController, ParseManagerFetchUserPinDelega
             pinUnfilled4imageView.addSubview(pinFilled4imageView)
             pinFilled4imageView.pinToEdgesOfSuperview()
             
+            
             if let pin = realPin {
                 if (pin == pinString) {
-                    self.navigationController?.pushViewController(MenteeGuideViewController(), animated: true)
+                    self.navigationController?.pushViewController(MainViewController(), animated: true)
                 }
                 else {
                     // display alert for wrong pin
@@ -409,7 +410,7 @@ class AttemptPinViewController: UIViewController, ParseManagerFetchUserPinDelega
             else {
                 // just incase fetch didn't load quick enough..
                 if (pinString == PFUser.currentUser()?.objectForKey("pin") as! String) {
-                        self.navigationController?.pushViewController(MenteeGuideViewController(), animated: true)
+                        self.navigationController?.pushViewController(MainViewController(), animated: true)
                 }
                 else {
                     // display alert for wrong pin

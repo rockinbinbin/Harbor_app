@@ -11,7 +11,7 @@ import UIKit
 let blueColor = UIColor(red:0.0, green:0.73, blue:0.74, alpha:1.0)
 let seaGreenColor = UIColor(red:0.0, green:0.9, blue:0.53, alpha:1.0)
 
-class ViewController: UIViewController, UITextFieldDelegate {
+class SignUpViewController: UIViewController, UITextFieldDelegate {
     
     private lazy var newView: UIView = {
         let newview = UIView()
@@ -305,7 +305,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
             
             newUser.username = finalEmail
             newUser.password = password
-//            newUser.email = finalEmail
 
             newUser.signUpInBackgroundWithBlock({ (succeed, error) -> Void in
                 spinner.stopAnimating()
@@ -316,7 +315,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 }
                 else {
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                        self.navigationController?.pushViewController(MenteeGuideViewController(), animated: true)
+                        self.navigationController?.pushViewController(CreatePinViewController(), animated: true)
                     })
                 }
             })
@@ -351,12 +350,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
     func handleReturningUser(user: PFUser?, setupComplete: Bool) {
         // User has entered the app and completed setup
         
-//        if (user?.valueForKey("City") != nil) {
-//            self.navigationController?.pushViewController(AccountViewController(), animated: true)
-//        }
-//        else {
-            self.navigationController?.pushViewController(MenteeGuideViewController(), animated: true)
-//        }
+        if (user?.valueForKey("pin") != nil) {
+            self.navigationController?.pushViewController(MainViewController(), animated: true)
+        }
+        else {
+            self.navigationController?.pushViewController(CreatePinViewController(), animated: true)
+        }
     }
     
     func loginPressed() {

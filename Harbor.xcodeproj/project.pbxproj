@@ -20,8 +20,9 @@
 		002DFE521CA99BB7000F186C /* MenteeGuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002DFE511CA99BB7000F186C /* MenteeGuideViewController.swift */; };
 		002DFE541CA99D72000F186C /* CreatePinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002DFE531CA99D72000F186C /* CreatePinViewController.swift */; };
 		002DFE561CA9BCED000F186C /* AttemptPinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002DFE551CA9BCEC000F186C /* AttemptPinViewController.swift */; };
+		002DFE581CA9C74E000F186C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002DFE571CA9C74E000F186C /* MainViewController.swift */; };
 		007B06D81CA876990061D4AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007B06D71CA876990061D4AA /* AppDelegate.swift */; };
-		007B06DA1CA876990061D4AA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007B06D91CA876990061D4AA /* ViewController.swift */; };
+		007B06DA1CA876990061D4AA /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007B06D91CA876990061D4AA /* SignUpViewController.swift */; };
 		007B06E01CA876990061D4AA /* Harbor.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 007B06DE1CA876990061D4AA /* Harbor.xcdatamodeld */; };
 		007B06E21CA876990061D4AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 007B06E11CA876990061D4AA /* Assets.xcassets */; };
 		007B06E51CA876990061D4AA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 007B06E31CA876990061D4AA /* LaunchScreen.storyboard */; };
@@ -68,9 +69,10 @@
 		002DFE511CA99BB7000F186C /* MenteeGuideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenteeGuideViewController.swift; sourceTree = "<group>"; };
 		002DFE531CA99D72000F186C /* CreatePinViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePinViewController.swift; sourceTree = "<group>"; };
 		002DFE551CA9BCEC000F186C /* AttemptPinViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttemptPinViewController.swift; sourceTree = "<group>"; };
+		002DFE571CA9C74E000F186C /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		007B06D41CA876990061D4AA /* Harbor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Harbor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		007B06D71CA876990061D4AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		007B06D91CA876990061D4AA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		007B06D91CA876990061D4AA /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		007B06DF1CA876990061D4AA /* Harbor.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Harbor.xcdatamodel; sourceTree = "<group>"; };
 		007B06E11CA876990061D4AA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		007B06E41CA876990061D4AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -115,7 +117,8 @@
 		002DFE4E1CA87B06000F186C /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				007B06D91CA876990061D4AA /* ViewController.swift */,
+				007B06D91CA876990061D4AA /* SignUpViewController.swift */,
+				002DFE571CA9C74E000F186C /* MainViewController.swift */,
 				002DFE4F1CA8E7EC000F186C /* LoginViewController.swift */,
 				002DFE511CA99BB7000F186C /* MenteeGuideViewController.swift */,
 				002DFE531CA99D72000F186C /* CreatePinViewController.swift */,
@@ -382,7 +385,8 @@
 				002DFE4D1CA8790D000F186C /* Autolayout.swift in Sources */,
 				002DFE561CA9BCED000F186C /* AttemptPinViewController.swift in Sources */,
 				002DFE441CA8789B000F186C /* Utility.m in Sources */,
-				007B06DA1CA876990061D4AA /* ViewController.swift in Sources */,
+				007B06DA1CA876990061D4AA /* SignUpViewController.swift in Sources */,
+				002DFE581CA9C74E000F186C /* MainViewController.swift in Sources */,
 				002DFE481CA8789B000F186C /* pushnotification.m in Sources */,
 				002DFE541CA99D72000F186C /* CreatePinViewController.swift in Sources */,
 				002DFE4A1CA8789B000F186C /* ParseManager1.m in Sources */,
