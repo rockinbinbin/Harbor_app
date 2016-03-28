@@ -403,6 +403,7 @@ class AttemptPinViewController: UIViewController, ParseManagerFetchUserPinDelega
                     pinFilled2imageView.removeFromSuperview()
                     pinFilled3imageView.removeFromSuperview()
                     pinFilled4imageView.removeFromSuperview()
+                    shakeView()
                 }
             }
             else {
@@ -417,9 +418,21 @@ class AttemptPinViewController: UIViewController, ParseManagerFetchUserPinDelega
                     pinFilled2imageView.removeFromSuperview()
                     pinFilled3imageView.removeFromSuperview()
                     pinFilled4imageView.removeFromSuperview()
+                    shakeView()
                 }
             }
         }
+    }
+    
+    func shakeView() {
+        let animation =
+            CABasicAnimation(keyPath: "position")
+        animation.duration = 0.03
+        animation.repeatCount = 4
+        animation.autoreverses = true
+        animation.fromValue = NSValue(CGPoint: CGPointMake(self.view.center.x - 20, self.view.center.y))
+        animation.toValue = NSValue(CGPoint: CGPointMake(self.view.center.x + 20, self.view.center.y))
+        self.view.layer.addAnimation(animation, forKey: "position")
     }
     
     func onePressed() {
