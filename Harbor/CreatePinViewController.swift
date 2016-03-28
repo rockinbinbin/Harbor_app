@@ -80,9 +80,33 @@ class CreatePinViewController: UIViewController {
         let setYourPinLabel = UILabel()
         setYourPinLabel.textColor = UIColor.whiteColor()
         let attrString = NSMutableAttributedString(string: "Set Your PIN")
-        attrString.addAttribute(NSFontAttributeName, value: UIFont(name: "AppleSDGothicNeo-Regular", size: 20)!, range: NSMakeRange(0, attrString.length))
+        attrString.addAttribute(NSFontAttributeName, value: UIFont(name: "AppleSDGothicNeo-Regular", size: 26)!, range: NSMakeRange(0, attrString.length))
         setYourPinLabel.attributedText = attrString
         setYourPinLabel.textAlignment = .Center
+        self.view.addSubview(setYourPinLabel)
+        return setYourPinLabel
+    }()
+    
+    private lazy var pinDescriptionLabel: UILabel = {
+        let setYourPinLabel = UILabel()
+        setYourPinLabel.textColor = UIColor.whiteColor()
+        let attrString = NSMutableAttributedString(string: "You use your PIN when you open Harbor.")
+        attrString.addAttribute(NSFontAttributeName, value: UIFont(name: "AppleSDGothicNeo-Regular", size: 16)!, range: NSMakeRange(0, attrString.length))
+        setYourPinLabel.attributedText = attrString
+        setYourPinLabel.textAlignment = .Center
+        setYourPinLabel.numberOfLines = 0
+        self.view.addSubview(setYourPinLabel)
+        return setYourPinLabel
+    }()
+    
+    private lazy var pinDescription2Label: UILabel = {
+        let setYourPinLabel = UILabel()
+        setYourPinLabel.textColor = UIColor.whiteColor()
+        let attrString = NSMutableAttributedString(string: "This keeps your conversations safe.")
+        attrString.addAttribute(NSFontAttributeName, value: UIFont(name: "AppleSDGothicNeo-Regular", size: 16)!, range: NSMakeRange(0, attrString.length))
+        setYourPinLabel.attributedText = attrString
+        setYourPinLabel.textAlignment = .Center
+        setYourPinLabel.numberOfLines = 0
         self.view.addSubview(setYourPinLabel)
         return setYourPinLabel
     }()
@@ -96,15 +120,23 @@ class CreatePinViewController: UIViewController {
         setYourPinLabel.pinToTopEdgeOfSuperview(offset: 50)
         setYourPinLabel.centerHorizontallyInSuperview()
         
-        pinUnfilled4imageView.positionBelowItem(setYourPinLabel, offset: 30)
-        pinUnfilled3imageView.positionBelowItem(setYourPinLabel, offset: 30)
-        pinUnfilled2imageView.positionBelowItem(setYourPinLabel, offset: 30)
-        pinUnfilledimageView.positionBelowItem(setYourPinLabel, offset: 30)
+        pinDescriptionLabel.centerHorizontallyInSuperview()
+        pinDescriptionLabel.positionBelowItem(setYourPinLabel, offset: 20)
         
-        pinUnfilled2imageView.centerHorizontallyInSuperview(offset: 10)
-        pinUnfilled3imageView.centerHorizontallyInSuperview(offset: -10)
-        pinUnfilledimageView.positionToTheLeftOfItem(pinUnfilled3imageView, offset: 10)
-        pinUnfilled4imageView.positionToTheRightOfItem(pinUnfilled2imageView, offset: 10)
+        pinDescription2Label.centerHorizontallyInSuperview()
+        pinDescription2Label.positionBelowItem(pinDescriptionLabel, offset: 5)
+        
+        pinUnfilled4imageView.positionBelowItem(pinDescription2Label, offset: 30)
+        pinUnfilled3imageView.positionBelowItem(pinDescription2Label, offset: 30)
+        pinUnfilled2imageView.positionBelowItem(pinDescription2Label, offset: 30)
+        pinUnfilledimageView.positionBelowItem(pinDescription2Label, offset: 30)
+        
+        pinUnfilled2imageView.centerHorizontallyInSuperview(offset: 18)
+        pinUnfilled3imageView.centerHorizontallyInSuperview(offset: -18)
+        pinUnfilledimageView.positionToTheLeftOfItem(pinUnfilled3imageView, offset: 20)
+        pinUnfilled4imageView.positionToTheRightOfItem(pinUnfilled2imageView, offset: 20)
+        
+        
     }
 
     
