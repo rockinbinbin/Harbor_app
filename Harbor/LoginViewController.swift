@@ -1,18 +1,14 @@
 //
-//  ViewController.swift
+//  LoginViewController.swift
 //  Harbor
 //
-//  Created by Robin Mehta on 3/27/16.
+//  Created by Robin Mehta on 3/28/16.
 //  Copyright © 2016 robin. All rights reserved.
 //
 
 import UIKit
 
-let blueColor = UIColor(red:0.0, green:0.73, blue:0.74, alpha:1.0)
-let seaGreenColor = UIColor(red:0.0, green:0.9, blue:0.53, alpha:1.0)
-
-class ViewController: UIViewController, UITextFieldDelegate {
-    
+class LoginViewController: UIViewController, UITextFieldDelegate {
     private lazy var newView: UIView = {
         let newview = UIView()
         let gradientLayer = CAGradientLayer()
@@ -97,7 +93,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = 5
-        let attrString = NSMutableAttributedString(string: "SIGN UP")
+        let attrString = NSMutableAttributedString(string: "LOG IN")
         attrString.addAttribute(NSParagraphStyleAttributeName, value:paragraphStyle, range:NSMakeRange(0, attrString.length))
         attrString.addAttribute(NSFontAttributeName, value: UIFont(name: "AppleSDGothicNeo-Regular", size: 20)!, range: NSMakeRange(0, attrString.length))
         attrString.addAttribute(NSKernAttributeName, value: 1.5, range: NSMakeRange(0, attrString.length))
@@ -111,7 +107,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     private lazy var alreadyHaveAccountLabel: UILabel = {
         let alreadyHaveAccountLabel = UILabel()
         alreadyHaveAccountLabel.textColor = UIColor.whiteColor()
-        let attrString = NSMutableAttributedString(string: "Already have an account?")
+        let attrString = NSMutableAttributedString(string: "Don't have an account?")
         attrString.addAttribute(NSFontAttributeName, value: UIFont(name: "AppleSDGothicNeo-Regular", size: 14)!, range: NSMakeRange(0, attrString.length))
         alreadyHaveAccountLabel.attributedText = attrString
         alreadyHaveAccountLabel.textAlignment = .Center
@@ -126,7 +122,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         loginButton.layer.borderColor = UIColor.whiteColor().CGColor
         loginButton.tintColor = UIColor.whiteColor()
         
-        let attrString = NSMutableAttributedString(string: "LOG IN")
+        let attrString = NSMutableAttributedString(string: "SIGN UP")
         attrString.addAttribute(NSFontAttributeName, value: UIFont(name: "AppleSDGothicNeo-Regular", size: 14)!, range: NSMakeRange(0, attrString.length))
         attrString.addAttribute(NSKernAttributeName, value: 1.5, range: NSMakeRange(0, attrString.length))
         loginButton.setAttributedTitle(attrString, forState: .Normal)
@@ -146,13 +142,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = 5
         
-        let attrString = NSMutableAttributedString(string: "SIGN UP")
+        let attrString = NSMutableAttributedString(string: "LOGIN")
         attrString.addAttribute(NSParagraphStyleAttributeName, value:paragraphStyle, range:NSMakeRange(0, attrString.length))
         attrString.addAttribute(NSKernAttributeName, value: 1.5, range: NSMakeRange(0, attrString.length))
         attrString.addAttribute(NSFontAttributeName, value: UIFont(name: "AppleSDGothicNeo-Regular", size: 20)!, range: NSMakeRange(0, attrString.length))
         letsGo.setAttributedTitle(attrString, forState: .Normal)
         
-//        letsGo.titleLabel?.font = UIFont(name: "Lato–Regular", size: 20)
+        //        letsGo.titleLabel?.font = UIFont(name: "Lato–Regular", size: 20)
         
         self.view.addSubview(letsGo)
         
@@ -331,7 +327,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 }
                 else {
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
-//                        self.navigationController?.pushViewController(AccountViewController(), animated: true)
+                        //                        self.navigationController?.pushViewController(AccountViewController(), animated: true)
                     })
                 }
             })
@@ -367,12 +363,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
     func handleReturningUser(user: PFUser?, setupComplete: Bool) {
         // User has entered the app and completed setup
         
-//        if (user?.valueForKey("City") != nil) {
-//            self.navigationController?.pushViewController(AccountViewController(), animated: true)
-//        }
-//        else {
-//            self.navigationController?.pushViewController(AccountViewController(), animated: true)
-//        }
+        //        if (user?.valueForKey("City") != nil) {
+        //            self.navigationController?.pushViewController(AccountViewController(), animated: true)
+        //        }
+        //        else {
+        //            self.navigationController?.pushViewController(AccountViewController(), animated: true)
+        //        }
     }
     
     func loginPressed() {
@@ -384,4 +380,3 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
 
 }
-
