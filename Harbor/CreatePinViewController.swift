@@ -111,6 +111,166 @@ class CreatePinViewController: UIViewController {
         return setYourPinLabel
     }()
     
+    internal lazy var oneButton: UIButton = {
+        let loginButton = UIButton(type: .RoundedRect)
+        loginButton.layer.cornerRadius = 35
+        loginButton.backgroundColor = UIColor.clearColor()
+        loginButton.layer.borderWidth = 1
+        loginButton.layer.borderColor = UIColor.darkGrayColor().CGColor
+        loginButton.tintColor = UIColor.darkGrayColor()
+        
+        let attrString = NSMutableAttributedString(string: "1")
+        attrString.addAttribute(NSFontAttributeName, value: UIFont(name: "AppleSDGothicNeo-Regular", size: 30)!, range: NSMakeRange(0, attrString.length))
+        loginButton.setAttributedTitle(attrString, forState: .Normal)
+        loginButton.addTarget(self, action: Selector("onePressed"), forControlEvents: .TouchUpInside)
+        self.view.addSubview(loginButton)
+        return loginButton
+    }()
+    
+    internal lazy var twoButton: UIButton = {
+        let loginButton = UIButton(type: .RoundedRect)
+        loginButton.layer.cornerRadius = 35
+        loginButton.backgroundColor = UIColor.clearColor()
+        loginButton.layer.borderWidth = 1
+        loginButton.layer.borderColor = UIColor.darkGrayColor().CGColor
+        loginButton.tintColor = UIColor.darkGrayColor()
+    
+        let attrString = NSMutableAttributedString(string: "2")
+        attrString.addAttribute(NSFontAttributeName, value: UIFont(name: "AppleSDGothicNeo-Regular", size: 30)!, range: NSMakeRange(0, attrString.length))
+        loginButton.setAttributedTitle(attrString, forState: .Normal)
+        loginButton.addTarget(self, action: Selector("onePressed"), forControlEvents: .TouchUpInside)
+        self.view.addSubview(loginButton)
+        return loginButton
+    }()
+    
+    internal lazy var threeButton: UIButton = {
+        let loginButton = UIButton(type: .RoundedRect)
+        loginButton.layer.cornerRadius = 35
+        loginButton.backgroundColor = UIColor.clearColor()
+        loginButton.layer.borderWidth = 1
+        loginButton.layer.borderColor = UIColor.darkGrayColor().CGColor
+        loginButton.tintColor = UIColor.darkGrayColor()
+        
+        let attrString = NSMutableAttributedString(string: "3")
+        attrString.addAttribute(NSFontAttributeName, value: UIFont(name: "AppleSDGothicNeo-Regular", size: 30)!, range: NSMakeRange(0, attrString.length))
+        loginButton.setAttributedTitle(attrString, forState: .Normal)
+        loginButton.addTarget(self, action: Selector("onePressed"), forControlEvents: .TouchUpInside)
+        self.view.addSubview(loginButton)
+        return loginButton
+    }()
+    
+    internal lazy var fourButton: UIButton = {
+        let loginButton = UIButton(type: .RoundedRect)
+        loginButton.layer.cornerRadius = 35
+        loginButton.backgroundColor = UIColor.clearColor()
+        loginButton.layer.borderWidth = 1
+        loginButton.layer.borderColor = UIColor.darkGrayColor().CGColor
+        loginButton.tintColor = UIColor.darkGrayColor()
+        
+        let attrString = NSMutableAttributedString(string: "4")
+        attrString.addAttribute(NSFontAttributeName, value: UIFont(name: "AppleSDGothicNeo-Regular", size: 30)!, range: NSMakeRange(0, attrString.length))
+        loginButton.setAttributedTitle(attrString, forState: .Normal)
+        loginButton.addTarget(self, action: Selector("onePressed"), forControlEvents: .TouchUpInside)
+        self.view.addSubview(loginButton)
+        return loginButton
+    }()
+    
+    internal lazy var fiveButton: UIButton = {
+        let loginButton = UIButton(type: .RoundedRect)
+        loginButton.layer.cornerRadius = 35
+        loginButton.backgroundColor = UIColor.clearColor()
+        loginButton.layer.borderWidth = 1
+        loginButton.layer.borderColor = UIColor.darkGrayColor().CGColor
+        loginButton.tintColor = UIColor.darkGrayColor()
+        
+        let attrString = NSMutableAttributedString(string: "5")
+        attrString.addAttribute(NSFontAttributeName, value: UIFont(name: "AppleSDGothicNeo-Regular", size: 30)!, range: NSMakeRange(0, attrString.length))
+        loginButton.setAttributedTitle(attrString, forState: .Normal)
+        loginButton.addTarget(self, action: Selector("onePressed"), forControlEvents: .TouchUpInside)
+        self.view.addSubview(loginButton)
+        return loginButton
+    }()
+    
+    internal lazy var sixButton: UIButton = {
+        let loginButton = UIButton(type: .RoundedRect)
+        loginButton.layer.cornerRadius = 35
+        loginButton.backgroundColor = UIColor.clearColor()
+        loginButton.layer.borderWidth = 1
+        loginButton.layer.borderColor = UIColor.darkGrayColor().CGColor
+        loginButton.tintColor = UIColor.darkGrayColor()
+        
+        let attrString = NSMutableAttributedString(string: "6")
+        attrString.addAttribute(NSFontAttributeName, value: UIFont(name: "AppleSDGothicNeo-Regular", size: 30)!, range: NSMakeRange(0, attrString.length))
+        loginButton.setAttributedTitle(attrString, forState: .Normal)
+        loginButton.addTarget(self, action: Selector("onePressed"), forControlEvents: .TouchUpInside)
+        self.view.addSubview(loginButton)
+        return loginButton
+    }()
+    
+    internal lazy var sevenButton: UIButton = {
+        let loginButton = UIButton(type: .RoundedRect)
+        loginButton.layer.cornerRadius = 35
+        loginButton.backgroundColor = UIColor.clearColor()
+        loginButton.layer.borderWidth = 1
+        loginButton.layer.borderColor = UIColor.darkGrayColor().CGColor
+        loginButton.tintColor = UIColor.darkGrayColor()
+        
+        let attrString = NSMutableAttributedString(string: "7")
+        attrString.addAttribute(NSFontAttributeName, value: UIFont(name: "AppleSDGothicNeo-Regular", size: 30)!, range: NSMakeRange(0, attrString.length))
+        loginButton.setAttributedTitle(attrString, forState: .Normal)
+        loginButton.addTarget(self, action: Selector("onePressed"), forControlEvents: .TouchUpInside)
+        self.view.addSubview(loginButton)
+        return loginButton
+    }()
+    
+    internal lazy var eightButton: UIButton = {
+        let loginButton = UIButton(type: .RoundedRect)
+        loginButton.layer.cornerRadius = 35
+        loginButton.backgroundColor = UIColor.clearColor()
+        loginButton.layer.borderWidth = 1
+        loginButton.layer.borderColor = UIColor.darkGrayColor().CGColor
+        loginButton.tintColor = UIColor.darkGrayColor()
+        
+        let attrString = NSMutableAttributedString(string: "8")
+        attrString.addAttribute(NSFontAttributeName, value: UIFont(name: "AppleSDGothicNeo-Regular", size: 30)!, range: NSMakeRange(0, attrString.length))
+        loginButton.setAttributedTitle(attrString, forState: .Normal)
+        loginButton.addTarget(self, action: Selector("onePressed"), forControlEvents: .TouchUpInside)
+        self.view.addSubview(loginButton)
+        return loginButton
+    }()
+    
+    internal lazy var nineButton: UIButton = {
+        let loginButton = UIButton(type: .RoundedRect)
+        loginButton.layer.cornerRadius = 35
+        loginButton.backgroundColor = UIColor.clearColor()
+        loginButton.layer.borderWidth = 1
+        loginButton.layer.borderColor = UIColor.darkGrayColor().CGColor
+        loginButton.tintColor = UIColor.darkGrayColor()
+        
+        let attrString = NSMutableAttributedString(string: "9")
+        attrString.addAttribute(NSFontAttributeName, value: UIFont(name: "AppleSDGothicNeo-Regular", size: 30)!, range: NSMakeRange(0, attrString.length))
+        loginButton.setAttributedTitle(attrString, forState: .Normal)
+        loginButton.addTarget(self, action: Selector("onePressed"), forControlEvents: .TouchUpInside)
+        self.view.addSubview(loginButton)
+        return loginButton
+    }()
+    
+    internal lazy var zeroButton: UIButton = {
+        let loginButton = UIButton(type: .RoundedRect)
+        loginButton.layer.cornerRadius = 35
+        loginButton.backgroundColor = UIColor.clearColor()
+        loginButton.layer.borderWidth = 1
+        loginButton.layer.borderColor = UIColor.darkGrayColor().CGColor
+        loginButton.tintColor = UIColor.darkGrayColor()
+        
+        let attrString = NSMutableAttributedString(string: "0")
+        attrString.addAttribute(NSFontAttributeName, value: UIFont(name: "AppleSDGothicNeo-Regular", size: 30)!, range: NSMakeRange(0, attrString.length))
+        loginButton.setAttributedTitle(attrString, forState: .Normal)
+        loginButton.addTarget(self, action: Selector("onePressed"), forControlEvents: .TouchUpInside)
+        self.view.addSubview(loginButton)
+        return loginButton
+    }()
+    
     override internal func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.whiteColor()
@@ -135,10 +295,75 @@ class CreatePinViewController: UIViewController {
         pinUnfilled3imageView.centerHorizontallyInSuperview(offset: -18)
         pinUnfilledimageView.positionToTheLeftOfItem(pinUnfilled3imageView, offset: 20)
         pinUnfilled4imageView.positionToTheRightOfItem(pinUnfilled2imageView, offset: 20)
-        
-        
+
+        sizeButtons()
+        layoutButtons()
     }
 
+    func sizeButtons() {
+        oneButton.sizeToWidth(70)
+        oneButton.sizeToHeight(70)
+        
+        twoButton.sizeToWidth(70)
+        twoButton.sizeToHeight(70)
+        
+        threeButton.sizeToWidth(70)
+        threeButton.sizeToHeight(70)
+        
+        fourButton.sizeToWidth(70)
+        fourButton.sizeToHeight(70)
+        
+        fiveButton.sizeToWidth(70)
+        fiveButton.sizeToHeight(70)
+        
+        sixButton.sizeToWidth(70)
+        sixButton.sizeToHeight(70)
+        
+        sevenButton.sizeToWidth(70)
+        sevenButton.sizeToHeight(70)
+        
+        eightButton.sizeToWidth(70)
+        eightButton.sizeToHeight(70)
+        
+        nineButton.sizeToWidth(70)
+        nineButton.sizeToHeight(70)
+        
+        zeroButton.sizeToWidth(70)
+        zeroButton.sizeToHeight(70)
+    }
     
+    
+    func layoutButtons() {
+        
+        oneButton.positionBelowItem(pinUnfilledimageView, offset: 20)
+        twoButton.positionBelowItem(pinUnfilledimageView, offset: 20)
+        threeButton.positionBelowItem(pinUnfilledimageView, offset: 20)
+        
+        fourButton.positionBelowItem(oneButton, offset: 10)
+        fiveButton.positionBelowItem(oneButton, offset: 10)
+        sixButton.positionBelowItem(oneButton, offset: 10)
+        
+        sevenButton.positionBelowItem(fourButton, offset: 10)
+        eightButton.positionBelowItem(fourButton, offset: 10)
+        nineButton.positionBelowItem(fourButton, offset: 10)
+        
+        zeroButton.positionBelowItem(sevenButton, offset: 10)
+        
+        
+        twoButton.centerHorizontallyInSuperview()
+        fiveButton.centerHorizontallyInSuperview()
+        eightButton.centerHorizontallyInSuperview()
+        zeroButton.centerHorizontallyInSuperview()
+        
+        oneButton.positionToTheLeftOfItem(twoButton, offset: 10)
+        threeButton.positionToTheRightOfItem(twoButton, offset: 10)
+        
+        fourButton.positionToTheLeftOfItem(fiveButton, offset: 10)
+        sixButton.positionToTheRightOfItem(fiveButton, offset: 10)
+        
+        sevenButton.positionToTheLeftOfItem(eightButton, offset: 10)
+        nineButton.positionToTheRightOfItem(eightButton, offset: 10)
+
+    }
 
 }
