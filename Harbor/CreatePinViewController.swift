@@ -8,6 +8,8 @@
 
 import UIKit
 
+// for some reason, pins 2 and 3 are switched
+
 class CreatePinViewController: UIViewController {
     
     let pinString = NSMutableString(string: "")
@@ -374,16 +376,21 @@ class CreatePinViewController: UIViewController {
             pinFilledimageView.pinToEdgesOfSuperview()
         }
         else if (pinString.length == 1) {
-            pinUnfilled2imageView.addSubview(pinFilled2imageView)
-            pinFilled2imageView.pinToEdgesOfSuperview()
-        }
-        else if (pinString.length == 2) {
             pinUnfilled3imageView.addSubview(pinFilled3imageView)
             pinFilled3imageView.pinToEdgesOfSuperview()
+        }
+        else if (pinString.length == 2) {
+            pinUnfilled2imageView.addSubview(pinFilled2imageView)
+            pinFilled2imageView.pinToEdgesOfSuperview()
         }
         else {
             pinUnfilled4imageView.addSubview(pinFilled4imageView)
             pinFilled4imageView.pinToEdgesOfSuperview()
+            
+            if let user = PFUser.currentUser() {
+                user["pin"] = pinString
+            }
+            PFUser.currentUser()?.saveInBackground()
             self.navigationController?.pushViewController(MenteeGuideViewController(), animated: true)
         }
     }
