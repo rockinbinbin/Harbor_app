@@ -83,6 +83,7 @@ class CreatePinViewController: UIViewController {
         attrString.addAttribute(NSFontAttributeName, value: UIFont(name: "AppleSDGothicNeo-Regular", size: 14)!, range: NSMakeRange(0, attrString.length))
         setYourPinLabel.attributedText = attrString
         setYourPinLabel.textAlignment = .Center
+        self.view.addSubview(setYourPinLabel)
         return setYourPinLabel
     }()
     
