@@ -10,6 +10,8 @@ import UIKit
 
 class CreatePinViewController: UIViewController {
     
+    let pinString = NSMutableString(string: "")
+    
     private lazy var newView: UIView = {
         let newview = UIView()
         let gradientLayer = CAGradientLayer()
@@ -138,7 +140,7 @@ class CreatePinViewController: UIViewController {
         let attrString = NSMutableAttributedString(string: "2")
         attrString.addAttribute(NSFontAttributeName, value: UIFont(name: "AppleSDGothicNeo-Regular", size: 30)!, range: NSMakeRange(0, attrString.length))
         loginButton.setAttributedTitle(attrString, forState: .Normal)
-        loginButton.addTarget(self, action: Selector("onePressed"), forControlEvents: .TouchUpInside)
+        loginButton.addTarget(self, action: Selector("twoPressed"), forControlEvents: .TouchUpInside)
         self.view.addSubview(loginButton)
         return loginButton
     }()
@@ -154,7 +156,7 @@ class CreatePinViewController: UIViewController {
         let attrString = NSMutableAttributedString(string: "3")
         attrString.addAttribute(NSFontAttributeName, value: UIFont(name: "AppleSDGothicNeo-Regular", size: 30)!, range: NSMakeRange(0, attrString.length))
         loginButton.setAttributedTitle(attrString, forState: .Normal)
-        loginButton.addTarget(self, action: Selector("onePressed"), forControlEvents: .TouchUpInside)
+        loginButton.addTarget(self, action: Selector("threePressed"), forControlEvents: .TouchUpInside)
         self.view.addSubview(loginButton)
         return loginButton
     }()
@@ -170,7 +172,7 @@ class CreatePinViewController: UIViewController {
         let attrString = NSMutableAttributedString(string: "4")
         attrString.addAttribute(NSFontAttributeName, value: UIFont(name: "AppleSDGothicNeo-Regular", size: 30)!, range: NSMakeRange(0, attrString.length))
         loginButton.setAttributedTitle(attrString, forState: .Normal)
-        loginButton.addTarget(self, action: Selector("onePressed"), forControlEvents: .TouchUpInside)
+        loginButton.addTarget(self, action: Selector("fourPressed"), forControlEvents: .TouchUpInside)
         self.view.addSubview(loginButton)
         return loginButton
     }()
@@ -186,7 +188,7 @@ class CreatePinViewController: UIViewController {
         let attrString = NSMutableAttributedString(string: "5")
         attrString.addAttribute(NSFontAttributeName, value: UIFont(name: "AppleSDGothicNeo-Regular", size: 30)!, range: NSMakeRange(0, attrString.length))
         loginButton.setAttributedTitle(attrString, forState: .Normal)
-        loginButton.addTarget(self, action: Selector("onePressed"), forControlEvents: .TouchUpInside)
+        loginButton.addTarget(self, action: Selector("fivePressed"), forControlEvents: .TouchUpInside)
         self.view.addSubview(loginButton)
         return loginButton
     }()
@@ -202,7 +204,7 @@ class CreatePinViewController: UIViewController {
         let attrString = NSMutableAttributedString(string: "6")
         attrString.addAttribute(NSFontAttributeName, value: UIFont(name: "AppleSDGothicNeo-Regular", size: 30)!, range: NSMakeRange(0, attrString.length))
         loginButton.setAttributedTitle(attrString, forState: .Normal)
-        loginButton.addTarget(self, action: Selector("onePressed"), forControlEvents: .TouchUpInside)
+        loginButton.addTarget(self, action: Selector("sixPressed"), forControlEvents: .TouchUpInside)
         self.view.addSubview(loginButton)
         return loginButton
     }()
@@ -218,7 +220,7 @@ class CreatePinViewController: UIViewController {
         let attrString = NSMutableAttributedString(string: "7")
         attrString.addAttribute(NSFontAttributeName, value: UIFont(name: "AppleSDGothicNeo-Regular", size: 30)!, range: NSMakeRange(0, attrString.length))
         loginButton.setAttributedTitle(attrString, forState: .Normal)
-        loginButton.addTarget(self, action: Selector("onePressed"), forControlEvents: .TouchUpInside)
+        loginButton.addTarget(self, action: Selector("sevenPressed"), forControlEvents: .TouchUpInside)
         self.view.addSubview(loginButton)
         return loginButton
     }()
@@ -234,7 +236,7 @@ class CreatePinViewController: UIViewController {
         let attrString = NSMutableAttributedString(string: "8")
         attrString.addAttribute(NSFontAttributeName, value: UIFont(name: "AppleSDGothicNeo-Regular", size: 30)!, range: NSMakeRange(0, attrString.length))
         loginButton.setAttributedTitle(attrString, forState: .Normal)
-        loginButton.addTarget(self, action: Selector("onePressed"), forControlEvents: .TouchUpInside)
+        loginButton.addTarget(self, action: Selector("eightPressed"), forControlEvents: .TouchUpInside)
         self.view.addSubview(loginButton)
         return loginButton
     }()
@@ -250,7 +252,7 @@ class CreatePinViewController: UIViewController {
         let attrString = NSMutableAttributedString(string: "9")
         attrString.addAttribute(NSFontAttributeName, value: UIFont(name: "AppleSDGothicNeo-Regular", size: 30)!, range: NSMakeRange(0, attrString.length))
         loginButton.setAttributedTitle(attrString, forState: .Normal)
-        loginButton.addTarget(self, action: Selector("onePressed"), forControlEvents: .TouchUpInside)
+        loginButton.addTarget(self, action: Selector("ninePressed"), forControlEvents: .TouchUpInside)
         self.view.addSubview(loginButton)
         return loginButton
     }()
@@ -266,7 +268,7 @@ class CreatePinViewController: UIViewController {
         let attrString = NSMutableAttributedString(string: "0")
         attrString.addAttribute(NSFontAttributeName, value: UIFont(name: "AppleSDGothicNeo-Regular", size: 30)!, range: NSMakeRange(0, attrString.length))
         loginButton.setAttributedTitle(attrString, forState: .Normal)
-        loginButton.addTarget(self, action: Selector("onePressed"), forControlEvents: .TouchUpInside)
+        loginButton.addTarget(self, action: Selector("zeroPressed"), forControlEvents: .TouchUpInside)
         self.view.addSubview(loginButton)
         return loginButton
     }()
@@ -335,19 +337,19 @@ class CreatePinViewController: UIViewController {
     
     func layoutButtons() {
         
-        oneButton.positionBelowItem(pinUnfilledimageView, offset: 20)
-        twoButton.positionBelowItem(pinUnfilledimageView, offset: 20)
-        threeButton.positionBelowItem(pinUnfilledimageView, offset: 20)
+        oneButton.positionBelowItem(pinUnfilledimageView, offset: 40)
+        twoButton.positionBelowItem(pinUnfilledimageView, offset: 40)
+        threeButton.positionBelowItem(pinUnfilledimageView, offset: 40)
         
-        fourButton.positionBelowItem(oneButton, offset: 10)
-        fiveButton.positionBelowItem(oneButton, offset: 10)
-        sixButton.positionBelowItem(oneButton, offset: 10)
+        fourButton.positionBelowItem(oneButton, offset: 20)
+        fiveButton.positionBelowItem(oneButton, offset: 20)
+        sixButton.positionBelowItem(oneButton, offset: 20)
         
-        sevenButton.positionBelowItem(fourButton, offset: 10)
-        eightButton.positionBelowItem(fourButton, offset: 10)
-        nineButton.positionBelowItem(fourButton, offset: 10)
+        sevenButton.positionBelowItem(fourButton, offset: 20)
+        eightButton.positionBelowItem(fourButton, offset: 20)
+        nineButton.positionBelowItem(fourButton, offset: 20)
         
-        zeroButton.positionBelowItem(sevenButton, offset: 10)
+        zeroButton.positionBelowItem(sevenButton, offset: 20)
         
         
         twoButton.centerHorizontallyInSuperview()
@@ -355,15 +357,116 @@ class CreatePinViewController: UIViewController {
         eightButton.centerHorizontallyInSuperview()
         zeroButton.centerHorizontallyInSuperview()
         
-        oneButton.positionToTheLeftOfItem(twoButton, offset: 10)
-        threeButton.positionToTheRightOfItem(twoButton, offset: 10)
+        oneButton.positionToTheLeftOfItem(twoButton, offset: 20)
+        threeButton.positionToTheRightOfItem(twoButton, offset: 20)
         
-        fourButton.positionToTheLeftOfItem(fiveButton, offset: 10)
-        sixButton.positionToTheRightOfItem(fiveButton, offset: 10)
+        fourButton.positionToTheLeftOfItem(fiveButton, offset: 20)
+        sixButton.positionToTheRightOfItem(fiveButton, offset: 20)
         
-        sevenButton.positionToTheLeftOfItem(eightButton, offset: 10)
-        nineButton.positionToTheRightOfItem(eightButton, offset: 10)
+        sevenButton.positionToTheLeftOfItem(eightButton, offset: 20)
+        nineButton.positionToTheRightOfItem(eightButton, offset: 20)
 
+    }
+    
+    func fillCorrectPin() {
+        if (pinString.length == 0) {
+            pinUnfilledimageView.addSubview(pinFilledimageView)
+            pinFilledimageView.pinToEdgesOfSuperview()
+        }
+        else if (pinString.length == 1) {
+            pinUnfilled2imageView.addSubview(pinFilled2imageView)
+            pinFilled2imageView.pinToEdgesOfSuperview()
+        }
+        else if (pinString.length == 2) {
+            pinUnfilled3imageView.addSubview(pinFilled3imageView)
+            pinFilled3imageView.pinToEdgesOfSuperview()
+        }
+        else {
+            pinUnfilled4imageView.addSubview(pinFilled4imageView)
+            pinFilled4imageView.pinToEdgesOfSuperview()
+            self.navigationController?.pushViewController(MenteeGuideViewController(), animated: true)
+        }
+    }
+    
+    func onePressed() {
+        fillCorrectPin()
+        
+        if (pinString.length < 4) {
+            pinString.appendString("1")
+        }
+    }
+    
+    func twoPressed() {
+        fillCorrectPin()
+        
+        if (pinString.length < 4) {
+            pinString.appendString("2")
+        }
+    }
+    
+    func threePressed() {
+        fillCorrectPin()
+        
+        if (pinString.length < 4) {
+            pinString.appendString("3")
+        }
+    }
+    
+    func fourPressed() {
+        fillCorrectPin()
+        
+        if (pinString.length < 4) {
+            pinString.appendString("4")
+        }
+    }
+    
+    func fivePressed() {
+        fillCorrectPin()
+        
+        if (pinString.length < 4) {
+            pinString.appendString("5")
+        }
+    }
+    
+    func sixPressed() {
+        fillCorrectPin()
+        
+        if (pinString.length < 4) {
+            pinString.appendString("6")
+        }
+    }
+    
+    func sevenPressed() {
+        fillCorrectPin()
+        
+        if (pinString.length < 4) {
+            pinString.appendString("7")
+        }
+        
+    }
+    
+    func eightPressed() {
+        fillCorrectPin()
+        
+        if (pinString.length < 4) {
+            pinString.appendString("8")
+        }
+    }
+    
+    func ninePressed() {
+        fillCorrectPin()
+        
+        if (pinString.length < 4) {
+            pinString.appendString("9")
+        }
+    }
+    
+    func zeroPressed() {
+        fillCorrectPin()
+        
+        if (pinString.length < 4) {
+            pinString.appendString("0")
+        }
     }
 
 }
