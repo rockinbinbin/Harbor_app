@@ -10,6 +10,26 @@ import UIKit
 
 
 class ViewController: UIViewController, UITextFieldDelegate {
+    
+    private lazy var newView: UIView = {
+        let newview = UIView()
+        let gradientLayer = CAGradientLayer()
+        
+        let color1 = UIColor(red:0.0, green:0.73, blue:0.74, alpha:1.0).CGColor as CGColorRef
+        let color2 = UIColor(red:0.0, green:0.9, blue:0.53, alpha:1.0).CGColor as CGColorRef
+        gradientLayer.colors = [color2, color1]
+        gradientLayer.locations = [0.0, 0.5, 0.65, 0.75, 1.0]
+        gradientLayer.type = kCAGradientLayerAxial
+        gradientLayer.startPoint = CGPointMake(0, 0)
+        gradientLayer.endPoint = CGPointMake(1.0, 1)
+        gradientLayer.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.height)
+        self.view.layer.addSublayer(gradientLayer)
+        
+        self.view.addSubview(newview)
+        return newview
+    }()
+    
+    
     private lazy var logoimageView: UIImageView = {
         let logoimageView = UIImageView(image: UIImage(named: "MLogo"))
         self.view.addSubview(logoimageView)
@@ -170,9 +190,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
     override internal func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.whiteColor()
+        newView.pinToEdgesOfSuperview()
         
-        self.navigationController?.navigationBarHidden = false
-        setNavBar()
+        self.navigationController?.navigationBarHidden = true
         
         logoimageView.pinToTopEdgeOfSuperview(offset: self.view.frame.size.height * 0.2)
         logoimageView.centerHorizontallyInSuperview()
@@ -216,26 +236,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name: UIKeyboardWillHideNotification, object: nil)
-    }
-    
-    func setNavBar() {
-        let titleLabel = UILabel()
-        
-        let attributes: NSDictionary = [
-//            NSFontAttributeName:UIFont(name: "Lato-Bold", size: 16)!,
-            NSForegroundColorAttributeName:UIColor.blackColor(),
-            NSKernAttributeName:CGFloat(3.69)
-        ]
-        
-        let attributedTitle = NSAttributedString(string: "SIGN UP", attributes: attributes as? [String : AnyObject])
-        
-        titleLabel.attributedText = attributedTitle
-        titleLabel.sizeToFit()
-        self.navigationItem.titleView = titleLabel
-        
-//        let doneButton = ProductBarButtonItem(title: "Back", actionTarget: self, actionSelector: Selector("closePressed"), buttonColor: UIColor.blueColor())
-//        
-//        self.navigationItem.leftBarButtonItem = doneButton
     }
     
     // Dismisses the keyboard.
