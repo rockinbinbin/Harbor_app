@@ -371,15 +371,15 @@ class CreatePinViewController: UIViewController {
     }
     
     func fillCorrectPin() {
-        if (pinString.length == 0) {
+        if (pinString.length == 1) {
             pinUnfilledimageView.addSubview(pinFilledimageView)
             pinFilledimageView.pinToEdgesOfSuperview()
         }
-        else if (pinString.length == 1) {
+        else if (pinString.length == 2) {
             pinUnfilled3imageView.addSubview(pinFilled3imageView)
             pinFilled3imageView.pinToEdgesOfSuperview()
         }
-        else if (pinString.length == 2) {
+        else if (pinString.length == 3) {
             pinUnfilled2imageView.addSubview(pinFilled2imageView)
             pinFilled2imageView.pinToEdgesOfSuperview()
         }
