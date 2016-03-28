@@ -10,6 +10,8 @@ import UIKit
 
 let teal = UIColor(red:0.02, green:0.9, blue:0.81, alpha:1.0)
 
+// if you don't have a mentor chat yet, here is a TableViewController of mentors to choose from
+
 class MainViewController: UIViewController {
 
     override func viewDidLoad() {
@@ -35,8 +37,6 @@ class MainViewController: UIViewController {
         
         self.navigationController?.navigationBar.barTintColor = teal
     }
-    
 
     
-
 }
