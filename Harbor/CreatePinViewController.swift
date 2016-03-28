@@ -396,83 +396,72 @@ class CreatePinViewController: UIViewController {
     }
     
     func onePressed() {
-        fillCorrectPin()
-        
         if (pinString.length < 4) {
             pinString.appendString("1")
+            fillCorrectPin()
         }
     }
     
     func twoPressed() {
-        fillCorrectPin()
-        
         if (pinString.length < 4) {
             pinString.appendString("2")
+            fillCorrectPin()
         }
     }
     
     func threePressed() {
-        fillCorrectPin()
-        
         if (pinString.length < 4) {
             pinString.appendString("3")
+            fillCorrectPin()
         }
     }
     
     func fourPressed() {
-        fillCorrectPin()
-        
         if (pinString.length < 4) {
             pinString.appendString("4")
+            fillCorrectPin()
         }
     }
     
     func fivePressed() {
-        fillCorrectPin()
-        
         if (pinString.length < 4) {
             pinString.appendString("5")
+            fillCorrectPin()
         }
     }
     
     func sixPressed() {
-        fillCorrectPin()
-        
         if (pinString.length < 4) {
             pinString.appendString("6")
+            fillCorrectPin()
         }
     }
     
     func sevenPressed() {
-        fillCorrectPin()
-        
         if (pinString.length < 4) {
             pinString.appendString("7")
+            fillCorrectPin()
         }
-        
     }
     
     func eightPressed() {
-        fillCorrectPin()
-        
         if (pinString.length < 4) {
             pinString.appendString("8")
+            fillCorrectPin()
         }
     }
     
     func ninePressed() {
-        fillCorrectPin()
-        
         if (pinString.length < 4) {
             pinString.appendString("9")
+            fillCorrectPin()
         }
     }
     
     func zeroPressed() {
-        fillCorrectPin()
-        
         if (pinString.length < 4) {
             pinString.appendString("0")
+            fillCorrectPin()
         }
     }
 
