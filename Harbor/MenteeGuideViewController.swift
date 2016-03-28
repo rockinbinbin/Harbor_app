@@ -26,7 +26,6 @@ class MenteeGuideViewController: UIViewController {
         self.view.backgroundColor = UIColor.whiteColor()
         
         self.navigationController?.navigationBarHidden = true
-        
         welcomeLabel.centerHorizontallyInSuperview()
         welcomeLabel.pinToTopEdgeOfSuperview(offset: 50)
         
