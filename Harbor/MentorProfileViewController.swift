@@ -20,7 +20,7 @@ class MentorProfileViewController: UIViewController, ParsemanagerFetchUserFromMe
         startChatGo.backgroundColor = UIColor.whiteColor()
         startChatGo.layer.borderWidth = 0
         startChatGo.layer.borderColor = UIColor.whiteColor().CGColor
-        startChatGo.tintColor = blueColor
+        startChatGo.tintColor = blueColor 
         startChatGo.titleLabel?.font = startChatGo.titleLabel?.font.fontWithSize(20)
         
         let attrString = NSMutableAttributedString(string: "START CHAT")
