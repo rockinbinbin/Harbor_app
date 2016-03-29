@@ -9,27 +9,38 @@
 import UIKit
 
 class MentorProfileViewController: UIViewController {
+    
+    var mentor : PFObject?
+    
+    
+    internal lazy var startChat: UIButton = {
+        let startChatGo = UIButton(type: .RoundedRect)
+        startChatGo.layer.cornerRadius = 0
+        startChatGo.backgroundColor = UIColor.whiteColor()
+        startChatGo.layer.borderWidth = 0
+        startChatGo.layer.borderColor = UIColor.whiteColor().CGColor
+        startChatGo.tintColor = blueColor
+        
+        let attrString = NSMutableAttributedString(string: "START CHAT")
+        attrString.addAttribute(NSKernAttributeName, value: 1.5, range: NSMakeRange(0, attrString.length))
+        attrString.addAttribute(NSFontAttributeName, value: UIFont(name: "AppleSDGothicNeo-Regular", size: 20)!, range: NSMakeRange(0, attrString.length))
+        startChatGo.setAttributedTitle(attrString, forState: .Normal)
+        self.view.addSubview(startChatGo)
+        startChatGo.addTarget(self, action: Selector("startChatPressed"), forControlEvents: .TouchUpInside)
+        return startChatGo
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        self.view.backgroundColor = UIColor.whiteColor()
+        startChat.centerInSuperview()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func startChatPressed() {
+        // navigate to chat view
     }
-    */
-
 }

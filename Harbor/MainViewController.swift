@@ -150,6 +150,14 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         return cell!
     }
     
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        if (indexPath.row < mentors?.count) {
+            let vc = MentorProfileViewController()
+            vc.mentor = mentors?.objectAtIndex(indexPath.row) as? PFObject
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
     func didFetchMentorsWithObjects(objects: [AnyObject]!) {
         mentors = NSArray()
         mentors = objects
