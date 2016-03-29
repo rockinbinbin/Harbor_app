@@ -394,22 +394,24 @@ class AttemptPinViewController: UIViewController, ParseManagerFetchUserPinDelega
             
             
             if let pin = realPin {
-                if (PFUser.currentUser()?.objectForKey("pin") != nil) {
-                    if let isMentor = PFUser.currentUser()?.objectForKey("isMentor") {
-                        if (isMentor as! Bool == true) {
-                            // is Mentor
-                            self.navigationController?.pushViewController(MessagesViewController(), animated: true)
+                if (pin == pinString) {
+                    if (PFUser.currentUser()?.objectForKey("pin") != nil) {
+                        if let isMentor = PFUser.currentUser()?.objectForKey("isMentor") {
+                            if (isMentor as! Bool == true) {
+                                // is Mentor
+                                self.navigationController?.pushViewController(MessagesViewController(), animated: true)
+                            }
+                            else {
+                                // is Mentee
+                                // TODO: if messages exist, direct push to MessagesViewController.
+                                self.navigationController?.pushViewController(MainViewController(), animated: true)
+                            }
                         }
                         else {
                             // is Mentee
                             // TODO: if messages exist, direct push to MessagesViewController.
                             self.navigationController?.pushViewController(MainViewController(), animated: true)
                         }
-                    }
-                    else {
-                        // is Mentee
-                        // TODO: if messages exist, direct push to MessagesViewController.
-                        self.navigationController?.pushViewController(MainViewController(), animated: true)
                     }
                 }
                 else {
