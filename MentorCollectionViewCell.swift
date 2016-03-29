@@ -31,10 +31,26 @@ class MentorCollectionViewCell: UICollectionViewCell {
         self.contentView.addSubview(detail)
         return detail
     }()
+
+    public lazy var image: UIImageView = {
+        let logoimageView = UIImageView()
+        logoimageView.contentMode = .ScaleAspectFill
+        self.contentView.addSubview(logoimageView)
+        return logoimageView
+    }()
     
     func layoutViews() {
-        titleLabel.pinToLeftEdgeOfSuperview(offset: 20)
-        titleLabel.pinToTopEdgeOfSuperview(offset: 20)
+
+        image.pinToTopEdgeOfSuperview(offset: 30)
+        image.centerHorizontallyInSuperview()
+        image.sizeToWidth(100)
+        image.sizeToHeight(100)
+        image.layer.cornerRadius = 50
+        image.layer.borderWidth = 2
+        image.layer.borderColor = teal.CGColor
+        
+        titleLabel.positionBelowItem(image, offset: 15)
+        titleLabel.centerHorizontallyInSuperview()
         
         detail.positionBelowItem(titleLabel, offset: 20)
         detail.pinToLeftEdgeOfSuperview(offset: 20)

@@ -122,10 +122,6 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         let cellId = "mentorCell"
         let cell : MentorCollectionViewCell? = collectionView.dequeueReusableCellWithReuseIdentifier(cellId, forIndexPath: indexPath) as? MentorCollectionViewCell
         
-//        if cell == nil {
-//            cell = MentorCollectionViewCell(frame: CGRectMake(0, 0, self.view.frame.size.height / 2, 400))
-//        }
-        
         if let mentors = mentors {
             if (indexPath.row < mentors.count) {
                 
@@ -133,6 +129,19 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
                 
                 cell?.titleLabel.text = mentor.objectForKey("Username") as? String
                 cell?.detail.text = mentor.objectForKey("shortDescription") as? String
+                
+                if let imgObj = mentor.objectForKey("picture") {
+                    let file : PFFile = (imgObj as? PFFile)!
+                    
+                    file.getDataInBackgroundWithBlock({ (data: NSData?, error: NSError?) -> Void in
+                        if (data != nil) {
+                            UIView.animateWithDuration(0.3, animations: { () -> Void in
+                                let img : UIImage = UIImage(data: data!)!
+                                cell?.image.image = img
+                            })
+                        }
+                    })
+                }
             }
         }
         
