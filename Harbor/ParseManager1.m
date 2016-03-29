@@ -86,4 +86,42 @@ PFUser *currentUser;
     }
 }
 
+
+#pragma mark - Create Chat message channel
+- (void) createMessageItemForUser:(PFUser *)user andMentor:(PFUser *)mentor {
+    
+    if ([[Utility getInstance] checkReachabilityAndDisplayErrorMessage]) {
+        PFQuery *query = [PFQuery queryWithClassName:@"Messages"];
+        [query whereKey:@"user" equalTo:user];
+        [query whereKey:@"mentor" equalTo:mentor];
+        [query setLimit:1000];
+        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error)
+         {
+             if (error == nil)
+             {
+                 if ([objects count] == 0)
+                 {
+                     PFObject *message = [PFObject objectWithClassName:PF_MESSAGES_CLASS_NAME];
+                     message[@"user"] = user;
+                     message[@"mentor"] = mentor;
+                     message[@"lastUser"] = [PFUser currentUser];
+                     message[@"lastMessage"] = @"";
+                     message[@"counter"] = @0;
+                     message[@"updatedAction"] = [NSDate date];
+                     [message saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error)
+                      {
+                          if (error != nil) NSLog(@"CreateMessageItem save error.");
+                          else {
+                              if ([self.createMessageDelegate respondsToSelector:@selector(didCreateMessageWithObjectID:)]) {
+                                  [self.createMessageDelegate didCreateMessageWithObjectID:message.objectId];
+                              }
+                          }
+                      }];
+                 }
+             }
+             else NSLog(@"CreateMessageItem query error.");
+         }];
+    }
+}
+
 @end

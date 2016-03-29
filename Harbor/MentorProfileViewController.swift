@@ -8,9 +8,11 @@
 
 import UIKit
 
-class MentorProfileViewController: UIViewController {
+class MentorProfileViewController: UIViewController, ParsemanagerFetchUserFromMentorDelegate, ParseManagerCreateMessageDelegate {
     
     var mentor : PFObject?
+    
+    var userFromMentor : PFUser?
     
     internal lazy var startChat: UIButton = {
         let startChatGo = UIButton(type: .RoundedRect)
@@ -46,6 +48,24 @@ class MentorProfileViewController: UIViewController {
     
     func startChatPressed() {
         // navigate to chat view
-        self.navigationController?.pushViewController(HomepointChat(), animated: true)
+        
+        ParseManager1.getInstance().fetchUserFromMentorDelegate = self
+        ParseManager1.getInstance().fetchUserObjectFromMentor(mentor)
+        startChat.enabled = false
+//        self.navigationController?.pushViewController(HomepointChat(), animated: true)
     }
+    
+    func didFetchUserFromMentorWithObject(object: PFObject!) {
+        userFromMentor = object as? PFUser
+        ParseManager1.getInstance().createMessageDelegate = self
+        ParseManager1.getInstance().createMessageItemForUser(PFUser.currentUser(), andMentor: userFromMentor)
+    }
+    
+    func didCreateMessageWithObjectID(objectID: String!) {
+        let chatVC = HomepointChat()
+        chatVC.mentor = userFromMentor
+        chatVC.groupId = objectID
+        self.navigationController?.pushViewController(chatVC, animated: true)
+    }
+    
 }

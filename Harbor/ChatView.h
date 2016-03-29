@@ -19,12 +19,12 @@
 @property NSMutableArray *messages;
 @property NSString *groupId;
 @property NSTimer *timer;
-@property (nonatomic, strong) PFObject *currentRequest1;
+//@property (nonatomic, strong) PFObject *currentRequest1;
 @property (nonatomic, strong) UILabel *chatPrompt;
 
 @property (nonatomic) BOOL homepointChat;
-@property (nonatomic, strong) PFObject *homepoint;
-@property (nonatomic, strong) PFObject *currentRequest;
+@property (nonatomic, strong) PFUser *mentor;
+//@property (nonatomic, strong) PFObject *currentRequest;
 
 - (id)initWith:(NSString *)groupId_;
 - (void)loadMessages;

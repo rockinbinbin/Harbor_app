@@ -27,7 +27,8 @@
 
 //	NSString *groupId;
 
-	NSMutableArray *users;
+	
+    NSMutableArray *users;
 	NSMutableDictionary *avatars;
 //    NSMutableArray *messages;
 	JSQMessagesBubbleImage *bubbleImageOutgoing;
@@ -105,11 +106,11 @@
             }
         }
         
-		PFQuery *query = [PFQuery queryWithClassName:PF_CHAT_CLASS_NAME];
-		[query whereKey:PF_CHAT_GROUPID equalTo:groupId];
-		if (message_last != nil) [query whereKey:PF_CHAT_CREATEDAT greaterThan:message_last.date];
-		[query includeKey:PF_CHAT_USER];
-		[query orderByDescending:PF_CHAT_CREATEDAT];
+		PFQuery *query = [PFQuery queryWithClassName:@"Chat"];
+		[query whereKey:@"messageID" equalTo:groupId];
+		if (message_last != nil) [query whereKey:@"createdAt" greaterThan:message_last.date];
+		[query includeKey:@"user"];
+		[query orderByDescending:@"createdAt"];
 		[query setLimit:50];
         
 		[query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
@@ -164,16 +165,16 @@
 -(void) saveLastMessage {
     JSQMessage *msg = [messages lastObject];
     if ([messages lastObject] != nil) {
-        self.currentRequest1[PF_REQUEST_LAST_MESSAGE] = msg.text;
-        [self.currentRequest1 saveInBackground];
+//        self.currentRequest1[PF_REQUEST_LAST_MESSAGE] = msg.text;
+//        [self.currentRequest1 saveInBackground];
     }
 }
 
 - (void)addMessage:(PFObject *)object {
 	JSQMessage *message;
 
-	PFUser *user = object[PF_CHAT_USER];
-	NSString *name = user[PF_USER_FULLNAME];
+	PFUser *user = object[@"user"];
+	NSString *name = user[@"username"];
 
 	PFFile *fileVideo = object[PF_CHAT_VIDEO];
 	PFFile *filePicture = object[PF_CHAT_PICTURE];
@@ -231,12 +232,12 @@
 			if (error != nil) [ProgressHUD showError:@"Picture save error."];
 		}];
 	}
-	PFObject *object = [PFObject objectWithClassName:PF_CHAT_CLASS_NAME];
-	object[PF_CHAT_USER] = [PFUser currentUser];
-	object[PF_CHAT_GROUPID] = groupId;
-	object[PF_CHAT_TEXT] = text;
-	if (fileVideo != nil) object[PF_CHAT_VIDEO] = fileVideo;
-	if (filePicture != nil) object[PF_CHAT_PICTURE] = filePicture;
+	PFObject *object = [PFObject objectWithClassName:@"Chat"];
+	object[@"user"] = [PFUser currentUser];
+	object[@"messageID"] = groupId;
+	object[@"text"] = text;
+	if (fileVideo != nil) object[@"video"] = fileVideo;
+	if (filePicture != nil) object[@"picture"] = filePicture;
     
 	[object saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
 		if (error == nil) {
@@ -246,14 +247,14 @@
 		else [ProgressHUD showError:@"Network error."];
 	}];
     if (!self.homepointChat) {
-        if (self.currentRequest) {
-            //SendPushNotification(groupId, text, self.currentRequest); // TODO: SEND PUSH NOTIFICATION
-        }
+//        if (self.currentRequest) {
+//            SendPushNotification(groupId, text, self.currentRequest); // TODO: SEND PUSH NOTIFICATION
+//        }
     }
     else {
-        if (self.homepoint) {
-            //SendHomepointPush(self.homepoint, text, groupId); /////////// WTF??? // TODO: SEND PUSH NOTIFICATION
-        }
+//        if (self.homepoint) {
+//            SendHomepointPush(self.homepoint, text, groupId); /////////// WTF??? // TODO: SEND PUSH NOTIFICATION
+//        }
     }
 	UpdateMessageCounter(groupId, text);
 	[self finishSendingMessage];

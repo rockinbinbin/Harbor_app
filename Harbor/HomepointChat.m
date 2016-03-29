@@ -17,8 +17,6 @@
 
 @implementation HomepointChat
 {
-    NSMutableArray *groupUsers;
-    NSArray *tentative_users;
 }
 
 //- (id)initWithDelegate:(id<RootTabBarControllerDelegate>)delegate {
@@ -40,17 +38,15 @@
     navLabel.textAlignment = NSTextAlignmentCenter;
     navLabel.font = [UIFont fontWithName:@"AvenirNext-Medium" size:20];
     self.navigationItem.titleView = navLabel;
-    navLabel.text = [self.homepoint objectForKey:@"groupName"];
+    navLabel.text = @"Chat";
     [navLabel sizeToFit];
     
     self.navigationController.navigationBar.barTintColor = [UIColor blueColor];
     self.navigationController.navigationBar.translucent = NO;
-    UIButton *customButton = [[Utility getInstance] createCustomButton:[UIImage imageNamed:@"common_back_button"]];
-    UIButton *usersButton = [[Utility getInstance] createCustomButton:[UIImage imageNamed:@"addWhiteUser"]];
-    [usersButton addTarget:self action:@selector(userButtonClicked) forControlEvents:UIControlEventTouchUpInside];
-    [customButton addTarget:self action:@selector(backButtonClicked) forControlEvents:UIControlEventTouchUpInside];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:customButton];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:usersButton];
+//    UIButton *customButton = [[Utility getInstance] createCustomButton:[UIImage imageNamed:@"common_back_button"]];
+//
+//    [customButton addTarget:self action:@selector(backButtonClicked) forControlEvents:UIControlEventTouchUpInside];
+//    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:customButton];
 }
 
 
@@ -90,14 +86,6 @@
 #pragma mark - back Button Action
 -(void)backButtonClicked{
     [self.navigationController popViewControllerAnimated:YES];
-}
-
--(void)userButtonClicked {
-    // get group users
-    self.firstDone = NO;
-    if ([[Utility getInstance] checkReachabilityAndDisplayErrorMessage]) {
-        [[Utility getInstance] showProgressHudWithMessage:@"Loading Users..." withView:self.view];
-    }
 }
 
 @end
