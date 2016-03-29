@@ -66,7 +66,7 @@
 	bubbleImageOutgoing = [bubbleFactory outgoingMessagesBubbleImageWithColor:[UIColor jsq_messageBubbleLightGrayColor]];
 	bubbleImageIncoming = [bubbleFactory incomingMessagesBubbleImageWithColor:teal]; // TODO: CHANGE COLOR
 
-	avatarImageBlank = [JSQMessagesAvatarImageFactory avatarImageWithImage:[UIImage imageNamed:@"pin-filled"] diameter:30.0];
+	avatarImageBlank = [JSQMessagesAvatarImageFactory avatarImageWithImage:[UIImage imageNamed:@"gray-avatar"] diameter:30.0];
 
 	isLoading = NO;
 	[self loadMessages];

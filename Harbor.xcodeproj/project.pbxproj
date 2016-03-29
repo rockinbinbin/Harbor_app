@@ -31,6 +31,7 @@
 		007B06FB1CA876990061D4AA /* HarborUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007B06FA1CA876990061D4AA /* HarborUITests.swift */; };
 		009DF7D91CAA269D008C93DD /* MentorProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009DF7D81CAA269D008C93DD /* MentorProfileViewController.swift */; };
 		009DF7DB1CAA334B008C93DD /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009DF7DA1CAA334B008C93DD /* MessagesViewController.swift */; };
+		00DF0CCD1CAB35D000F16493 /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DF0CCC1CAB35D000F16493 /* MessageTableViewCell.swift */; };
 		00E00E1F1CAA607D00C35669 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E00E1E1CAA607D00C35669 /* WebViewController.swift */; };
 		00E00E291CAB000400C35669 /* HomepointChat.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E00E281CAB000400C35669 /* HomepointChat.m */; };
 		00E00E2C1CAB005300C35669 /* ChatView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E00E2B1CAB005300C35669 /* ChatView.m */; };
@@ -155,6 +156,7 @@
 		007B06FC1CA876990061D4AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		009DF7D81CAA269D008C93DD /* MentorProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MentorProfileViewController.swift; sourceTree = "<group>"; };
 		009DF7DA1CAA334B008C93DD /* MessagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
+		00DF0CCC1CAB35D000F16493 /* MessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
 		00E00E1E1CAA607D00C35669 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		00E00E271CAB000400C35669 /* HomepointChat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomepointChat.h; sourceTree = "<group>"; };
 		00E00E281CAB000400C35669 /* HomepointChat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomepointChat.m; sourceTree = "<group>"; };
@@ -343,6 +345,7 @@
 				009DF7D81CAA269D008C93DD /* MentorProfileViewController.swift */,
 				002DFE591CA9EF95000F186C /* MentorCollectionViewCell.swift */,
 				002DFE571CA9C74E000F186C /* MainViewController.swift */,
+				00DF0CCC1CAB35D000F16493 /* MessageTableViewCell.swift */,
 				009DF7DA1CAA334B008C93DD /* MessagesViewController.swift */,
 				007B06D91CA876990061D4AA /* SignUpViewController.swift */,
 				002DFE4F1CA8E7EC000F186C /* LoginViewController.swift */,
@@ -927,6 +930,7 @@
 				00E00EE41CAB01F200C35669 /* JSQMessagesMediaViewBubbleImageMasker.m in Sources */,
 				00E00F051CAB033100C35669 /* camera.m in Sources */,
 				00E00EE51CAB01F200C35669 /* JSQMessagesTimestampFormatter.m in Sources */,
+				00DF0CCD1CAB35D000F16493 /* MessageTableViewCell.swift in Sources */,
 				002DFE471CA8789B000F186C /* Reachability.m in Sources */,
 				00E00ED51CAB01F200C35669 /* UIRefreshControl+AFNetworking.m in Sources */,
 				00E00EF81CAB01F200C35669 /* JSQMessagesComposerTextView.m in Sources */,
