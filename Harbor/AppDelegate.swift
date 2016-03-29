@@ -23,28 +23,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
  
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         
-//        if (PFUser.currentUser() != nil) {
-//            // if user has set a pin
-//            // open pin view
-//            
-//            if (PFUser.currentUser()?.objectForKey("pin") != nil) {
-//                let nav = UINavigationController(rootViewController: AttemptPinViewController())
-//                self.window?.rootViewController = nav
-//            }
-//            else {
-//                let nav = UINavigationController(rootViewController: CreatePinViewController())
-//                self.window?.rootViewController = nav
-//            }
-//        }
-//        else {
-//            let nav = UINavigationController(rootViewController: SignUpViewController())
-//            self.window?.rootViewController = nav
-//        }
+        if (PFUser.currentUser() != nil) {
+            // if user has set a pin
+            // open pin view
+            
+            if (PFUser.currentUser()?.objectForKey("pin") != nil) {
+                let nav = UINavigationController(rootViewController: AttemptPinViewController())
+                self.window?.rootViewController = nav
+            }
+            else {
+                let nav = UINavigationController(rootViewController: CreatePinViewController())
+                self.window?.rootViewController = nav
+            }
+        }
+        else {
+            let nav = UINavigationController(rootViewController: SignUpViewController())
+            self.window?.rootViewController = nav
+        }
         
-        let nav = UINavigationController(rootViewController: MenteeGuideViewController())
-        self.window?.rootViewController = nav
-//        
-        self.window?.makeKeyAndVisible()
+     self.window?.makeKeyAndVisible()
         return true
     }
 
