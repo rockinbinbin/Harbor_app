@@ -15,7 +15,7 @@ class MessageTableViewCell: UITableViewCell {
         titleLabel.textAlignment = .Center
         titleLabel.lineBreakMode = .ByWordWrapping
         titleLabel.numberOfLines = 0
-        titleLabel.font = UIFont(name: "Lato-Regular", size: 15)
+        titleLabel.font = titleLabel.font.fontWithSize(24)
         self.contentView.addSubview(titleLabel)
         return titleLabel
     }()
@@ -26,7 +26,7 @@ class MessageTableViewCell: UITableViewCell {
         detail.textAlignment = .Center
         detail.lineBreakMode = .ByWordWrapping
         detail.numberOfLines = 0
-        detail.font = UIFont(name: "Lato-Regular", size: 15)
+        detail.font = detail.font.fontWithSize(16)
         self.contentView.addSubview(detail)
         return detail
     }()
@@ -49,10 +49,10 @@ class MessageTableViewCell: UITableViewCell {
         imgView.centerVerticallyInSuperview()
         
         titleLabel.positionToTheRightOfItem(imgView, offset: 10)
-        titleLabel.centerVerticallyInSuperview()
+        titleLabel.pinToTopEdgeOfSuperview(offset: 20)
         
-        detail.centerVerticallyInSuperview()
-        detail.pinToRightEdgeOfSuperview(offset: 10)
+        detail.positionToTheRightOfItem(imgView, offset: 10)
+        detail.positionBelowItem(titleLabel, offset: 10)
         
     }
     

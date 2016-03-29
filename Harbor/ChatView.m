@@ -64,7 +64,7 @@
 
 	JSQMessagesBubbleImageFactory *bubbleFactory = [[JSQMessagesBubbleImageFactory alloc] init];
 	bubbleImageOutgoing = [bubbleFactory outgoingMessagesBubbleImageWithColor:[UIColor jsq_messageBubbleLightGrayColor]];
-	bubbleImageIncoming = [bubbleFactory incomingMessagesBubbleImageWithColor:teal]; // TODO: CHANGE COLOR
+	bubbleImageIncoming = [bubbleFactory incomingMessagesBubbleImageWithColor:teal];
 
 	avatarImageBlank = [JSQMessagesAvatarImageFactory avatarImageWithImage:[UIImage imageNamed:@"gray-avatar"] diameter:100.0];
 

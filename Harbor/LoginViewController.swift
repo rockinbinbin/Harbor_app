@@ -308,7 +308,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                                 if (isMentor as! Bool == true) {
                                     // is Mentor
                                     // TODO: Change this to navigate to MessagesViewController
-                                    self.navigationController?.pushViewController(MainViewController(), animated: true)
+                                    self.navigationController?.pushViewController(MessagesViewController(), animated: true)
                                 }
                                 else {
                                     // is Mentee

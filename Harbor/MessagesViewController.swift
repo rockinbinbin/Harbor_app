@@ -11,6 +11,17 @@ import UIKit
 // whether mentor or mentee, should show tableView of all ongoing conversations.
 
 class MessagesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    private lazy var tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.scrollEnabled = false
+        tableView.hidden = false
+        tableView.backgroundColor = UIColor.whiteColor()
+        self.view.addSubview(tableView)
+        return tableView
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +46,11 @@ class MessagesViewController: UIViewController, UITableViewDataSource, UITableVi
         
         self.navigationController?.navigationBar.barTintColor = teal
         self.navigationItem.hidesBackButton = true
+        
+        tableView.pinToTopEdgeOfSuperview()
+        tableView.pinToLeftEdgeOfSuperview()
+        tableView.pinToRightEdgeOfSuperview()
+        tableView.sizeToHeight(400)
     }
     
     // MARK: - Tableview Datasource
@@ -66,18 +82,8 @@ class MessagesViewController: UIViewController, UITableViewDataSource, UITableVi
         
         if (indexPath.row == 0) {
             cell?.imgView.image = UIImage(named: "wallet")
-            
-            let attrString = NSMutableAttributedString(string: "PAYMENT METHOD")
-            attrString.addAttribute(NSKernAttributeName, value: 2, range: NSMakeRange(0, attrString.length))
-            attrString.addAttribute(NSFontAttributeName, value: UIFont(name: "Lato-Regular", size: 13)!, range: NSMakeRange(0, attrString.length))
-            
-            cell!.titleLabel.attributedText = attrString
-            
-            let attrString2 = NSMutableAttributedString(string: "APPLE PAY")
-            attrString2.addAttribute(NSKernAttributeName, value: 2, range: NSMakeRange(0, attrString2.length))
-            attrString2.addAttribute(NSFontAttributeName, value: UIFont(name: "Lato-Regular", size: 13)!, range: NSMakeRange(0, attrString2.length))
-            
-            cell!.detail.attributedText = attrString2
+            cell!.titleLabel.text = "hi"
+            cell!.detail.text = "yo"
         }
         
         return cell!

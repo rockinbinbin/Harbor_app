@@ -59,7 +59,7 @@ BOOL ShouldStartPhotoLibrary(id target, BOOL canEdit)
 	UIImagePickerController *cameraUI = [[UIImagePickerController alloc] init];
     
     UIView *statusBarCover = [[UIView alloc] initWithFrame:[UIApplication sharedApplication].statusBarFrame];
-    statusBarCover.backgroundColor = teal; // TODO: CHANGE COLOR
+    statusBarCover.backgroundColor = teal;
     
     [cameraUI.view addSubview:statusBarCover];
     
@@ -69,7 +69,7 @@ BOOL ShouldStartPhotoLibrary(id target, BOOL canEdit)
     
     cameraUI.navigationBar.barStyle = UIBarStyleDefault;
     cameraUI.navigationBar.hidden = false;
-    cameraUI.navigationBar.barTintColor = teal; // TODO: CHANGE COLOR
+    cameraUI.navigationBar.barTintColor = teal;
     cameraUI.navigationBar.tintColor = [UIColor whiteColor];
     cameraUI.navigationBar.translucent = false;
     
@@ -106,7 +106,7 @@ BOOL ShouldStartVideoLibrary(id target, BOOL canEdit)
 	UIImagePickerController *cameraUI = [[UIImagePickerController alloc] init];
     
     UIView *statusBarCover = [[UIView alloc] initWithFrame:[UIApplication sharedApplication].statusBarFrame];
-    statusBarCover.backgroundColor = teal; // TODO: CHANGE COLOR
+    statusBarCover.backgroundColor = teal;
     [cameraUI.view addSubview:statusBarCover];
     
     [cameraUI.navigationBar setTitleTextAttributes:@{
@@ -115,7 +115,7 @@ BOOL ShouldStartVideoLibrary(id target, BOOL canEdit)
     
     cameraUI.navigationBar.barStyle = UIBarStyleDefault;
     cameraUI.navigationBar.hidden = false;
-    cameraUI.navigationBar.barTintColor = teal; // TODO: CHANGE COLOR
+    cameraUI.navigationBar.barTintColor = teal;
     cameraUI.navigationBar.tintColor = [UIColor whiteColor];
     cameraUI.navigationBar.translucent = false;
 
