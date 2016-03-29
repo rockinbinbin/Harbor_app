@@ -12,6 +12,7 @@
 #import <MobileCoreServices/MobileCoreServices.h>
 
 #import "camera.h"
+#import "AppConstant.h"
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------
 BOOL ShouldStartCamera(id target, BOOL canEdit)
@@ -58,7 +59,8 @@ BOOL ShouldStartPhotoLibrary(id target, BOOL canEdit)
 	UIImagePickerController *cameraUI = [[UIImagePickerController alloc] init];
     
     UIView *statusBarCover = [[UIView alloc] initWithFrame:[UIApplication sharedApplication].statusBarFrame];
-    statusBarCover.backgroundColor = [UIColor blueColor]; // TODO: CHANGE COLOR
+    statusBarCover.backgroundColor = teal; // TODO: CHANGE COLOR
+    
     [cameraUI.view addSubview:statusBarCover];
     
     [cameraUI.navigationBar setTitleTextAttributes:@{
@@ -67,7 +69,7 @@ BOOL ShouldStartPhotoLibrary(id target, BOOL canEdit)
     
     cameraUI.navigationBar.barStyle = UIBarStyleDefault;
     cameraUI.navigationBar.hidden = false;
-    cameraUI.navigationBar.backgroundColor = [UIColor blueColor]; // TODO: CHANGE COLOR
+    cameraUI.navigationBar.backgroundColor = teal; // TODO: CHANGE COLOR
     cameraUI.navigationBar.tintColor = [UIColor whiteColor];
     
 	//---------------------------------------------------------------------------------------------------------------------------------------------
@@ -103,7 +105,7 @@ BOOL ShouldStartVideoLibrary(id target, BOOL canEdit)
 	UIImagePickerController *cameraUI = [[UIImagePickerController alloc] init];
     
     UIView *statusBarCover = [[UIView alloc] initWithFrame:[UIApplication sharedApplication].statusBarFrame];
-    statusBarCover.backgroundColor = [UIColor blueColor]; // TODO: CHANGE COLOR
+    statusBarCover.backgroundColor = teal; // TODO: CHANGE COLOR
     [cameraUI.view addSubview:statusBarCover];
     
     [cameraUI.navigationBar setTitleTextAttributes:@{
@@ -112,7 +114,7 @@ BOOL ShouldStartVideoLibrary(id target, BOOL canEdit)
     
     cameraUI.navigationBar.barStyle = UIBarStyleDefault;
     cameraUI.navigationBar.hidden = false;
-    cameraUI.navigationBar.backgroundColor = [UIColor blueColor]; // TODO: CHANGE COLOR
+    cameraUI.navigationBar.backgroundColor = teal; // TODO: CHANGE COLOR
     cameraUI.navigationBar.tintColor = [UIColor whiteColor];
 
 	//---------------------------------------------------------------------------------------------------------------------------------------------

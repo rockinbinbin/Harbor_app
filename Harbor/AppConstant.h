@@ -64,3 +64,7 @@
 #define		NOTIFICATION_APP_STARTED			@"NCAppStarted"
 #define		NOTIFICATION_USER_LOGGED_IN			@"NCUserLoggedIn"
 #define		NOTIFICATION_USER_LOGGED_OUT		@"NCUserLoggedOut"
+
+
+// colors
+#define teal     [UIColor colorWithRed:0.02 green:0.9 blue:0.81 alpha:1.0]

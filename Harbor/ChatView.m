@@ -60,11 +60,11 @@
 
 	PFUser *user = [PFUser currentUser];
 	self.senderId = user.objectId;
-	self.senderDisplayName = user[PF_USER_USERNAME];
+	self.senderDisplayName = user[@"username"];
 
 	JSQMessagesBubbleImageFactory *bubbleFactory = [[JSQMessagesBubbleImageFactory alloc] init];
 	bubbleImageOutgoing = [bubbleFactory outgoingMessagesBubbleImageWithColor:[UIColor jsq_messageBubbleLightGrayColor]];
-	bubbleImageIncoming = [bubbleFactory incomingMessagesBubbleImageWithColor:[UIColor blueColor]]; // TODO: CHANGE COLOR
+	bubbleImageIncoming = [bubbleFactory incomingMessagesBubbleImageWithColor:teal]; // TODO: CHANGE COLOR
 
 	avatarImageBlank = [JSQMessagesAvatarImageFactory avatarImageWithImage:[UIImage imageNamed:@"pin-filled"] diameter:30.0];
 

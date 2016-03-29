@@ -10,6 +10,7 @@
 #import "Utility.h"
 #import "ParseManager1.h"
 #import "Harbor-Swift.h"
+#import "AppConstant.h"
 
 @interface HomepointChat ()
 @property BOOL firstDone;
@@ -41,7 +42,7 @@
     navLabel.text = @"Chat";
     [navLabel sizeToFit];
     
-    self.navigationController.navigationBar.barTintColor = [UIColor blueColor];
+    self.navigationController.navigationBar.barTintColor = teal;
     self.navigationController.navigationBar.translucent = NO;
 //    UIButton *customButton = [[Utility getInstance] createCustomButton:[UIImage imageNamed:@"common_back_button"]];
 //
