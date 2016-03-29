@@ -243,7 +243,7 @@
 			[JSQSystemSoundPlayer jsq_playMessageSentSound];
 			[self loadMessages];
 		}
-		else [ProgressHUD showError:@"Network error."];;
+		else [ProgressHUD showError:@"Network error."];
 	}];
     if (!self.homepointChat) {
         if (self.currentRequest) {

@@ -76,4 +76,14 @@ PFUser *currentUser;
     }
 }
 
+-(void) fetchUserObjectFromMentor:(PFObject *)mentor {
+    if ([[Utility getInstance] checkReachabilityAndDisplayErrorMessage]) {
+        [[mentor objectForKey:@"User"] fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
+            if ([self.fetchUserFromMentorDelegate respondsToSelector:@selector(didFetchUserFromMentorWithObject:)]) {
+                [self.fetchUserFromMentorDelegate didFetchUserFromMentorWithObject:object];
+            }
+        }];
+    }
+}
+
 @end

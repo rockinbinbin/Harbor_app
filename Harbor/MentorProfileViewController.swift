@@ -46,5 +46,6 @@ class MentorProfileViewController: UIViewController {
     
     func startChatPressed() {
         // navigate to chat view
+        self.navigationController?.pushViewController(HomepointChat(), animated: true)
     }
 }
