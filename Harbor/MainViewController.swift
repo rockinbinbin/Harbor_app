@@ -93,7 +93,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.navigationItem.titleView = imageView
         
         self.navigationController?.navigationBar.barTintColor = teal
-        self.navigationController?.navigationItem.leftBarButtonItem = nil
+        self.navigationItem.hidesBackButton = true
     }
 
     // MARK: - Tableview Datasource
