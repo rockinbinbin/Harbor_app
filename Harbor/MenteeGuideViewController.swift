@@ -99,11 +99,18 @@ class MenteeGuideViewController: UIViewController {
         linkButton.centerHorizontallyInSuperview()
     }
     
+    override internal func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.navigationController?.navigationBarHidden = true
+        
+    }
+    
     func continuePressed() {
         self.navigationController?.pushViewController(MainViewController(), animated: true)
     }
     
     func linkPressed() {
-        //self.navigationController?.pushViewController(WebViewController(), animated: true)
+        self.navigationController?.pushViewController(WebViewController(), animated: true)
     }
 }
