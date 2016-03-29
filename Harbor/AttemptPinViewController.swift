@@ -400,6 +400,11 @@ class AttemptPinViewController: UIViewController, ParseManagerFetchUserPinDelega
                             // is Mentor
                             self.navigationController?.pushViewController(MessagesViewController(), animated: true)
                         }
+                        else {
+                            // is Mentee
+                            // TODO: if messages exist, direct push to MessagesViewController.
+                            self.navigationController?.pushViewController(MainViewController(), animated: true)
+                        }
                     }
                     else {
                         // is Mentee
@@ -424,6 +429,11 @@ class AttemptPinViewController: UIViewController, ParseManagerFetchUserPinDelega
                         if (isMentor as! Bool == true) {
                             // is Mentor
                             self.navigationController?.pushViewController(MessagesViewController(), animated: true)
+                        }
+                        else {
+                            // is Mentee
+                            // TODO: if messages exist, direct push to MessagesViewController
+                            self.navigationController?.pushViewController(MainViewController(), animated: true)
                         }
                     }
                     else {

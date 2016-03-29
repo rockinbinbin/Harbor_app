@@ -309,6 +309,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                                     // is Mentor
                                     self.navigationController?.pushViewController(MessagesViewController(), animated: true)
                                 }
+                                else {
+                                    // is Mentee
+                                    // TODO: if messages exist, direct push to MessagesViewController.
+                                    self.navigationController?.pushViewController(MainViewController(), animated: true)
+                                }
                             }
                             else {
                                 // is Mentee
