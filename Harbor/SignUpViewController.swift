@@ -44,14 +44,16 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         emailTextField.translatesAutoresizingMaskIntoConstraints = false;
         emailTextField.delegate = self
         emailTextField.textColor = blueColor
+        emailTextField.font = emailTextField.font?.fontWithSize(16)
         
         let attributes = [
             NSForegroundColorAttributeName: blueColor
         ]
         
-        let attrString = NSMutableAttributedString(string: "USERNAME", attributes:attributes)
+        let attrString = NSMutableAttributedString(string: "Username", attributes:attributes)
         attrString.addAttribute(NSKernAttributeName, value: 1.5, range: NSMakeRange(0, attrString.length))
-        attrString.addAttribute(NSFontAttributeName, value: UIFont(name: "AppleSDGothicNeo-Regular", size: 14)!, range: NSMakeRange(0, attrString.length))
+//        attrString.addAttribute(NSFontAttributeName, value: UIFont(name: "AppleSDGothicNeo-Regular", size: 14)!, range: NSMakeRange(0, attrString.length))
+        
         emailTextField.attributedPlaceholder = attrString
         emailTextField.layer.cornerRadius = 0
         emailTextField.backgroundColor = UIColor.whiteColor()
@@ -70,14 +72,15 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         passwordTextField.delegate = self
         passwordTextField.textColor = blueColor
         passwordTextField.secureTextEntry = true
+        passwordTextField.font = passwordTextField.font?.fontWithSize(16)
         
         let attributes = [
             NSForegroundColorAttributeName: blueColor
         ]
         
-        let attrString = NSMutableAttributedString(string: "PASSWORD", attributes:attributes)
+        let attrString = NSMutableAttributedString(string: "Password", attributes:attributes)
         attrString.addAttribute(NSKernAttributeName, value: 1.5, range: NSMakeRange(0, attrString.length))
-        attrString.addAttribute(NSFontAttributeName, value: UIFont(name: "AppleSDGothicNeo-Regular", size: 14)!, range: NSMakeRange(0, attrString.length))
+//        attrString.addAttribute(NSFontAttributeName, value: UIFont(name: "AppleSDGothicNeo-Regular", size: 14)!, range: NSMakeRange(0, attrString.length))
         passwordTextField.attributedPlaceholder = attrString
         passwordTextField.layer.cornerRadius = 0
         passwordTextField.backgroundColor = UIColor.whiteColor()
@@ -94,12 +97,10 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     private lazy var signUpLabel: UILabel = {
         let signUpLabel = UILabel()
         signUpLabel.textColor = UIColor(red: 0.047, green: 0.569, blue: 0.773, alpha: 1.0)
+        signUpLabel.font = signUpLabel.font.fontWithSize(20)
         
-        let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.lineSpacing = 5
-        let attrString = NSMutableAttributedString(string: "SIGN UP")
-        attrString.addAttribute(NSParagraphStyleAttributeName, value:paragraphStyle, range:NSMakeRange(0, attrString.length))
-        attrString.addAttribute(NSFontAttributeName, value: UIFont(name: "AppleSDGothicNeo-Regular", size: 20)!, range: NSMakeRange(0, attrString.length))
+        let attrString = NSMutableAttributedString(string: "Sign Up")
+//        attrString.addAttribute(NSFontAttributeName, value: UIFont(name: "AppleSDGothicNeo-Regular", size: 20)!, range: NSMakeRange(0, attrString.length))
         attrString.addAttribute(NSKernAttributeName, value: 1.5, range: NSMakeRange(0, attrString.length))
         signUpLabel.attributedText = attrString
         signUpLabel.textAlignment = .Center
@@ -110,9 +111,10 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     
     private lazy var alreadyHaveAccountLabel: UILabel = {
         let alreadyHaveAccountLabel = UILabel()
+        alreadyHaveAccountLabel.font = alreadyHaveAccountLabel.font.fontWithSize(14)
         alreadyHaveAccountLabel.textColor = UIColor.whiteColor()
         let attrString = NSMutableAttributedString(string: "Already have an account?")
-        attrString.addAttribute(NSFontAttributeName, value: UIFont(name: "AppleSDGothicNeo-Regular", size: 14)!, range: NSMakeRange(0, attrString.length))
+//        attrString.addAttribute(NSFontAttributeName, value: UIFont(name: "AppleSDGothicNeo-Regular", size: 14)!, range: NSMakeRange(0, attrString.length))
         alreadyHaveAccountLabel.attributedText = attrString
         alreadyHaveAccountLabel.textAlignment = .Center
         return alreadyHaveAccountLabel
@@ -125,10 +127,10 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         loginButton.layer.borderWidth = 0
         loginButton.layer.borderColor = UIColor.whiteColor().CGColor
         loginButton.tintColor = UIColor.whiteColor()
+        loginButton.titleLabel?.font = loginButton.titleLabel?.font.fontWithSize(14)
         
-        let attrString = NSMutableAttributedString(string: "LOG IN")
-        attrString.addAttribute(NSFontAttributeName, value: UIFont(name: "AppleSDGothicNeo-Regular", size: 14)!, range: NSMakeRange(0, attrString.length))
-        attrString.addAttribute(NSKernAttributeName, value: 1.5, range: NSMakeRange(0, attrString.length))
+        let attrString = NSMutableAttributedString(string: "Log In")
+//        attrString.addAttribute(NSFontAttributeName, value: UIFont(name: "AppleSDGothicNeo-Regular", size: 14)!, range: NSMakeRange(0, attrString.length))
         loginButton.setAttributedTitle(attrString, forState: .Normal)
         loginButton.addTarget(self, action: Selector("loginPressed"), forControlEvents: .TouchUpInside)
         
@@ -142,22 +144,14 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         letsGo.layer.borderWidth = 0
         letsGo.layer.borderColor = UIColor.whiteColor().CGColor
         letsGo.tintColor = blueColor
-        
-        let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.lineSpacing = 5
+        letsGo.titleLabel?.font = letsGo.titleLabel?.font.fontWithSize(20)
         
         let attrString = NSMutableAttributedString(string: "SIGN UP")
-        attrString.addAttribute(NSParagraphStyleAttributeName, value:paragraphStyle, range:NSMakeRange(0, attrString.length))
         attrString.addAttribute(NSKernAttributeName, value: 1.5, range: NSMakeRange(0, attrString.length))
-        attrString.addAttribute(NSFontAttributeName, value: UIFont(name: "AppleSDGothicNeo-Regular", size: 20)!, range: NSMakeRange(0, attrString.length))
+//        attrString.addAttribute(NSFontAttributeName, value: UIFont(name: "AppleSDGothicNeo-Regular", size: 20)!, range: NSMakeRange(0, attrString.length))
         letsGo.setAttributedTitle(attrString, forState: .Normal)
-        
-//        letsGo.titleLabel?.font = UIFont(name: "Lato–Regular", size: 20)
-        
         self.view.addSubview(letsGo)
-        
         letsGo.addTarget(self, action: Selector("letsGoPressed"), forControlEvents: .TouchUpInside)
-        
         return letsGo
     }()
     
@@ -187,7 +181,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         alreadyHaveAccountLabel.centerHorizontallyToItem(passwordTextField, offset: (-self.view.frame.size.width * 0.065))
         
         loginButton.positionToTheRightOfItem(alreadyHaveAccountLabel, offset: 5)
-        loginButton.positionBelowItem(passwordTextField, offset: 10)
+        loginButton.positionBelowItem(passwordTextField, offset: 15)
         
         letsGo.positionBelowItem(alreadyHaveAccountLabel, offset: 20)
         letsGo.centerHorizontallyInSuperview()

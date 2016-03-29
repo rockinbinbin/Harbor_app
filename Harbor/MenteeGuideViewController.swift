@@ -12,9 +12,11 @@ class MenteeGuideViewController: UIViewController {
     
     private lazy var welcomeLabel: UILabel = {
         let alreadyHaveAccountLabel = UILabel()
+        alreadyHaveAccountLabel.numberOfLines = 0
         alreadyHaveAccountLabel.textColor = UIColor.blackColor()
-        let attrString = NSMutableAttributedString(string: "Welcome to Harbor!")
-        attrString.addAttribute(NSFontAttributeName, value: UIFont(name: "AppleSDGothicNeo-Regular", size: 18)!, range: NSMakeRange(0, attrString.length))
+        alreadyHaveAccountLabel.font = alreadyHaveAccountLabel.font.fontWithSize(18)
+        let attrString = NSMutableAttributedString(string: "Harbor is a community designed to answer your questions about sexual health 💛")
+//        attrString.addAttribute(NSFontAttributeName, value: UIFont(name: "AppleSDGothicNeo-Regular", size: 18)!, range: NSMakeRange(0, attrString.length))
         alreadyHaveAccountLabel.attributedText = attrString
         alreadyHaveAccountLabel.textAlignment = .Center
         self.view.addSubview(alreadyHaveAccountLabel)

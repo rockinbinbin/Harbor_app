@@ -19,10 +19,11 @@ class MentorProfileViewController: UIViewController {
         startChatGo.layer.borderWidth = 0
         startChatGo.layer.borderColor = UIColor.whiteColor().CGColor
         startChatGo.tintColor = blueColor
+        startChatGo.titleLabel?.font = startChatGo.titleLabel?.font.fontWithSize(20)
         
         let attrString = NSMutableAttributedString(string: "START CHAT")
         attrString.addAttribute(NSKernAttributeName, value: 1.5, range: NSMakeRange(0, attrString.length))
-        attrString.addAttribute(NSFontAttributeName, value: UIFont(name: "AppleSDGothicNeo-Regular", size: 20)!, range: NSMakeRange(0, attrString.length))
+//        attrString.addAttribute(NSFontAttributeName, value: UIFont(name: "AppleSDGothicNeo-Regular", size: 20)!, range: NSMakeRange(0, attrString.length))
         startChatGo.setAttributedTitle(attrString, forState: .Normal)
         self.view.addSubview(startChatGo)
         startChatGo.addTarget(self, action: Selector("startChatPressed"), forControlEvents: .TouchUpInside)
