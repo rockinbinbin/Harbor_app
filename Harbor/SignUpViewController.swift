@@ -294,6 +294,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     }
     
     func letsGoPressed() {
+        letsGo.enabled = false
         let password = self.passwordTextField.text
         let email = emailTextField.text
         let finalEmail = email!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
@@ -305,8 +306,10 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
             
             newUser.username = finalEmail
             newUser.password = password
+        newUser["isMentor"] = false
 
             newUser.signUpInBackgroundWithBlock({ (succeed, error) -> Void in
+                self.letsGo.enabled = true
                 spinner.stopAnimating()
                 if ((error) != nil) {
                     let alert = UIAlertView(title: "Sorry about that!", message: "We're having trouble signing you up.", delegate: self, cancelButtonTitle: "OK")

@@ -304,9 +304,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
                         
                         if (user?.objectForKey("pin") != nil) {
-                            if (user?.objectForKey("isMentor") as! Bool == true) {
-                                // is Mentor
-                                self.navigationController?.pushViewController(MessagesViewController(), animated: true)
+                            if let isMentor = user?.objectForKey("isMentor") {
+                                if (isMentor as! Bool == true) {
+                                    // is Mentor
+                                    self.navigationController?.pushViewController(MessagesViewController(), animated: true)
+                                }
                             }
                             else {
                                 // is Mentee

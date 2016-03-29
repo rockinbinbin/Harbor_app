@@ -391,14 +391,18 @@ class CreatePinViewController: UIViewController {
                 user["pin"] = pinString
             }
             PFUser.currentUser()?.saveInBackground()
-            if (PFUser.currentUser()?.objectForKey("isMentor") as! Bool == true) {
-                // is Mentor
-                self.navigationController?.pushViewController(MessagesViewController(), animated: true)
-            }
-            else {
-                // is Mentee
-                // TODO: if messages exist, direct push to MessagesViewController.
-                self.navigationController?.pushViewController(MenteeGuideViewController(), animated: true)
+            if (PFUser.currentUser()?.objectForKey("pin") != nil) {
+                if let isMentor = PFUser.currentUser()?.objectForKey("isMentor") {
+                    if (isMentor as! Bool == true) {
+                        // is Mentor
+                        self.navigationController?.pushViewController(MessagesViewController(), animated: true)
+                    }
+                }
+                else {
+                    // is Mentee
+                    // TODO: if messages exist, direct push to MessagesViewController.
+                    self.navigationController?.pushViewController(MenteeGuideViewController(), animated: true)
+                }
             }
         }
     }

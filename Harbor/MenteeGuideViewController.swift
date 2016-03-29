@@ -21,6 +21,13 @@ class MenteeGuideViewController: UIViewController {
         return alreadyHaveAccountLabel
     }()
     
+    
+    private lazy var logoimageView: UIImageView = {
+        let logoimageView = UIImageView(image: UIImage(named: "seahorse-chat"))
+        self.view.addSubview(logoimageView)
+        return logoimageView
+    }()
+    
     override internal func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.whiteColor()
@@ -29,5 +36,7 @@ class MenteeGuideViewController: UIViewController {
         welcomeLabel.centerHorizontallyInSuperview()
         welcomeLabel.pinToTopEdgeOfSuperview(offset: 50)
         
+        logoimageView.positionBelowItem(welcomeLabel, offset: 20)
+        logoimageView.centerHorizontallyInSuperview()
     }
 }
