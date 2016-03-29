@@ -11,15 +11,18 @@
 
 @protocol ParseManagerFetchUserPinDelegate;
 @protocol ParseManagerFetchMentorsDelegate;
+@protocol ParsemanagerFetchMentorFromUserDelegate;
 
 @interface ParseManager1 : NSObject
 
 @property id<ParseManagerFetchUserPinDelegate> fetchUserdelegate;
 @property id<ParseManagerFetchMentorsDelegate> fetchMentorsdelegate;
+@property id<ParsemanagerFetchMentorFromUserDelegate> fetchMentorFromUserDelegate;
 
 + (ParseManager1*) getInstance;
 -(void) fetchUserPin;
 -(void) fetchMentors;
+-(void) fetchMentorObjectFromUser;
 
 @end
 
@@ -30,4 +33,8 @@
 
 @protocol ParseManagerFetchMentorsDelegate <NSObject>
 - (void) didFetchMentorsWithObjects:(NSArray *)objects;
+@end
+
+@protocol ParsemanagerFetchMentorFromUserDelegate <NSObject>
+- (void) didFetchMentorFromUserWithObject:(PFObject *)object;
 @end

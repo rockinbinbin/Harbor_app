@@ -60,4 +60,20 @@ PFUser *currentUser;
     }
 }
 
+
+// If a user is a mentor,
+-(void) fetchMentorObjectFromUser {
+    if ([[Utility getInstance] checkReachabilityAndDisplayErrorMessage]) {
+        if ([PFUser currentUser] != nil) {
+            if ([[PFUser currentUser] objectForKey:@"isMentor"] == YES) {
+                [[[PFUser currentUser] objectForKey:@"MentorPointer"] fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
+                    if ([self.fetchMentorFromUserDelegate respondsToSelector:@selector(didFetchMentorFromUserWithObject:)]) {
+                        [self.fetchMentorFromUserDelegate didFetchMentorFromUserWithObject:object];
+                    }
+                }];
+            }
+        }
+    }
+}
+
 @end

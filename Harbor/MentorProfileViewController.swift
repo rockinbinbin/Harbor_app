@@ -12,7 +12,6 @@ class MentorProfileViewController: UIViewController {
     
     var mentor : PFObject?
     
-    
     internal lazy var startChat: UIButton = {
         let startChatGo = UIButton(type: .RoundedRect)
         startChatGo.layer.cornerRadius = 0
@@ -34,6 +33,10 @@ class MentorProfileViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.whiteColor()
         startChat.centerInSuperview()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
     }
 
     override func didReceiveMemoryWarning() {
