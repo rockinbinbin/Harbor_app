@@ -8,10 +8,14 @@
 
 import UIKit
 
+// whether mentor or mentee, should show tableView of all ongoing conversations.
+
 class MessagesViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = UIColor.whiteColor()
+        setNavBar()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -21,6 +25,15 @@ class MessagesViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    }
+    
+    func setNavBar() {
+        self.navigationController?.navigationBar.translucent = false
+        let logo = UIImage(named: "navBarLogo")
+        let imageView = UIImageView(image:logo)
+        self.navigationItem.titleView = imageView
+        
+        self.navigationController?.navigationBar.barTintColor = teal
+        self.navigationItem.hidesBackButton = true
     }
 }

@@ -323,41 +323,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: - Login Handlers
     
-    func handleLoginFailed(error: NSError, sender: CustomLoginButton!) {
-        print("Login failed with error \(error)")
-        
-        UIView.animateWithDuration(0.25, animations: {
-            sender.indicator.alpha = 0.0
-        })
-        
-        UIView.animateWithDuration(0.25, delay: 0.25, options: UIViewAnimationOptions.CurveEaseIn, animations: {
-            sender.titleLabel?.alpha = 1.0
-            }, completion: nil)
-        
-        
-        let alertController = UIAlertController(
-            title: "Uh oh! Login failed.",
-            message: "In Facebook > Settings > Apps, make sure that “Apps, Websites, and Plugins” is enabled.",
-            preferredStyle: UIAlertControllerStyle.Alert
-        )
-        
-        let continueAction = UIAlertAction(title: "Continue", style: UIAlertActionStyle.Default, handler: nil)
-        alertController.addAction(continueAction)
-        
-        self.presentViewController(alertController, animated: true, completion: nil)
-    }
-    
-    func handleReturningUser(user: PFUser?, setupComplete: Bool) {
-        // User has entered the app and completed setup
-        
-        if (user?.valueForKey("pin") != nil) {
-            self.navigationController?.pushViewController(MainViewController(), animated: true)
-        }
-        else {
-            self.navigationController?.pushViewController(CreatePinViewController(), animated: true)
-        }
-    }
-    
     func loginPressed() {
         self.navigationController?.pushViewController(LoginViewController(), animated: true)
     }
