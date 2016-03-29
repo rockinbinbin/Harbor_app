@@ -45,12 +45,12 @@ class MenteeGuideViewController: UIViewController {
     
     internal lazy var letsGo: UIButton = {
         let letsGo = UIButton(type: .RoundedRect)
-        letsGo.layer.cornerRadius = 10
+        letsGo.layer.cornerRadius = 20
         letsGo.backgroundColor = darkerSeaGreen
         letsGo.layer.borderWidth = 0
         letsGo.layer.borderColor = UIColor.whiteColor().CGColor
         letsGo.tintColor = UIColor.whiteColor()
-        letsGo.titleLabel?.font = letsGo.titleLabel?.font.fontWithSize(20)
+        letsGo.titleLabel?.font = letsGo.titleLabel?.font.fontWithSize(18)
         
         let attrString = NSMutableAttributedString(string: "Continue to talk to a mentor →")
 
@@ -108,15 +108,15 @@ class MenteeGuideViewController: UIViewController {
         logoimageView.positionBelowItem(welcomeLabel, offset: 20)
         logoimageView.centerHorizontallyInSuperview()
         
-        letsGo.positionBelowItem(logoimageView, offset: 30)
+        letsGo.positionBelowItem(logoimageView, offset: 10)
         letsGo.centerHorizontallyInSuperview()
-        letsGo.sizeToWidth(self.view.frame.size.width - 70)
+        letsGo.sizeToWidth(self.view.frame.size.width - 60)
         letsGo.sizeToHeight(70)
         
         linkButton.pinToBottomEdgeOfSuperview(offset: 40)
         linkButton.centerHorizontallyInSuperview()
         
-        mentorLabel.positionAboveItem(linkButton, offset: 10)
+        mentorLabel.positionAboveItem(linkButton, offset: 5)
         mentorLabel.centerHorizontallyInSuperview()
         mentorLabel.sizeToWidth(self.view.frame.size.width - 50)
         
