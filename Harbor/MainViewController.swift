@@ -128,7 +128,7 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
                 let mentor = mentors[indexPath.row] as! PFObject
                 
                 cell?.titleLabel.text = mentor.objectForKey("Username") as? String
-                cell?.detail.text = mentor.objectForKey("shortDescription") as? String
+                cell?.detail.text = mentor.objectForKey("tags") as? String
                 
                 if let imgObj = mentor.objectForKey("picture") {
                     let file : PFFile = (imgObj as? PFFile)!

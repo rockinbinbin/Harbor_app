@@ -41,13 +41,14 @@ class MentorCollectionViewCell: UICollectionViewCell {
     
     func layoutViews() {
 
-        image.pinToTopEdgeOfSuperview(offset: 30)
+        image.pinToTopEdgeOfSuperview(offset: 20)
         image.centerHorizontallyInSuperview()
         image.sizeToWidth(100)
         image.sizeToHeight(100)
         image.layer.cornerRadius = 50
         image.layer.borderWidth = 2
         image.layer.borderColor = teal.CGColor
+        image.layer.masksToBounds = true
         
         titleLabel.positionBelowItem(image, offset: 15)
         titleLabel.centerHorizontallyInSuperview()
