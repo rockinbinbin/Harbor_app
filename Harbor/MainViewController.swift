@@ -16,6 +16,34 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     var mentors : NSArray?
     
+    private lazy var welcomeLabel: UILabel = {
+        let welcomeLabel = UILabel()
+        welcomeLabel.textColor = teal
+        
+        let attrString = NSMutableAttributedString(string: "Welcome to Harbor!")
+        attrString.addAttribute(NSFontAttributeName, value: UIFont(name: "AppleSDGothicNeo-Regular", size: 20)!, range: NSMakeRange(0, attrString.length))
+//        attrString.addAttribute(NSKernAttributeName, value: 1.5, range: NSMakeRange(0, attrString.length))
+        welcomeLabel.attributedText = attrString
+        welcomeLabel.textAlignment = .Center
+        
+        self.view.addSubview(welcomeLabel)
+        return welcomeLabel
+    }()
+    
+    private lazy var chooseMentorLabel: UILabel = {
+        let chooseMentorLabel = UILabel()
+        chooseMentorLabel.textColor = teal
+        
+        let attrString = NSMutableAttributedString(string: "Our mentors are here to help! Choose someone who can help answer your questions, and you'll be able to chat with them directly. 😊💃")
+        attrString.addAttribute(NSFontAttributeName, value: UIFont(name: "AppleSDGothicNeo-Regular", size: 15)!, range: NSMakeRange(0, attrString.length))
+        //        attrString.addAttribute(NSKernAttributeName, value: 1.5, range: NSMakeRange(0, attrString.length))
+        chooseMentorLabel.attributedText = attrString
+        chooseMentorLabel.textAlignment = .Center
+        
+        self.view.addSubview(chooseMentorLabel)
+        return chooseMentorLabel
+    }()
+    
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.delegate = self
@@ -33,10 +61,16 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.navigationController?.navigationBarHidden = false
         setNavBar()
         
-        tableView.pinToTopEdgeOfSuperview(offset: 20)
+        welcomeLabel.centerHorizontallyInSuperview()
+        welcomeLabel.pinToTopEdgeOfSuperview(offset: 30)
+        
+        chooseMentorLabel.centerHorizontallyInSuperview()
+        chooseMentorLabel.positionBelowItem(welcomeLabel, offset: 5)
+        
+        tableView.positionBelowItem(chooseMentorLabel, offset: 10)
         tableView.pinToLeftEdgeOfSuperview()
         tableView.pinToRightEdgeOfSuperview()
-        tableView.sizeToHeight(self.view.frame.size.height / 1.5)
+        tableView.sizeToHeight(self.view.frame.size.height / 3)
     }
 
     override func didReceiveMemoryWarning() {

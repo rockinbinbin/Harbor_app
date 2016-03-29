@@ -16,7 +16,7 @@ class MentorTableViewCell: UITableViewCell {
         titleLabel.textAlignment = .Left
         titleLabel.lineBreakMode = .ByWordWrapping
         titleLabel.numberOfLines = 0
-        titleLabel.font = UIFont(name: "AppleSDGothicNeo-Regular", size: 15)
+        titleLabel.font = UIFont(name: "AppleSDGothicNeo-Regular", size: 30)
         self.contentView.addSubview(titleLabel)
         return titleLabel
     }()
