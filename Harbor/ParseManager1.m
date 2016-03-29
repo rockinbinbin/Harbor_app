@@ -131,4 +131,8 @@ PFUser *currentUser;
     }
 }
 
+- (void)loadMessages {
+    
+}
+
 @end

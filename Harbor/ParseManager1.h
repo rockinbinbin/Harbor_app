@@ -14,6 +14,7 @@
 @protocol ParsemanagerFetchMentorFromUserDelegate;
 @protocol ParsemanagerFetchUserFromMentorDelegate;
 @protocol ParseManagerCreateMessageDelegate;
+@protocol ParseManagerLoadMessagesDelegate;
 
 @interface ParseManager1 : NSObject
 
@@ -22,6 +23,7 @@
 @property id<ParsemanagerFetchMentorFromUserDelegate> fetchMentorFromUserDelegate;
 @property id<ParsemanagerFetchUserFromMentorDelegate> fetchUserFromMentorDelegate;
 @property id<ParseManagerCreateMessageDelegate> createMessageDelegate;
+@property id<ParseManagerLoadMessagesDelegate> loadMessagesDelegate;
 
 + (ParseManager1*) getInstance;
 -(void) fetchUserPin;
@@ -29,6 +31,7 @@
 -(void) fetchMentorObjectFromUser;
 -(void) fetchUserObjectFromMentor:(PFObject *)mentor;
 - (void) createMessageItemForUser:(PFUser *)user andMentor:(PFUser *)mentor;
+- (void)loadMessages;
 
 @end
 
@@ -51,4 +54,8 @@
 
 @protocol ParseManagerCreateMessageDelegate <NSObject>
 - (void) didCreateMessageWithObjectID:(NSString *)objectID;
+@end
+
+@protocol ParseManagerLoadMessagesDelegate <NSObject>
+- (void) didloadMessagesWithObjects:(NSArray *)objects;
 @end
