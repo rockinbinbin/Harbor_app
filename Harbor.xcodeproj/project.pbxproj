@@ -29,6 +29,7 @@
 		007B06E51CA876990061D4AA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 007B06E31CA876990061D4AA /* LaunchScreen.storyboard */; };
 		007B06F01CA876990061D4AA /* HarborTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007B06EF1CA876990061D4AA /* HarborTests.swift */; };
 		007B06FB1CA876990061D4AA /* HarborUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007B06FA1CA876990061D4AA /* HarborUITests.swift */; };
+		009DF7D91CAA269D008C93DD /* MentorProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009DF7D81CAA269D008C93DD /* MentorProfileViewController.swift */; };
 		17B8007EE36631828794EB93 /* libPods-Harbor.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 24380F2798278CF919F3022E /* libPods-Harbor.a */; };
 /* End PBXBuildFile section */
 
@@ -85,6 +86,7 @@
 		007B06F61CA876990061D4AA /* HarborUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HarborUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		007B06FA1CA876990061D4AA /* HarborUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HarborUITests.swift; sourceTree = "<group>"; };
 		007B06FC1CA876990061D4AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		009DF7D81CAA269D008C93DD /* MentorProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MentorProfileViewController.swift; sourceTree = "<group>"; };
 		24380F2798278CF919F3022E /* libPods-Harbor.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Harbor.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBF51D6464868EEB55B1828E /* Pods-Harbor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Harbor.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Harbor/Pods-Harbor.debug.xcconfig"; sourceTree = "<group>"; };
 		D0DBF35E2A346B218944A383 /* Pods-Harbor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Harbor.release.xcconfig"; path = "Pods/Target Support Files/Pods-Harbor/Pods-Harbor.release.xcconfig"; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 			children = (
 				002DFE591CA9EF95000F186C /* MentorCollectionViewCell.swift */,
 				002DFE571CA9C74E000F186C /* MainViewController.swift */,
+				009DF7D81CAA269D008C93DD /* MentorProfileViewController.swift */,
 				007B06D91CA876990061D4AA /* SignUpViewController.swift */,
 				002DFE4F1CA8E7EC000F186C /* LoginViewController.swift */,
 				002DFE511CA99BB7000F186C /* MenteeGuideViewController.swift */,
@@ -388,6 +391,7 @@
 				002DFE4D1CA8790D000F186C /* Autolayout.swift in Sources */,
 				002DFE561CA9BCED000F186C /* AttemptPinViewController.swift in Sources */,
 				002DFE441CA8789B000F186C /* Utility.m in Sources */,
+				009DF7D91CAA269D008C93DD /* MentorProfileViewController.swift in Sources */,
 				007B06DA1CA876990061D4AA /* SignUpViewController.swift in Sources */,
 				002DFE581CA9C74E000F186C /* MainViewController.swift in Sources */,
 				002DFE481CA8789B000F186C /* pushnotification.m in Sources */,

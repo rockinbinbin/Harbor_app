@@ -19,9 +19,10 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
     private lazy var welcomeLabel: UILabel = {
         let welcomeLabel = UILabel()
         welcomeLabel.textColor = UIColor.darkGrayColor()
+        welcomeLabel.font = welcomeLabel.font.fontWithSize(24)
         
         let attrString = NSMutableAttributedString(string: "Looking for Mentors?")
-        attrString.addAttribute(NSFontAttributeName, value: UIFont(name: "HelveticaNeue-Light", size: 24)!, range: NSMakeRange(0, attrString.length))
+        //attrString.addAttribute(NSFontAttributeName, value: UIFont(name: "HelveticaNeue-Light", size: 24)!, range: NSMakeRange(0, attrString.length))
 //        attrString.addAttribute(NSKernAttributeName, value: 1.5, range: NSMakeRange(0, attrString.length))
         welcomeLabel.attributedText = attrString
         welcomeLabel.textAlignment = .Center
@@ -34,9 +35,10 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         let chooseMentorLabel = UILabel()
         chooseMentorLabel.textColor = UIColor.darkGrayColor()
         chooseMentorLabel.numberOfLines = 0
+        chooseMentorLabel.font = chooseMentorLabel.font.fontWithSize(15)
         
         let attrString = NSMutableAttributedString(string: "Our mentors are here to help! Choose someone to get started. 😊💃")
-        attrString.addAttribute(NSFontAttributeName, value: UIFont(name: "HelveticaNeue-Light", size: 15)!, range: NSMakeRange(0, attrString.length))
+        //attrString.addAttribute(NSFontAttributeName, value: UIFont(name: "HelveticaNeue-Light", size: 15)!, range: NSMakeRange(0, attrString.length))
         //        attrString.addAttribute(NSKernAttributeName, value: 1.5, range: NSMakeRange(0, attrString.length))
         chooseMentorLabel.attributedText = attrString
         chooseMentorLabel.textAlignment = .Center

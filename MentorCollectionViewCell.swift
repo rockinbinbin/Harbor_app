@@ -16,7 +16,8 @@ class MentorCollectionViewCell: UICollectionViewCell {
         titleLabel.textAlignment = .Center
         titleLabel.lineBreakMode = .ByWordWrapping
         titleLabel.numberOfLines = 0
-        titleLabel.font = UIFont(name: "HelveticaNeue-Light", size: 26)
+        //titleLabel.font = UIFont(name: "HelveticaNeue-Light", size: 26)
+        titleLabel.font = titleLabel.font.fontWithSize(26)
         self.contentView.addSubview(titleLabel)
         return titleLabel
     }()
@@ -27,7 +28,8 @@ class MentorCollectionViewCell: UICollectionViewCell {
         detail.textAlignment = .Center
         detail.lineBreakMode = .ByWordWrapping
         detail.numberOfLines = 0
-        detail.font = UIFont(name: "HelveticaNeue-Light", size: 14)
+        //detail.font = UIFont(name: "HelveticaNeue-Light", size: 14)
+        detail.font = detail.font.fontWithSize(14)
         self.contentView.addSubview(detail)
         return detail
     }()
@@ -50,10 +52,10 @@ class MentorCollectionViewCell: UICollectionViewCell {
         image.layer.borderColor = teal.CGColor
         image.layer.masksToBounds = true
         
-        titleLabel.positionBelowItem(image, offset: 15)
+        titleLabel.positionBelowItem(image, offset: 10)
         titleLabel.centerHorizontallyInSuperview()
         
-        detail.positionBelowItem(titleLabel, offset: 20)
+        detail.positionBelowItem(titleLabel, offset: 15)
         detail.centerHorizontallyInSuperview()
         detail.sizeToWidth(self.contentView.frame.size.width - 10)
     }
