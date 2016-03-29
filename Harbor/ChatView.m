@@ -66,7 +66,7 @@
 	bubbleImageOutgoing = [bubbleFactory outgoingMessagesBubbleImageWithColor:[UIColor jsq_messageBubbleLightGrayColor]];
 	bubbleImageIncoming = [bubbleFactory incomingMessagesBubbleImageWithColor:[UIColor blueColor]]; // TODO: CHANGE COLOR
 
-	avatarImageBlank = [JSQMessagesAvatarImageFactory avatarImageWithImage:[UIImage imageNamed:@"chat_blank"] diameter:30.0];
+	avatarImageBlank = [JSQMessagesAvatarImageFactory avatarImageWithImage:[UIImage imageNamed:@"pin-filled"] diameter:30.0];
 
 	isLoading = NO;
 	[self loadMessages];
@@ -326,7 +326,7 @@
 	PFUser *user = users[indexPath.item];
 	if (avatars[user.objectId] == nil)
 	{
-		PFFile *fileThumbnail = user[PF_USER_THUMBNAIL];
+		PFFile *fileThumbnail = user[@"thumbnail"];
         
 		[fileThumbnail getDataInBackgroundWithBlock:^(NSData *imageData, NSError *error) {
 			if (error == nil) {

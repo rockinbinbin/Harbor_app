@@ -101,7 +101,7 @@ PFUser *currentUser;
              {
                  if ([objects count] == 0)
                  {
-                     PFObject *message = [PFObject objectWithClassName:PF_MESSAGES_CLASS_NAME];
+                     PFObject *message = [PFObject objectWithClassName:@"Messages"];
                      message[@"user"] = user;
                      message[@"mentor"] = mentor;
                      message[@"lastUser"] = [PFUser currentUser];
@@ -117,6 +117,13 @@ PFUser *currentUser;
                               }
                           }
                       }];
+                 }
+                 else {
+                     if ([self.createMessageDelegate respondsToSelector:@selector(didCreateMessageWithObjectID:)]) {
+                         PFObject *firstObj = objects[0];
+                         NSString *firstObjID = firstObj.objectId;
+                         [self.createMessageDelegate didCreateMessageWithObjectID:firstObjID];
+                     }
                  }
              }
              else NSLog(@"CreateMessageItem query error.");
