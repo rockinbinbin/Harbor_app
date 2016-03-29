@@ -8,12 +8,14 @@
 
 import UIKit
 
+let darkerSeaGreen = UIColor(red:0.0, green:0.69, blue:0.62, alpha:1.0)
+
 class MenteeGuideViewController: UIViewController {
     
     private lazy var welcomeLabel: UILabel = {
         let alreadyHaveAccountLabel = UILabel()
         alreadyHaveAccountLabel.numberOfLines = 0
-        alreadyHaveAccountLabel.textColor = UIColor.blackColor()
+        alreadyHaveAccountLabel.textColor = UIColor.whiteColor()
         alreadyHaveAccountLabel.font = alreadyHaveAccountLabel.font.fontWithSize(18)
         let attrString = NSMutableAttributedString(string: "Harbor is a community designed to answer your questions about sexual health 💛")
 //        attrString.addAttribute(NSFontAttributeName, value: UIFont(name: "AppleSDGothicNeo-Regular", size: 18)!, range: NSMakeRange(0, attrString.length))
@@ -23,17 +25,35 @@ class MenteeGuideViewController: UIViewController {
         return alreadyHaveAccountLabel
     }()
     
+    private lazy var newView: UIView = {
+        let newview = UIView()
+        let gradientLayer = CAGradientLayer()
+        
+        let color1 = blueColor.CGColor as CGColorRef
+        let color2 = seaGreenColor.CGColor as CGColorRef
+        gradientLayer.colors = [color2, color1]
+        gradientLayer.locations = [0.0, 0.5, 0.65, 0.75, 1.0]
+        gradientLayer.type = kCAGradientLayerAxial
+        gradientLayer.startPoint = CGPointMake(0, 0)
+        gradientLayer.endPoint = CGPointMake(1.0, 1)
+        gradientLayer.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.height)
+        self.view.layer.addSublayer(gradientLayer)
+        
+        self.view.addSubview(newview)
+        return newview
+    }()
+    
     internal lazy var letsGo: UIButton = {
         let letsGo = UIButton(type: .RoundedRect)
-        letsGo.layer.cornerRadius = 0
-        letsGo.backgroundColor = UIColor.whiteColor()
+        letsGo.layer.cornerRadius = 10
+        letsGo.backgroundColor = darkerSeaGreen
         letsGo.layer.borderWidth = 0
         letsGo.layer.borderColor = UIColor.whiteColor().CGColor
-        letsGo.tintColor = blueColor
+        letsGo.tintColor = UIColor.whiteColor()
         letsGo.titleLabel?.font = letsGo.titleLabel?.font.fontWithSize(20)
         
         let attrString = NSMutableAttributedString(string: "Continue to talk to a mentor →")
-        //        attrString.addAttribute(NSFontAttributeName, value: UIFont(name: "AppleSDGothicNeo-Regular", size: 20)!, range: NSMakeRange(0, attrString.length))
+
         letsGo.setAttributedTitle(attrString, forState: .Normal)
         self.view.addSubview(letsGo)
         letsGo.addTarget(self, action: Selector("continuePressed"), forControlEvents: .TouchUpInside)
@@ -43,10 +63,10 @@ class MenteeGuideViewController: UIViewController {
     private lazy var mentorLabel: UILabel = {
         let mentorLabel = UILabel()
         mentorLabel.numberOfLines = 0
-        mentorLabel.textColor = UIColor.blackColor()
+        mentorLabel.textColor = UIColor.whiteColor()
         mentorLabel.font = mentorLabel.font.fontWithSize(18)
-        let attrString = NSMutableAttributedString(string: "Interested in giving advice instead? Apply here!")
-        //        attrString.addAttribute(NSFontAttributeName, value: UIFont(name: "AppleSDGothicNeo-Regular", size: 18)!, range: NSMakeRange(0, attrString.length))
+        let attrString = NSMutableAttributedString(string: "Interested in giving advice instead?")
+
         mentorLabel.attributedText = attrString
         mentorLabel.textAlignment = .Center
         self.view.addSubview(mentorLabel)
@@ -56,14 +76,13 @@ class MenteeGuideViewController: UIViewController {
     internal lazy var linkButton: UIButton = {
         let letsGo = UIButton(type: .RoundedRect)
         letsGo.layer.cornerRadius = 0
-        letsGo.backgroundColor = UIColor.whiteColor()
+        letsGo.backgroundColor = UIColor.clearColor()
         letsGo.layer.borderWidth = 0
         letsGo.layer.borderColor = UIColor.whiteColor().CGColor
-        letsGo.tintColor = UIColor.blueColor()
-        letsGo.titleLabel?.font = letsGo.titleLabel?.font.fontWithSize(20)
+        letsGo.tintColor = UIColor.whiteColor()
+        letsGo.titleLabel?.font = letsGo.titleLabel?.font.fontWithSize(18)
         
-        let attrString = NSMutableAttributedString(string: "google.com")
-        //        attrString.addAttribute(NSFontAttributeName, value: UIFont(name: "AppleSDGothicNeo-Regular", size: 20)!, range: NSMakeRange(0, attrString.length))
+        let attrString = NSMutableAttributedString(string: "Apply Here")
         letsGo.setAttributedTitle(attrString, forState: .Normal)
         self.view.addSubview(letsGo)
         letsGo.addTarget(self, action: Selector("linkPressed"), forControlEvents: .TouchUpInside)
@@ -71,7 +90,7 @@ class MenteeGuideViewController: UIViewController {
     }()
     
     private lazy var logoimageView: UIImageView = {
-        let logoimageView = UIImageView(image: UIImage(named: "seahorse-chat"))
+        let logoimageView = UIImageView(image: UIImage(named: "chat-img"))
         self.view.addSubview(logoimageView)
         return logoimageView
     }()
@@ -79,6 +98,7 @@ class MenteeGuideViewController: UIViewController {
     override internal func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.whiteColor()
+        newView.pinToEdgesOfSuperview()
         
         self.navigationController?.navigationBarHidden = true
         welcomeLabel.centerHorizontallyInSuperview()
@@ -90,13 +110,16 @@ class MenteeGuideViewController: UIViewController {
         
         letsGo.positionBelowItem(logoimageView, offset: 30)
         letsGo.centerHorizontallyInSuperview()
+        letsGo.sizeToWidth(self.view.frame.size.width - 70)
+        letsGo.sizeToHeight(70)
         
-        mentorLabel.positionBelowItem(letsGo, offset: 20)
+        linkButton.pinToBottomEdgeOfSuperview(offset: 40)
+        linkButton.centerHorizontallyInSuperview()
+        
+        mentorLabel.positionAboveItem(linkButton, offset: 10)
         mentorLabel.centerHorizontallyInSuperview()
         mentorLabel.sizeToWidth(self.view.frame.size.width - 50)
         
-        linkButton.positionBelowItem(mentorLabel, offset: 20)
-        linkButton.centerHorizontallyInSuperview()
     }
     
     override internal func viewWillAppear(animated: Bool) {
