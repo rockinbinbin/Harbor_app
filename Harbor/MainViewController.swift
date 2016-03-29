@@ -18,7 +18,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     private lazy var welcomeLabel: UILabel = {
         let welcomeLabel = UILabel()
-        welcomeLabel.textColor = teal
+        welcomeLabel.textColor = UIColor.darkGrayColor()
         
         let attrString = NSMutableAttributedString(string: "Welcome to Harbor!")
         attrString.addAttribute(NSFontAttributeName, value: UIFont(name: "AppleSDGothicNeo-Regular", size: 20)!, range: NSMakeRange(0, attrString.length))
@@ -32,7 +32,8 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     private lazy var chooseMentorLabel: UILabel = {
         let chooseMentorLabel = UILabel()
-        chooseMentorLabel.textColor = teal
+        chooseMentorLabel.textColor = UIColor.darkGrayColor()
+        chooseMentorLabel.numberOfLines = 0
         
         let attrString = NSMutableAttributedString(string: "Our mentors are here to help! Choose someone who can help answer your questions, and you'll be able to chat with them directly. 😊💃")
         attrString.addAttribute(NSFontAttributeName, value: UIFont(name: "AppleSDGothicNeo-Regular", size: 15)!, range: NSMakeRange(0, attrString.length))
@@ -66,6 +67,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         chooseMentorLabel.centerHorizontallyInSuperview()
         chooseMentorLabel.positionBelowItem(welcomeLabel, offset: 5)
+        chooseMentorLabel.sizeToWidth(self.view.frame.size.width - 50)
         
         tableView.positionBelowItem(chooseMentorLabel, offset: 10)
         tableView.pinToLeftEdgeOfSuperview()
@@ -91,6 +93,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.navigationItem.titleView = imageView
         
         self.navigationController?.navigationBar.barTintColor = teal
+        self.navigationController?.navigationItem.leftBarButtonItem = nil
     }
 
     // MARK: - Tableview Datasource
