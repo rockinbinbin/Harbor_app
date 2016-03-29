@@ -45,4 +45,19 @@ PFUser *currentUser;
     }
 }
 
+-(void) fetchMentors {
+    if ([[Utility getInstance] checkReachabilityAndDisplayErrorMessage]) {
+        
+        PFQuery *query = [PFQuery queryWithClassName:@"Mentor"];
+        [query orderByDescending:@"createdAt"];
+        query.limit = 1000;
+        
+        [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+            if ([self.fetchMentorsdelegate respondsToSelector:@selector(didFetchMentorsWithObjects:)]) {
+                [self.fetchMentorsdelegate didFetchMentorsWithObjects:objects];
+            }
+        }];
+    }
+}
+
 @end

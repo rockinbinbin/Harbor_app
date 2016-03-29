@@ -120,8 +120,8 @@
 			isa = PBXGroup;
 			children = (
 				002DFE591CA9EF95000F186C /* MentorTableViewCell.swift */,
-				007B06D91CA876990061D4AA /* SignUpViewController.swift */,
 				002DFE571CA9C74E000F186C /* MainViewController.swift */,
+				007B06D91CA876990061D4AA /* SignUpViewController.swift */,
 				002DFE4F1CA8E7EC000F186C /* LoginViewController.swift */,
 				002DFE511CA99BB7000F186C /* MenteeGuideViewController.swift */,
 				002DFE531CA99D72000F186C /* CreatePinViewController.swift */,

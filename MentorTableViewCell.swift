@@ -13,7 +13,7 @@ class MentorTableViewCell: UITableViewCell {
     internal lazy var titleLabel: UILabel = {
         let titleLabel = UILabel()
         titleLabel.textColor = UIColor.blackColor()
-        titleLabel.textAlignment = .Center
+        titleLabel.textAlignment = .Left
         titleLabel.lineBreakMode = .ByWordWrapping
         titleLabel.numberOfLines = 0
         titleLabel.font = UIFont(name: "AppleSDGothicNeo-Regular", size: 15)
@@ -24,7 +24,7 @@ class MentorTableViewCell: UITableViewCell {
     internal lazy var detail: UILabel = {
         let detail = UILabel()
         detail.textColor = UIColor.grayColor()
-        detail.textAlignment = .Center
+        detail.textAlignment = .Left
         detail.lineBreakMode = .ByWordWrapping
         detail.numberOfLines = 0
         detail.font = UIFont(name: "AppleSDGothicNeo-Regular", size: 15)
