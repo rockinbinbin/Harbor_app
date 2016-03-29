@@ -20,8 +20,8 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         let welcomeLabel = UILabel()
         welcomeLabel.textColor = UIColor.darkGrayColor()
         
-        let attrString = NSMutableAttributedString(string: "Welcome to Harbor!")
-        attrString.addAttribute(NSFontAttributeName, value: UIFont(name: "AppleSDGothicNeo-Regular", size: 20)!, range: NSMakeRange(0, attrString.length))
+        let attrString = NSMutableAttributedString(string: "Looking for Mentors?")
+        attrString.addAttribute(NSFontAttributeName, value: UIFont(name: "HelveticaNeue-Light", size: 24)!, range: NSMakeRange(0, attrString.length))
 //        attrString.addAttribute(NSKernAttributeName, value: 1.5, range: NSMakeRange(0, attrString.length))
         welcomeLabel.attributedText = attrString
         welcomeLabel.textAlignment = .Center
@@ -35,8 +35,8 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         chooseMentorLabel.textColor = UIColor.darkGrayColor()
         chooseMentorLabel.numberOfLines = 0
         
-        let attrString = NSMutableAttributedString(string: "Our mentors are here to help! Choose someone who can help answer your questions, and you'll be able to chat with them directly. 😊💃")
-        attrString.addAttribute(NSFontAttributeName, value: UIFont(name: "AppleSDGothicNeo-Regular", size: 15)!, range: NSMakeRange(0, attrString.length))
+        let attrString = NSMutableAttributedString(string: "Our mentors are here to help! Choose someone to get started. 😊💃")
+        attrString.addAttribute(NSFontAttributeName, value: UIFont(name: "HelveticaNeue-Light", size: 18)!, range: NSMakeRange(0, attrString.length))
         //        attrString.addAttribute(NSKernAttributeName, value: 1.5, range: NSMakeRange(0, attrString.length))
         chooseMentorLabel.attributedText = attrString
         chooseMentorLabel.textAlignment = .Center

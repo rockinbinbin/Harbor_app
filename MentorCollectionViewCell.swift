@@ -13,10 +13,10 @@ class MentorCollectionViewCell: UICollectionViewCell {
     internal lazy var titleLabel: UILabel = {
         let titleLabel = UILabel()
         titleLabel.textColor = UIColor.blackColor()
-        titleLabel.textAlignment = .Left
+        titleLabel.textAlignment = .Center
         titleLabel.lineBreakMode = .ByWordWrapping
         titleLabel.numberOfLines = 0
-        titleLabel.font = UIFont(name: "AppleSDGothicNeo-Regular", size: 30)
+        titleLabel.font = UIFont(name: "HelveticaNeue-Light", size: 26)
         self.contentView.addSubview(titleLabel)
         return titleLabel
     }()
@@ -24,10 +24,10 @@ class MentorCollectionViewCell: UICollectionViewCell {
     internal lazy var detail: UILabel = {
         let detail = UILabel()
         detail.textColor = UIColor.grayColor()
-        detail.textAlignment = .Left
+        detail.textAlignment = .Center
         detail.lineBreakMode = .ByWordWrapping
         detail.numberOfLines = 0
-        detail.font = UIFont(name: "AppleSDGothicNeo-Regular", size: 15)
+        detail.font = UIFont(name: "HelveticaNeue-Light", size: 14)
         self.contentView.addSubview(detail)
         return detail
     }()
@@ -54,8 +54,8 @@ class MentorCollectionViewCell: UICollectionViewCell {
         titleLabel.centerHorizontallyInSuperview()
         
         detail.positionBelowItem(titleLabel, offset: 20)
-        detail.pinToLeftEdgeOfSuperview(offset: 20)
-        detail.sizeToWidth(self.contentView.frame.size.width - 50)
+        detail.centerHorizontallyInSuperview()
+        detail.sizeToWidth(self.contentView.frame.size.width - 10)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -70,7 +70,7 @@ class MentorCollectionViewCell: UICollectionViewCell {
         newView.backgroundColor = UIColor.clearColor()
         newView.layer.borderColor = teal.CGColor
         newView.layer.borderWidth = 3
-        newView.layer.cornerRadius = 3
+        newView.layer.cornerRadius = 7
         self.contentView.addSubview(newView)
         newView.sizeToWidth(self.contentView.frame.size.width)
         newView.sizeToHeight(self.contentView.frame.size.height)
