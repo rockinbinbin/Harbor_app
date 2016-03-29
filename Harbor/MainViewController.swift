@@ -147,36 +147,6 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         return cell!
     }
-
-//    // MARK: - Tableview Datasource
-
-//    
-//    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-//        let cellId = "mentorCell"
-//        var cell: MentorTableViewCell? = tableView.dequeueReusableCellWithIdentifier(cellId) as? MentorTableViewCell
-//        
-//        //cell?.layoutSubviews()
-//        
-//        if cell == nil {
-//            cell = MentorTableViewCell()
-//            cell?.selectionStyle = .None
-//        }
-//        
-//        if let mentors = mentors {
-//        if (indexPath.row < mentors.count) {
-//            
-//            let mentor = mentors[indexPath.row] as! PFObject
-//            
-//            cell?.titleLabel.text = mentor.objectForKey("Username") as? String
-//            cell?.detail.text = mentor.objectForKey("shortDescription") as? String
-//        }
-//        }
-//        return cell!
-//    }
-//    
-//    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-//
-//    }
     
     func didFetchMentorsWithObjects(objects: [AnyObject]!) {
         mentors = NSArray()
