@@ -7,3 +7,4 @@
 #import "pushnotification.h"
 #import <QBImagePickerController/QBImagePickerController.h>
 #import "ParseManager1.h"
+#import "HomepointChat.h"

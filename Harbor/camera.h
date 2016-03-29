@@ -9,15 +9,9 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import <Parse/Parse.h>
+#import <UIKit/UIKit.h>
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------
-void		ParsePushUserAssign		(void);
-void		ParsePushUserResign		(void);
-
-//-------------------------------------------------------------------------------------------------------------------------------------------------
-//void		SendPushNotification	(NSString *groupId, NSString *text, PFObject *currentRequest);
-//void        SendHomepointPush       (PFObject *homepoint, NSString *text, NSString *groupId);
-//void SendPendingUserPush(PFObject *homepoint);
-//void SendMemberApprovedPush(PFObject *homepoint, PFUser *approvedUser);
-//void SendAddedMemberPush(NSString *homepoint, PFUser *addedUser);
+BOOL	ShouldStartCamera			(id target, BOOL canEdit);
+BOOL	ShouldStartPhotoLibrary		(id target, BOOL canEdit);
+BOOL	ShouldStartVideoLibrary		(id target, BOOL canEdit);
