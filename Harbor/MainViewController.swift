@@ -36,7 +36,7 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         chooseMentorLabel.numberOfLines = 0
         
         let attrString = NSMutableAttributedString(string: "Our mentors are here to help! Choose someone to get started. 😊💃")
-        attrString.addAttribute(NSFontAttributeName, value: UIFont(name: "HelveticaNeue-Light", size: 18)!, range: NSMakeRange(0, attrString.length))
+        attrString.addAttribute(NSFontAttributeName, value: UIFont(name: "HelveticaNeue-Light", size: 15)!, range: NSMakeRange(0, attrString.length))
         //        attrString.addAttribute(NSKernAttributeName, value: 1.5, range: NSMakeRange(0, attrString.length))
         chooseMentorLabel.attributedText = attrString
         chooseMentorLabel.textAlignment = .Center
@@ -72,13 +72,13 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         setNavBar()
         
         welcomeLabel.centerHorizontallyInSuperview()
-        welcomeLabel.pinToTopEdgeOfSuperview(offset: 30)
+        welcomeLabel.pinToTopEdgeOfSuperview(offset: 20)
         
         chooseMentorLabel.centerHorizontallyInSuperview()
-        chooseMentorLabel.positionBelowItem(welcomeLabel, offset: 5)
+        chooseMentorLabel.positionBelowItem(welcomeLabel, offset: 15)
         chooseMentorLabel.sizeToWidth(self.view.frame.size.width - 50)
         
-        collectionView.positionBelowItem(chooseMentorLabel, offset: 10)
+        collectionView.positionBelowItem(chooseMentorLabel, offset: 20)
         collectionView.pinToLeftEdgeOfSuperview()
         collectionView.pinToRightEdgeOfSuperview()
         collectionView.sizeToHeight(self.view.frame.size.height / 1.5)
