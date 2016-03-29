@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MentorTableViewCell: UITableViewCell {
+class MentorCollectionViewCell: UICollectionViewCell {
     
     internal lazy var titleLabel: UILabel = {
         let titleLabel = UILabel()
@@ -32,29 +32,34 @@ class MentorTableViewCell: UITableViewCell {
         return detail
     }()
     
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        layoutViews()
-    }
-    
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
-    
     func layoutViews() {
-        
         titleLabel.pinToLeftEdgeOfSuperview(offset: 20)
         titleLabel.pinToTopEdgeOfSuperview(offset: 20)
         
         detail.positionBelowItem(titleLabel, offset: 20)
         detail.pinToLeftEdgeOfSuperview(offset: 20)
         detail.sizeToWidth(self.contentView.frame.size.width - 50)
-        
-        
     }
     
-    required internal init?(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        // add border
+        let newView = UIView()
+        newView.backgroundColor = UIColor.clearColor()
+        newView.layer.borderColor = teal.CGColor
+        newView.layer.borderWidth = 3
+        newView.layer.cornerRadius = 3
+        self.contentView.addSubview(newView)
+        newView.sizeToWidth(self.contentView.frame.size.width)
+        newView.sizeToHeight(self.contentView.frame.size.height)
+        newView.centerInSuperview()
+        
+        layoutViews()
     }
 
 }
