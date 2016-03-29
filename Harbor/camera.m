@@ -71,6 +71,7 @@ BOOL ShouldStartPhotoLibrary(id target, BOOL canEdit)
     cameraUI.navigationBar.hidden = false;
     cameraUI.navigationBar.backgroundColor = teal; // TODO: CHANGE COLOR
     cameraUI.navigationBar.tintColor = [UIColor whiteColor];
+    cameraUI.navigationBar.translucent = false;
     
 	//---------------------------------------------------------------------------------------------------------------------------------------------
 	if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]
@@ -116,6 +117,7 @@ BOOL ShouldStartVideoLibrary(id target, BOOL canEdit)
     cameraUI.navigationBar.hidden = false;
     cameraUI.navigationBar.backgroundColor = teal; // TODO: CHANGE COLOR
     cameraUI.navigationBar.tintColor = [UIColor whiteColor];
+    cameraUI.navigationBar.translucent = false;
 
 	//---------------------------------------------------------------------------------------------------------------------------------------------
 	if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]
