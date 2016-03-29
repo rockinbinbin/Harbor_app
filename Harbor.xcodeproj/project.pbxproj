@@ -32,6 +32,9 @@
 		009DF7D91CAA269D008C93DD /* MentorProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009DF7D81CAA269D008C93DD /* MentorProfileViewController.swift */; };
 		009DF7DB1CAA334B008C93DD /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009DF7DA1CAA334B008C93DD /* MessagesViewController.swift */; };
 		00E00E1F1CAA607D00C35669 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E00E1E1CAA607D00C35669 /* WebViewController.swift */; };
+		00E00E231CAAFCAE00C35669 /* AFNetworking in Resources */ = {isa = PBXBuildFile; fileRef = 00E00E201CAAFCAE00C35669 /* AFNetworking */; };
+		00E00E241CAAFCAE00C35669 /* JSQMessagesViewController in Resources */ = {isa = PBXBuildFile; fileRef = 00E00E211CAAFCAE00C35669 /* JSQMessagesViewController */; };
+		00E00E251CAAFCAE00C35669 /* JSQSystemSoundPlayer in Resources */ = {isa = PBXBuildFile; fileRef = 00E00E221CAAFCAE00C35669 /* JSQSystemSoundPlayer */; };
 		17B8007EE36631828794EB93 /* libPods-Harbor.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 24380F2798278CF919F3022E /* libPods-Harbor.a */; };
 /* End PBXBuildFile section */
 
@@ -91,6 +94,9 @@
 		009DF7D81CAA269D008C93DD /* MentorProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MentorProfileViewController.swift; sourceTree = "<group>"; };
 		009DF7DA1CAA334B008C93DD /* MessagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
 		00E00E1E1CAA607D00C35669 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		00E00E201CAAFCAE00C35669 /* AFNetworking */ = {isa = PBXFileReference; lastKnownFileType = folder; path = AFNetworking; sourceTree = "<group>"; };
+		00E00E211CAAFCAE00C35669 /* JSQMessagesViewController */ = {isa = PBXFileReference; lastKnownFileType = folder; path = JSQMessagesViewController; sourceTree = "<group>"; };
+		00E00E221CAAFCAE00C35669 /* JSQSystemSoundPlayer */ = {isa = PBXFileReference; lastKnownFileType = folder; path = JSQSystemSoundPlayer; sourceTree = "<group>"; };
 		24380F2798278CF919F3022E /* libPods-Harbor.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Harbor.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBF51D6464868EEB55B1828E /* Pods-Harbor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Harbor.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Harbor/Pods-Harbor.debug.xcconfig"; sourceTree = "<group>"; };
 		D0DBF35E2A346B218944A383 /* Pods-Harbor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Harbor.release.xcconfig"; path = "Pods/Target Support Files/Pods-Harbor/Pods-Harbor.release.xcconfig"; sourceTree = "<group>"; };
@@ -125,6 +131,9 @@
 		002DFE4E1CA87B06000F186C /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				00E00E201CAAFCAE00C35669 /* AFNetworking */,
+				00E00E211CAAFCAE00C35669 /* JSQMessagesViewController */,
+				00E00E221CAAFCAE00C35669 /* JSQSystemSoundPlayer */,
 				002DFE591CA9EF95000F186C /* MentorCollectionViewCell.swift */,
 				002DFE571CA9C74E000F186C /* MainViewController.swift */,
 				009DF7DA1CAA334B008C93DD /* MessagesViewController.swift */,
@@ -333,8 +342,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				002DFE461CA8789B000F186C /* Terms.rtf in Resources */,
+				00E00E241CAAFCAE00C35669 /* JSQMessagesViewController in Resources */,
 				007B06E51CA876990061D4AA /* LaunchScreen.storyboard in Resources */,
 				007B06E21CA876990061D4AA /* Assets.xcassets in Resources */,
+				00E00E231CAAFCAE00C35669 /* AFNetworking in Resources */,
+				00E00E251CAAFCAE00C35669 /* JSQSystemSoundPlayer in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
