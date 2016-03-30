@@ -31,7 +31,7 @@ class MessageTableViewCell: UITableViewCell {
         return detail
     }()
     
-    let imgView = UIImageView()
+    var imgView = UIImageView()
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -47,6 +47,9 @@ class MessageTableViewCell: UITableViewCell {
         
         imgView.pinToLeftEdgeOfSuperview(offset: 10)
         imgView.centerVerticallyInSuperview()
+        imgView.sizeToWidth(50)
+        imgView.sizeToHeight(50)
+        imgView.contentMode = .ScaleAspectFill
         
         titleLabel.positionToTheRightOfItem(imgView, offset: 10)
         titleLabel.pinToTopEdgeOfSuperview(offset: 20)
@@ -54,6 +57,10 @@ class MessageTableViewCell: UITableViewCell {
         detail.positionToTheRightOfItem(imgView, offset: 10)
         detail.positionBelowItem(titleLabel, offset: 10)
         
+    }
+    
+    public func useImage(image: UIImage) {
+        imgView.image = image
     }
     
     required internal init?(coder aDecoder: NSCoder) {

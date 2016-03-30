@@ -132,7 +132,21 @@ PFUser *currentUser;
 }
 
 - (void)loadMessages {
-    
+    // find all messages that current user is a part of
+    if ([[Utility getInstance] checkReachabilityAndDisplayErrorMessage]) {
+        PFQuery *query = [PFQuery queryWithClassName:@"Messages"];
+        [query whereKey:@"user" equalTo:[PFUser currentUser]];
+        [query setLimit:1000];
+        [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+            if (error == nil) {
+                if ([objects count] != 0) {
+                    if ([self.loadMessagesDelegate respondsToSelector:@selector(didloadMessagesWithObjects:)]) {
+                        [self.loadMessagesDelegate didloadMessagesWithObjects:objects];
+                    }
+                }
+            }
+        }];
+    }
 }
 
 @end

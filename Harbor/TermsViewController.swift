@@ -2,8 +2,8 @@
 //  TermsViewController.swift
 //  Facephoto
 //
-//  Created by Robin Mehta on 1/29/16.
-//  Copyright © 2016 PluckPhoto. All rights reserved.
+//  Created by Robin Mehta on 3/29/16.
+//  Copyright © 2016 Harbor. All rights reserved.
 //
 
 import UIKit

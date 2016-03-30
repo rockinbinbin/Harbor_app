@@ -10,7 +10,9 @@ import UIKit
 
 // whether mentor or mentee, should show tableView of all ongoing conversations.
 
-class MessagesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class MessagesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ParseManagerLoadMessagesDelegate {
+    
+    var messages : [PFObject]?
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -31,7 +33,8 @@ class MessagesViewController: UIViewController, UITableViewDataSource, UITableVi
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
+        ParseManager1.getInstance().loadMessagesDelegate = self
+        ParseManager1.getInstance().loadMessages()
     }
 
     override func didReceiveMemoryWarning() {
@@ -56,7 +59,12 @@ class MessagesViewController: UIViewController, UITableViewDataSource, UITableVi
     // MARK: - Tableview Datasource
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        if let messages = messages {
+            return messages.count
+        }
+        else {
+            return 0
+        }
     }
     
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
@@ -80,17 +88,53 @@ class MessagesViewController: UIViewController, UITableViewDataSource, UITableVi
             cell?.selectionStyle = .None
         }
         
-        if (indexPath.row == 0) {
-            cell?.imgView.image = UIImage(named: "wallet")
-            cell!.titleLabel.text = "hi"
-            cell!.detail.text = "yo"
+        if let messages = messages {
+            if (indexPath.row < messages.count) {
+                
+                let message = messages[indexPath.row] as PFObject
+                
+                cell?.detail.text = message.objectForKey("lastMessage") as? String
+                
+                if (Utility.getInstance().checkReachabilityAndDisplayErrorMessage()) {
+                    
+                    message.objectForKey("mentor")?.fetchInBackgroundWithBlock({ (object: PFObject?, error: NSError?) -> Void in
+                        cell?.titleLabel.text = object?.objectForKey("username") as? String
+                        
+                        // fetch image
+                        if let imgObj = object?.objectForKey("thumbnail") {
+                            let file : PFFile = (imgObj as? PFFile)!
+                            
+                            file.getDataInBackgroundWithBlock({ (data: NSData?, error: NSError?) -> Void in
+                                if (data != nil) {
+                                    UIView.animateWithDuration(0.3, animations: { () -> Void in
+                                        let img : UIImage = UIImage(data: data!)!
+                                        cell?.useImage(img)
+                                    })
+                                }
+                            })
+                        }
+                        
+                    })
+                }
+            }
         }
         
+//        if (indexPath.row == 0) {
+//            cell?.imgView.image = UIImage(named: "wallet")
+//            cell!.titleLabel.text = "hi"
+//            cell!.detail.text = "yo"
+//        }
+//        
         return cell!
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 
+    }
+    
+    func didloadMessagesWithObjects(objects: [AnyObject]!) {
+        messages = objects as? [PFObject]
+        tableView.reloadData()
     }
 
 }
