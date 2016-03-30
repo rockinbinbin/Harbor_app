@@ -107,6 +107,10 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         self.navigationController?.navigationBar.barTintColor = teal
         self.navigationItem.hidesBackButton = true
+        
+        let barButton = UIBarButtonItem(image: UIImage(named: "settings"), style: UIBarButtonItemStyle.Plain, target: self, action: Selector("settingsClicked"))
+        self.navigationItem.leftBarButtonItem = barButton
+        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
     }
     
     // MARK: - CollectionView Datasource
@@ -164,4 +168,8 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         collectionView.reloadData()
     }
     
+    func settingsClicked() {
+        let nav = UINavigationController(rootViewController: SettingsViewController())
+        self.navigationController?.presentViewController(nav, animated: true, completion: nil)
+    }
 }
