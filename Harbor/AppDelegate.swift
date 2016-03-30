@@ -27,6 +27,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // if user has set a pin
             // open pin view
             
+            PFUser.currentUser()?.fetchInBackground()
+            
             if (PFUser.currentUser()?.objectForKey("pin") != nil) {
                 let nav = UINavigationController(rootViewController: AttemptPinViewController())
                 self.window?.rootViewController = nav

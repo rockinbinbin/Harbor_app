@@ -32,6 +32,7 @@
 -(void) fetchUserObjectFromMentor:(PFObject *)mentor;
 - (void) createMessageItemForUser:(PFUser *)user andMentor:(PFUser *)mentor;
 - (void)loadMessages;
+- (void)loadMessagesForMentor;
 
 @end
 

@@ -60,6 +60,7 @@ class MessageTableViewCell: UITableViewCell {
         
         detail.positionToTheRightOfItem(imgView, offset: 10)
         detail.positionBelowItem(titleLabel, offset: 10)
+        detail.sizeToWidth(self.contentView.frame.size.width - 100)
     }
     
     public func useImage(image: UIImage) {

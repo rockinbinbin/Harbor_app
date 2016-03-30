@@ -33,14 +33,29 @@ class MessagesViewController: UIViewController, UITableViewDataSource, UITableVi
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        
         ParseManager1.getInstance().loadMessagesDelegate = self
-        ParseManager1.getInstance().loadMessages()
+        
+        if let isMentor = PFUser.currentUser()?.objectForKey("isMentor") {
+            if (isMentor as! Bool == true) {
+                // is Mentor
+                ParseManager1.getInstance().loadMessagesForMentor()
+            }
+            else {
+                // is Mentee
+                ParseManager1.getInstance().loadMessages()
+            }
+        }
+        else {
+            // is Mentee
+            ParseManager1.getInstance().loadMessages()
+        }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
+
     func setNavBar() {
         self.navigationController?.navigationBarHidden = false
         self.navigationController?.navigationBar.translucent = false
@@ -73,7 +88,7 @@ class MessagesViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 150
+        return 120
     }
     
     func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -98,7 +113,22 @@ class MessagesViewController: UIViewController, UITableViewDataSource, UITableVi
                 
                 if (Utility.getInstance().checkReachabilityAndDisplayErrorMessage()) {
                     
-                    message.objectForKey("mentor")?.fetchInBackgroundWithBlock({ (object: PFObject?, error: NSError?) -> Void in
+                    var mentorOrMenteeString = "mentor"
+                    if let isMentor = PFUser.currentUser()?.objectForKey("isMentor") {
+                        if (isMentor as! Bool == true) {
+                            // is Mentor
+                        }
+                        else {
+                            // is Mentee
+                            mentorOrMenteeString = "user"
+                        }
+                    }
+                    else {
+                        // is Mentee
+                        mentorOrMenteeString = "user"
+                    }
+                    
+                    message.objectForKey(mentorOrMenteeString)?.fetchInBackgroundWithBlock({ (object: PFObject?, error: NSError?) -> Void in
                         cell?.titleLabel.text = object?.objectForKey("username") as? String
                         
                         // fetch image
