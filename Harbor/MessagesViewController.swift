@@ -102,6 +102,7 @@ class MessagesViewController: UIViewController, UITableViewDataSource, UITableVi
 
         let barButton = UIBarButtonItem(image: UIImage(named: "settings"), style: UIBarButtonItemStyle.Plain, target: self, action: Selector("settingsClicked"))
         self.navigationItem.leftBarButtonItem = barButton
+        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
     }
     
     // MARK: - Tableview Datasource
@@ -206,6 +207,7 @@ class MessagesViewController: UIViewController, UITableViewDataSource, UITableVi
     }
 
     func settingsClicked() {
-        self.presentViewController(SettingsViewController(), animated: true, completion: nil)
+        let nav = UINavigationController(rootViewController: SettingsViewController())
+        self.navigationController?.presentViewController(nav, animated: true, completion: nil)
     }
 }

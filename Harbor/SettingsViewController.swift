@@ -32,6 +32,11 @@ class SettingsViewController: UIViewController {
         
         logoutButton.centerInSuperview()
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBarHidden = false
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -41,19 +46,18 @@ class SettingsViewController: UIViewController {
     func setNavBar() {
         self.navigationController?.navigationBar.barTintColor = teal;
         self.navigationController?.navigationBar.translucent = false;
-        self.navigationController?.navigationBar.hidden = false
-        self.navigationController?.setNavigationBarHidden(false, animated: false)
+        self.navigationController?.navigationBarHidden = false
         
         let navLabel = UILabel()
         navLabel.textColor = UIColor.whiteColor()
         navLabel.backgroundColor = UIColor.clearColor()
         navLabel.textAlignment = .Center
-        navLabel.font = UIFont(name: "AvenirNext-Medium", size: 21)
         self.navigationItem.titleView = navLabel
         navLabel.text = "Settings"
         navLabel.sizeToFit()
         
         let barButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.Plain, target: self, action: Selector("donePressed"))
+        self.navigationItem.rightBarButtonItem = barButton
     }
 
     func donePressed() {
