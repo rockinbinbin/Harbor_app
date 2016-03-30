@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		001569F71CABAED600DE56B6 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001569F61CABAED600DE56B6 /* SettingsViewController.swift */; };
 		002DFE441CA8789B000F186C /* Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 002DFE361CA8789B000F186C /* Utility.m */; };
 		002DFE451CA8789B000F186C /* TermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002DFE381CA8789B000F186C /* TermsViewController.swift */; };
 		002DFE461CA8789B000F186C /* Terms.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 002DFE391CA8789B000F186C /* Terms.rtf */; };
@@ -119,6 +120,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		001569F61CABAED600DE56B6 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		002DFE351CA877F8000F186C /* Harbor-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Harbor-Bridging-Header.h"; path = "Harbor/Harbor-Bridging-Header.h"; sourceTree = "<group>"; };
 		002DFE361CA8789B000F186C /* Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utility.m; sourceTree = "<group>"; };
 		002DFE371CA8789B000F186C /* Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utility.h; sourceTree = "<group>"; };
@@ -353,6 +355,7 @@
 				00E00E1E1CAA607D00C35669 /* WebViewController.swift */,
 				002DFE531CA99D72000F186C /* CreatePinViewController.swift */,
 				002DFE551CA9BCEC000F186C /* AttemptPinViewController.swift */,
+				001569F61CABAED600DE56B6 /* SettingsViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -937,6 +940,7 @@
 				00E00F021CAB01F200C35669 /* JSQSystemSoundPlayer.m in Sources */,
 				00E00ED41CAB01F200C35669 /* UIProgressView+AFNetworking.m in Sources */,
 				00E00EE31CAB01F200C35669 /* JSQMessagesBubbleImageFactory.m in Sources */,
+				001569F71CABAED600DE56B6 /* SettingsViewController.swift in Sources */,
 				00E00EED1CAB01F200C35669 /* JSQMessagesAvatarImage.m in Sources */,
 				00E00E291CAB000400C35669 /* HomepointChat.m in Sources */,
 				00E00EDA1CAB01F200C35669 /* NSString+JSQMessages.m in Sources */,

@@ -99,6 +99,9 @@ class MessagesViewController: UIViewController, UITableViewDataSource, UITableVi
         
         self.navigationController?.navigationBar.barTintColor = teal
         self.navigationItem.hidesBackButton = true
+
+        let barButton = UIBarButtonItem(image: UIImage(named: "settings"), style: UIBarButtonItemStyle.Plain, target: self, action: Selector("settingsClicked"))
+        self.navigationItem.leftBarButtonItem = barButton
     }
     
     // MARK: - Tableview Datasource
@@ -202,4 +205,7 @@ class MessagesViewController: UIViewController, UITableViewDataSource, UITableVi
         self.navigationController?.pushViewController(MainViewController(), animated: true)
     }
 
+    func settingsClicked() {
+        self.presentViewController(SettingsViewController(), animated: true, completion: nil)
+    }
 }
