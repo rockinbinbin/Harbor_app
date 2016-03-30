@@ -17,6 +17,8 @@ class AttemptPinViewController: UIViewController, ParseManagerFetchUserPinDelega
     var realPin : NSString?
     var pinString = NSMutableString(string: "")
     
+    var navigateWhenDoneLoadingMessages : Bool?
+    
     private lazy var newView: UIView = {
         let newview = UIView()
         let gradientLayer = CAGradientLayer()
@@ -310,6 +312,7 @@ class AttemptPinViewController: UIViewController, ParseManagerFetchUserPinDelega
     override internal func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.isMentor = false
+        self.navigateWhenDoneLoadingMessages = false
         
         ParseManager1.getInstance().loadMessagesDelegate = self
     
@@ -441,6 +444,7 @@ class AttemptPinViewController: UIViewController, ParseManagerFetchUserPinDelega
                             }
                             else {
                                 // messages is nil
+                                navigateWhenDoneLoadingMessages = true
                             }
                         }
                     }
@@ -477,6 +481,7 @@ class AttemptPinViewController: UIViewController, ParseManagerFetchUserPinDelega
                         }
                         else {
                             // messages is nil
+                            navigateWhenDoneLoadingMessages = true
                         }
                     }
                 }
@@ -580,5 +585,21 @@ class AttemptPinViewController: UIViewController, ParseManagerFetchUserPinDelega
     
     func didloadMessagesWithObjects(objects: [AnyObject]!) {
         messages = objects as? [PFObject]
+        
+        if (navigateWhenDoneLoadingMessages == true) {
+            if let messages = messages {
+                if (messages.count != 0) {
+                    let vc = MessagesViewController()
+                    vc.messages = messages
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
+                else {
+                    self.navigationController?.pushViewController(MainViewController(), animated: true)
+                }
+            }
+            else {
+                self.navigationController?.pushViewController(MainViewController(), animated: true)
+            }
+        }
     }
 }

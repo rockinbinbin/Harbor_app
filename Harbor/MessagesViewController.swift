@@ -153,18 +153,17 @@ class MessagesViewController: UIViewController, UITableViewDataSource, UITableVi
                 }
             }
         }
-        
-//        if (indexPath.row == 0) {
-//            cell?.imgView.image = UIImage(named: "wallet")
-//            cell!.titleLabel.text = "hi"
-//            cell!.detail.text = "yo"
-//        }
-//        
+     
         return cell!
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-
+        
+        let message = messages![indexPath.row] as PFObject
+        
+        let chatVC = HomepointChat()
+        chatVC.groupId = message.objectId
+        self.navigationController?.pushViewController(chatVC, animated: true)
     }
     
     func didloadMessagesWithObjects(objects: [AnyObject]!) {
