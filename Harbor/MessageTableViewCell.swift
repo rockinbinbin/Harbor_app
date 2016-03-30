@@ -47,16 +47,19 @@ class MessageTableViewCell: UITableViewCell {
         
         imgView.pinToLeftEdgeOfSuperview(offset: 10)
         imgView.centerVerticallyInSuperview()
-        imgView.sizeToWidth(50)
-        imgView.sizeToHeight(50)
+        imgView.sizeToWidth(70)
+        imgView.sizeToHeight(70)
         imgView.contentMode = .ScaleAspectFill
+        imgView.layer.cornerRadius = 35
+        imgView.layer.borderColor = teal.CGColor
+        imgView.layer.borderWidth = 2
+        imgView.layer.masksToBounds = true
         
-        titleLabel.positionToTheRightOfItem(imgView, offset: 10)
+        titleLabel.positionToTheRightOfItem(imgView, offset: 30)
         titleLabel.pinToTopEdgeOfSuperview(offset: 20)
         
         detail.positionToTheRightOfItem(imgView, offset: 10)
         detail.positionBelowItem(titleLabel, offset: 10)
-        
     }
     
     public func useImage(image: UIImage) {

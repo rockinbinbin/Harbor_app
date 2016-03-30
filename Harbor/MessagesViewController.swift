@@ -42,6 +42,7 @@ class MessagesViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func setNavBar() {
+        self.navigationController?.navigationBarHidden = false
         self.navigationController?.navigationBar.translucent = false
         let logo = UIImage(named: "navBarLogo")
         let imageView = UIImageView(image:logo)
@@ -72,7 +73,7 @@ class MessagesViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 100
+        return 150
     }
     
     func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
