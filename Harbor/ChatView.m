@@ -165,6 +165,7 @@
 -(void) saveLastMessage {
     JSQMessage *msg = [messages lastObject];
     if ([messages lastObject] != nil) {
+    
 //        self.currentRequest1[PF_REQUEST_LAST_MESSAGE] = msg.text;
 //        [self.currentRequest1 saveInBackground];
     }
@@ -238,6 +239,16 @@
 	object[@"text"] = text;
 	if (fileVideo != nil) object[@"video"] = fileVideo;
 	if (filePicture != nil) object[@"picture"] = filePicture;
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"Messages"];
+    [query whereKey:@"objectId" equalTo:groupId];
+    [query getFirstObjectInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
+        // save last message here.
+        if (text != nil) {
+            object[@"lastMessage"] = text;
+        }
+        [object saveInBackground];
+    }];
     
 	[object saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
 		if (error == nil) {

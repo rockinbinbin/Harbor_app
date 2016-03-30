@@ -12,7 +12,7 @@ class MessageTableViewCell: UITableViewCell {
     internal lazy var titleLabel: UILabel = {
         let titleLabel = UILabel()
         titleLabel.textColor = UIColor.blackColor()
-        titleLabel.textAlignment = .Center
+        titleLabel.textAlignment = .Left
         titleLabel.lineBreakMode = .ByWordWrapping
         titleLabel.numberOfLines = 0
         titleLabel.font = titleLabel.font.fontWithSize(24)
@@ -23,7 +23,7 @@ class MessageTableViewCell: UITableViewCell {
     internal lazy var detail: UILabel = {
         let detail = UILabel()
         detail.textColor = UIColor.grayColor()
-        detail.textAlignment = .Center
+        detail.textAlignment = .Left
         detail.lineBreakMode = .ByWordWrapping
         detail.numberOfLines = 0
         detail.font = detail.font.fontWithSize(16)
@@ -55,11 +55,11 @@ class MessageTableViewCell: UITableViewCell {
         imgView.layer.borderWidth = 2
         imgView.layer.masksToBounds = true
         
-        titleLabel.positionToTheRightOfItem(imgView, offset: 30)
+        titleLabel.positionToTheRightOfItem(imgView, offset: 25)
         titleLabel.pinToTopEdgeOfSuperview(offset: 20)
         
-        detail.positionToTheRightOfItem(imgView, offset: 10)
-        detail.positionBelowItem(titleLabel, offset: 10)
+        detail.positionToTheRightOfItem(imgView, offset: 25)
+        detail.positionBelowItem(titleLabel, offset: 5)
         detail.sizeToWidth(self.contentView.frame.size.width - 100)
     }
     

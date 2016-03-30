@@ -24,11 +24,33 @@ class MessagesViewController: UIViewController, UITableViewDataSource, UITableVi
         self.view.addSubview(tableView)
         return tableView
     }()
+    
+    internal lazy var findNewMentors: UIButton = {
+        let findNewMentors = UIButton(type: .RoundedRect)
+        findNewMentors.layer.cornerRadius = 20
+        findNewMentors.backgroundColor = teal
+        findNewMentors.layer.borderWidth = 0
+        findNewMentors.layer.borderColor = UIColor.whiteColor().CGColor
+        findNewMentors.tintColor = UIColor.whiteColor()
+        findNewMentors.titleLabel?.font = findNewMentors.titleLabel?.font.fontWithSize(18)
+        
+        let attrString = NSMutableAttributedString(string: "Find New Mentors")
+        
+        findNewMentors.setAttributedTitle(attrString, forState: .Normal)
+        self.view.addSubview(findNewMentors)
+        findNewMentors.addTarget(self, action: Selector("findNewMentorsPressed"), forControlEvents: .TouchUpInside)
+        return findNewMentors
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.whiteColor()
         setNavBar()
+        
+        tableView.pinToTopEdgeOfSuperview()
+        tableView.pinToLeftEdgeOfSuperview()
+        tableView.pinToRightEdgeOfSuperview()
+        tableView.sizeToHeight(400)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -52,6 +74,16 @@ class MessagesViewController: UIViewController, UITableViewDataSource, UITableVi
                 ParseManager1.getInstance().loadMessages()
             }
         }
+        
+        if let isMentor = PFUser.currentUser()?.objectForKey("isMentor") {
+            if (isMentor as! Bool == false) {
+                // is Mentee                
+                findNewMentors.pinToBottomEdgeOfSuperview(offset: 20)
+                findNewMentors.centerHorizontallyInSuperview()
+                findNewMentors.sizeToWidth(300)
+                findNewMentors.sizeToHeight(50)
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -67,11 +99,6 @@ class MessagesViewController: UIViewController, UITableViewDataSource, UITableVi
         
         self.navigationController?.navigationBar.barTintColor = teal
         self.navigationItem.hidesBackButton = true
-        
-        tableView.pinToTopEdgeOfSuperview()
-        tableView.pinToLeftEdgeOfSuperview()
-        tableView.pinToRightEdgeOfSuperview()
-        tableView.sizeToHeight(400)
     }
     
     // MARK: - Tableview Datasource
@@ -169,6 +196,10 @@ class MessagesViewController: UIViewController, UITableViewDataSource, UITableVi
     func didloadMessagesWithObjects(objects: [AnyObject]!) {
         messages = objects as? [PFObject]
         tableView.reloadData()
+    }
+    
+    func findNewMentorsPressed() {
+        self.navigationController?.pushViewController(MainViewController(), animated: true)
     }
 
 }
