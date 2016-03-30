@@ -12,7 +12,7 @@ import UIKit
 
 class MessagesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ParseManagerLoadMessagesDelegate {
     
-    var messages : [PFObject]?
+    public var messages : [PFObject]?
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -34,21 +34,23 @@ class MessagesViewController: UIViewController, UITableViewDataSource, UITableVi
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        ParseManager1.getInstance().loadMessagesDelegate = self
-        
-        if let isMentor = PFUser.currentUser()?.objectForKey("isMentor") {
-            if (isMentor as! Bool == true) {
-                // is Mentor
-                ParseManager1.getInstance().loadMessagesForMentor()
+        if (messages == nil) {
+            ParseManager1.getInstance().loadMessagesDelegate = self
+            
+            if let isMentor = PFUser.currentUser()?.objectForKey("isMentor") {
+                if (isMentor as! Bool == true) {
+                    // is Mentor
+                    ParseManager1.getInstance().loadMessagesForMentor()
+                }
+                else {
+                    // is Mentee
+                    ParseManager1.getInstance().loadMessages()
+                }
             }
             else {
                 // is Mentee
                 ParseManager1.getInstance().loadMessages()
             }
-        }
-        else {
-            // is Mentee
-            ParseManager1.getInstance().loadMessages()
         }
     }
 
@@ -117,15 +119,17 @@ class MessagesViewController: UIViewController, UITableViewDataSource, UITableVi
                     if let isMentor = PFUser.currentUser()?.objectForKey("isMentor") {
                         if (isMentor as! Bool == true) {
                             // is Mentor
+                            // Want to find the person you are talking to... so it's the opposite
+                            mentorOrMenteeString = "user"
                         }
                         else {
                             // is Mentee
-                            mentorOrMenteeString = "user"
+                            mentorOrMenteeString = "mentor"
                         }
                     }
                     else {
                         // is Mentee
-                        mentorOrMenteeString = "user"
+                        mentorOrMenteeString = "mentor"
                     }
                     
                     message.objectForKey(mentorOrMenteeString)?.fetchInBackgroundWithBlock({ (object: PFObject?, error: NSError?) -> Void in

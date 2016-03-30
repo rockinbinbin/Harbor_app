@@ -60,6 +60,23 @@ class MenteeGuideViewController: UIViewController {
         return letsGo
     }()
     
+    internal lazy var iAppliedButton: UIButton = {
+        let iAppliedButton = UIButton(type: .RoundedRect)
+        iAppliedButton.layer.cornerRadius = 20
+        iAppliedButton.backgroundColor = darkerSeaGreen
+        iAppliedButton.layer.borderWidth = 0
+        iAppliedButton.layer.borderColor = UIColor.whiteColor().CGColor
+        iAppliedButton.tintColor = UIColor.whiteColor()
+        iAppliedButton.titleLabel?.font = iAppliedButton.titleLabel?.font.fontWithSize(18)
+        
+        let attrString = NSMutableAttributedString(string: "I submitted my mentor application")
+        
+        iAppliedButton.setAttributedTitle(attrString, forState: .Normal)
+        self.view.addSubview(iAppliedButton)
+        iAppliedButton.addTarget(self, action: Selector("iAppliedPressed"), forControlEvents: .TouchUpInside)
+        return iAppliedButton
+    }()
+    
     private lazy var mentorLabel: UILabel = {
         let mentorLabel = UILabel()
         mentorLabel.numberOfLines = 0
@@ -135,5 +152,9 @@ class MenteeGuideViewController: UIViewController {
     
     func linkPressed() {
         self.navigationController?.pushViewController(WebViewController(), animated: true)
+    }
+    
+    func iAppliedPressed() {
+        // navigate to new view with "application is being processed" text, with a logout button.
     }
 }

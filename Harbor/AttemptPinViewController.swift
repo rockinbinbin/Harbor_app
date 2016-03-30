@@ -8,7 +8,12 @@
 
 import UIKit
 
-class AttemptPinViewController: UIViewController, ParseManagerFetchUserPinDelegate {
+class AttemptPinViewController: UIViewController, ParseManagerFetchUserPinDelegate, ParseManagerLoadMessagesDelegate {
+    
+    var messages : [PFObject]?
+    
+    var isMentor : Bool?
+    
     var realPin : NSString?
     var pinString = NSMutableString(string: "")
     
@@ -304,6 +309,27 @@ class AttemptPinViewController: UIViewController, ParseManagerFetchUserPinDelega
     
     override internal func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        self.isMentor = false
+        
+        ParseManager1.getInstance().loadMessagesDelegate = self
+    
+            if let isMentor = PFUser.currentUser()?.objectForKey("isMentor") {
+                if (isMentor as! Bool == true) {
+                    // is Mentor
+                    ParseManager1.getInstance().loadMessagesForMentor()
+                    self.isMentor = true
+                }
+                else {
+                    // is Mentee
+                    ParseManager1.getInstance().loadMessages()
+                    self.isMentor = false
+                }
+            }
+            else {
+                // is Mentee
+                ParseManager1.getInstance().loadMessages()
+                self.isMentor = false
+            }
         
         ParseManager1.getInstance().fetchUserdelegate = self
         ParseManager1.getInstance().fetchUserPin()
@@ -396,23 +422,26 @@ class AttemptPinViewController: UIViewController, ParseManagerFetchUserPinDelega
             if let pin = realPin {
                 if (pin == pinString) {
                     if (PFUser.currentUser()?.objectForKey("pin") != nil) {
-                        if let isMentor = PFUser.currentUser()?.objectForKey("isMentor") {
-                            if (isMentor as! Bool == true) {
-                                // is Mentor
-                                
-                                // TODO: Change this to navigate to MessagesViewController.
-                                self.navigationController?.pushViewController(MessagesViewController(), animated: true)
-                            }
-                            else {
-                                // is Mentee
-                                // TODO: if messages exist, direct push to MessagesViewController.
-                                self.navigationController?.pushViewController(MainViewController(), animated: true)
-                            }
+                        if (isMentor == true) {
+                            let vc = MessagesViewController()
+                            vc.messages = messages
+                            self.navigationController?.pushViewController(vc, animated: true)
                         }
                         else {
                             // is Mentee
-                            // TODO: if messages exist, direct push to MessagesViewController.
-                            self.navigationController?.pushViewController(MainViewController(), animated: true)
+                            if let messages = messages {
+                                if (messages.count != 0) {
+                                    let vc = MessagesViewController()
+                                    vc.messages = messages
+                                    self.navigationController?.pushViewController(vc, animated: true)
+                                }
+                                else {
+                                    self.navigationController?.pushViewController(MainViewController(), animated: true)
+                                }
+                            }
+                            else {
+                                // messages is nil
+                            }
                         }
                     }
                 }
@@ -429,21 +458,26 @@ class AttemptPinViewController: UIViewController, ParseManagerFetchUserPinDelega
             else {
                 // just incase fetch didn't load quick enough..
                 if (PFUser.currentUser()?.objectForKey("pin") != nil) {
-                    if let isMentor = PFUser.currentUser()?.objectForKey("isMentor") {
-                        if (isMentor as! Bool == true) {
-                            // is Mentor
-                            self.navigationController?.pushViewController(MessagesViewController(), animated: true)
-                        }
-                        else {
-                            // is Mentee
-                            // TODO: if messages exist, direct push to MessagesViewController
-                            self.navigationController?.pushViewController(MainViewController(), animated: true)
-                        }
+                    if (isMentor == true) {
+                        let vc = MessagesViewController()
+                        vc.messages = messages
+                        self.navigationController?.pushViewController(vc, animated: true)
                     }
                     else {
                         // is Mentee
-                        // TODO: if messages exist, direct push to MessagesViewController.
-                        self.navigationController?.pushViewController(MainViewController(), animated: true)
+                        if let messages = messages {
+                            if (messages.count != 0) {
+                                let vc = MessagesViewController()
+                                vc.messages = messages
+                                self.navigationController?.pushViewController(vc, animated: true)
+                            }
+                            else {
+                                self.navigationController?.pushViewController(MainViewController(), animated: true)
+                            }
+                        }
+                        else {
+                            // messages is nil
+                        }
                     }
                 }
                 else {
@@ -542,5 +576,9 @@ class AttemptPinViewController: UIViewController, ParseManagerFetchUserPinDelega
     
     func didFetchUserPinWithObject(object: PFObject!) {
         realPin = object.objectForKey("pin") as! String
+    }
+    
+    func didloadMessagesWithObjects(objects: [AnyObject]!) {
+        messages = objects as? [PFObject]
     }
 }
